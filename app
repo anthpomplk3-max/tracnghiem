@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import pandas as pd
 from datetime import datetime
-import plotly.express as px
+import random
 
 # Cấu hình trang
 st.set_page_config(
@@ -26,15 +26,17 @@ st.markdown("""
     }
     .correct-answer {
         background-color: #d4edda;
-        padding: 10px;
+        padding: 15px;
         border-radius: 5px;
         border-left: 5px solid #28a745;
+        margin: 10px 0;
     }
     .wrong-answer {
         background-color: #f8d7da;
-        padding: 10px;
+        padding: 15px;
         border-radius: 5px;
         border-left: 5px solid #dc3545;
+        margin: 10px 0;
     }
     .question-card {
         background-color: #f8f9fa;
@@ -43,10 +45,20 @@ st.markdown("""
         margin-bottom: 20px;
         border: 1px solid #dee2e6;
     }
-    .progress-text {
-        font-size: 14px;
-        font-weight: bold;
-        margin-top: 10px;
+    .info-box {
+        background-color: #d1ecf1;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 5px solid #17a2b8;
+        margin: 10px 0;
+    }
+    .stat-card {
+        background-color: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+        margin: 10px 0;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -60,6 +72,9 @@ def init_session_state():
         except FileNotFoundError:
             st.error("Không tìm thấy file questions.json. Vui lòng chạy extract_questions.py trước!")
             st.stop()
+        except json.JSONDecodeError:
+            st.error("File questions.json bị lỗi định dạng. Vui lòng kiểm tra lại!")
+            st.stop()
     
     if 'user_answers' not in st.session_state:
         st.session_state.user_answers = {}
@@ -68,7 +83,7 @@ def init_session_state():
         st.session_state.current_index = 0
     
     if 'mode' not in st.session_state:
-        st.session_state.mode = "practice"  # practice, exam, review
+        st.session_state.mode = "practice"
     
     if 'exam_started' not in st.session_state:
         st.session_state.exam_started = False
@@ -114,6 +129,8 @@ with st.sidebar:
         st.progress(answered / total_questions)
         st.metric("✅ Điểm số", f"{score}/{answered}", 
                   delta=f"{score/answered*100:.1f}%" if answered > 0 else "0%")
+    else:
+        st.info("Bắt đầu làm bài để xem tiến độ")
     
     st.divider()
     
@@ -143,9 +160,12 @@ with st.sidebar:
     st.divider()
     
     if st.button("🔄 Làm mới", use_container_width=True):
-        for key in ['user_answers', 'exam_answers', 'exam_submitted']:
+        for key in ['user_answers', 'exam_answers', 'exam_submitted', 'exam_started']:
             if key in st.session_state:
-                st.session_state[key] = {} if key == 'exam_answers' else False if key == 'exam_submitted' else {}
+                if key == 'exam_submitted' or key == 'exam_started':
+                    st.session_state[key] = False
+                else:
+                    st.session_state[key] = {}
         st.rerun()
 
 # Main content
@@ -154,77 +174,87 @@ st.caption(f"Bộ môn: Vận hành Hệ thống điện quốc gia | Tổng s�
 
 # Chế độ ôn tập
 if st.session_state.mode == "practice":
-    current = st.session_state.current_index
-    q = st.session_state.questions[current]
-    
-    with st.container():
-        st.markdown(f"""
-        <div class="question-card">
-            <h3>Câu {q['id']}: {q['text']}</h3>
-        </div>
-        """, unsafe_allow_html=True)
+    if len(st.session_state.questions) > 0:
+        current = st.session_state.current_index
+        q = st.session_state.questions[current]
         
-        # Hiển thị đáp án
-        answer_options = {opt.split('.')[0]: opt for opt in q['options']}
-        
-        # Kiểm tra đã chọn chưa
-        saved_answer = st.session_state.user_answers.get(q['id'])
-        
-        selected = st.radio(
-            "Chọn đáp án:",
-            options=list(answer_options.keys()),
-            format_func=lambda x: answer_options[x],
-            key=f"q_{q['id']}",
-            index=0 if not saved_answer else list(answer_options.keys()).index(saved_answer)
-        )
-        
-        col1, col2, col3 = st.columns([2, 1, 2])
-        with col1:
-            if st.button("💾 Lưu đáp án", use_container_width=True):
-                st.session_state.user_answers[q['id']] = selected
-                st.success("✅ Đã lưu đáp án!")
-                st.balloons()
-        
-        with col2:
-            if saved_answer == q['answer']:
-                st.success("🎯 Đã làm đúng!")
-            elif saved_answer:
-                st.error("❌ Chưa đúng!")
-        
-        # Hiển thị giải thích nếu đã chọn
-        if saved_answer:
-            st.divider()
-            if saved_answer == q['answer']:
-                st.markdown(f"""
-                <div class="correct-answer">
-                    ✅ <strong>Đáp án đúng: {q['answer']}</strong><br>
-                    📖 <strong>Giải thích:</strong> {q.get('explanation', 'Chúc mừng bạn đã trả lời đúng!')}
-                </div>
-                """, unsafe_allow_html=True)
-            else:
-                st.markdown(f"""
-                <div class="wrong-answer">
-                    ❌ <strong>Đáp án của bạn: {saved_answer}</strong><br>
-                    ✅ <strong>Đáp án đúng: {q['answer']}</strong><br>
-                    📖 <strong>Giải thích:</strong> {q.get('explanation', f'Đáp án đúng là {q["answer"]}')}
-                </div>
-                """, unsafe_allow_html=True)
+        with st.container():
+            st.markdown(f"""
+            <div class="question-card">
+                <h3>Câu {q['id']}: {q['text']}</h3>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Hiển thị đáp án
+            answer_options = {}
+            for opt in q['options']:
+                if '. ' in opt:
+                    key = opt[0]
+                    answer_options[key] = opt
+            
+            # Kiểm tra đã chọn chưa
+            saved_answer = st.session_state.user_answers.get(q['id'])
+            
+            selected = st.radio(
+                "Chọn đáp án:",
+                options=list(answer_options.keys()),
+                format_func=lambda x: answer_options[x],
+                key=f"q_{q['id']}",
+                index=None if not saved_answer else list(answer_options.keys()).index(saved_answer)
+            )
+            
+            col1, col2, col3 = st.columns([2, 1, 2])
+            with col1:
+                if st.button("💾 Lưu đáp án", use_container_width=True):
+                    if selected:
+                        st.session_state.user_answers[q['id']] = selected
+                        st.success("✅ Đã lưu đáp án!")
+                        st.balloons()
+                    else:
+                        st.warning("⚠️ Vui lòng chọn đáp án trước khi lưu!")
+            
+            # Hiển thị giải thích nếu đã chọn
+            if saved_answer:
+                st.divider()
+                if saved_answer == q['answer']:
+                    st.markdown(f"""
+                    <div class="correct-answer">
+                        ✅ <strong>Đáp án đúng: {q['answer']}</strong><br>
+                        📖 <strong>Giải thích:</strong> {q.get('explanation', 'Chúc mừng bạn đã trả lời đúng!')}
+                    </div>
+                    """, unsafe_allow_html=True)
+                else:
+                    st.markdown(f"""
+                    <div class="wrong-answer">
+                        ❌ <strong>Đáp án của bạn: {saved_answer}</strong><br>
+                        ✅ <strong>Đáp án đúng: {q['answer']}</strong><br>
+                        📖 <strong>Giải thích:</strong> {q.get('explanation', f'Đáp án đúng là {q["answer"]}')}
+                    </div>
+                    """, unsafe_allow_html=True)
+    else:
+        st.error("Không có câu hỏi nào. Vui lòng kiểm tra file questions.json!")
 
 # Chế độ thi thử
 elif st.session_state.mode == "exam":
     if not st.session_state.exam_started:
-        st.info("📝 Chế độ thi thử với 20 câu hỏi ngẫu nhiên, thời gian 30 phút")
+        st.markdown("""
+        <div class="info-box">
+            📝 <strong>Hướng dẫn thi thử:</strong><br>
+            - Bạn sẽ làm bài với số câu hỏi ngẫu nhiên<br>
+            - Có thời gian giới hạn cho bài thi<br>
+            - Sau khi nộp bài sẽ hiển thị kết quả chi tiết
+        </div>
+        """, unsafe_allow_html=True)
         
         col1, col2 = st.columns(2)
         with col1:
-            num_questions = st.number_input("Số câu hỏi:", 5, 50, 20)
+            num_questions = st.number_input("Số câu hỏi:", 5, min(50, len(st.session_state.questions)), 20)
         with col2:
             time_limit = st.number_input("Thời gian (phút):", 10, 90, 30)
         
         if st.button("🚀 Bắt đầu thi", use_container_width=True):
             # Chọn ngẫu nhiên câu hỏi
-            import random
-            exam_questions = random.sample(st.session_state.questions, min(num_questions, len(st.session_state.questions)))
+            exam_questions = random.sample(st.session_state.questions, num_questions)
             st.session_state.exam_questions = exam_questions
             st.session_state.exam_answers = {}
             st.session_state.exam_started = True
@@ -236,7 +266,8 @@ elif st.session_state.mode == "exam":
         if not st.session_state.exam_submitted:
             # Timer
             elapsed = (datetime.now() - st.session_state.exam_start_time).total_seconds()
-            remaining = 30 * 60 - elapsed
+            time_limit = 30  # phút
+            remaining = time_limit * 60 - elapsed
             if remaining <= 0:
                 st.session_state.exam_submitted = True
                 st.warning("⏰ Hết thời gian!")
@@ -249,9 +280,20 @@ elif st.session_state.mode == "exam":
             # Hiển thị câu hỏi thi
             st.subheader("📝 Bài thi thử")
             
+            # Progress bar cho bài thi
+            answered_count = len(st.session_state.exam_answers)
+            total_count = len(st.session_state.exam_questions)
+            st.progress(answered_count / total_count)
+            st.caption(f"Đã trả lời: {answered_count}/{total_count}")
+            
             for idx, q in enumerate(st.session_state.exam_questions):
-                with st.expander(f"Câu {idx+1}: {q['text'][:100]}...", expanded=False):
-                    answer_options = {opt.split('.')[0]: opt for opt in q['options']}
+                with st.expander(f"Câu {idx+1}: {q['text'][:100]}...", expanded=idx < 3):
+                    answer_options = {}
+                    for opt in q['options']:
+                        if '. ' in opt:
+                            key = opt[0]
+                            answer_options[key] = opt
+                    
                     saved_answer = st.session_state.exam_answers.get(q['id'])
                     
                     selected = st.radio(
@@ -259,16 +301,19 @@ elif st.session_state.mode == "exam":
                         options=list(answer_options.keys()),
                         format_func=lambda x: answer_options[x],
                         key=f"exam_{q['id']}",
-                        index=0 if not saved_answer else list(answer_options.keys()).index(saved_answer)
+                        index=None if not saved_answer else list(answer_options.keys()).index(saved_answer)
                     )
                     
-                    if selected != saved_answer:
+                    if selected and selected != saved_answer:
                         st.session_state.exam_answers[q['id']] = selected
+                        st.rerun()
             
             # Nộp bài
-            if st.button("📤 Nộp bài", use_container_width=True):
-                st.session_state.exam_submitted = True
-                st.rerun()
+            col1, col2, col3 = st.columns([1, 2, 1])
+            with col2:
+                if st.button("📤 NỘP BÀI", use_container_width=True):
+                    st.session_state.exam_submitted = True
+                    st.rerun()
         
         else:
             # Hiển thị kết quả thi
@@ -291,25 +336,23 @@ elif st.session_state.mode == "exam":
             total = len(st.session_state.exam_questions)
             score_percent = (correct / total) * 100
             
-            col1, col2, col3 = st.columns(3)
+            # Hiển thị thống kê
+            col1, col2, col3, col4 = st.columns(4)
             with col1:
                 st.metric("📝 Tổng số câu", total)
             with col2:
                 st.metric("✅ Số câu đúng", correct)
             with col3:
+                st.metric("❌ Số câu sai", total - correct)
+            with col4:
                 st.metric("📊 Điểm số", f"{score_percent:.1f}%")
             
-            # Biểu đồ
+            # Hiển thị chi tiết
+            st.subheader("📋 Chi tiết các câu")
             df = pd.DataFrame(results)
-            st.dataframe(df, use_container_width=True)
+            st.dataframe(df, use_container_width=True, hide_index=True)
             
-            # Vẽ biểu đồ
-            fig = px.pie(values=[correct, total-correct], 
-                        names=['Đúng', 'Sai'],
-                        title='Kết quả bài thi',
-                        color_discrete_sequence=['#4CAF50', '#FF5252'])
-            st.plotly_chart(fig, use_container_width=True)
-            
+            # Nút làm lại
             if st.button("🔄 Làm bài thi mới", use_container_width=True):
                 st.session_state.exam_started = False
                 st.session_state.exam_submitted = False
@@ -321,11 +364,9 @@ elif st.session_state.mode == "review":
     st.subheader("📊 Thống kê kết quả ôn tập")
     
     if len(st.session_state.user_answers) == 0:
-        st.warning("Bạn chưa làm câu hỏi nào. Hãy chuyển sang chế độ Ôn tập để bắt đầu!")
+        st.warning("⚠️ Bạn chưa làm câu hỏi nào. Hãy chuyển sang chế độ 'Ôn tập' để bắt đầu!")
     else:
         # Thống kê chi tiết
-        col1, col2, col3, col4 = st.columns(4)
-        
         total_q = len(st.session_state.questions)
         answered = len(st.session_state.user_answers)
         correct = sum(1 for q in st.session_state.questions 
@@ -334,26 +375,46 @@ elif st.session_state.mode == "review":
         incorrect = answered - correct
         unanswered = total_q - answered
         
+        # Hiển thị thống kê
+        col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric("📊 Đã làm", f"{answered}/{total_q}", 
-                     delta=f"{answered/total_q*100:.1f}%")
+            st.markdown(f"""
+            <div class="stat-card">
+                <h3>📊 {answered}/{total_q}</h3>
+                <p>Đã làm</p>
+                <small>{answered/total_q*100:.1f}%</small>
+            </div>
+            """, unsafe_allow_html=True)
         with col2:
-            st.metric("✅ Đúng", correct, 
-                     delta=f"{correct/answered*100:.1f}%" if answered > 0 else "0%")
+            st.markdown(f"""
+            <div class="stat-card">
+                <h3 style="color: #28a745;">✅ {correct}</h3>
+                <p>Đúng</p>
+                <small>{correct/answered*100:.1f}%</small>
+            </div>
+            """, unsafe_allow_html=True)
         with col3:
-            st.metric("❌ Sai", incorrect)
+            st.markdown(f"""
+            <div class="stat-card">
+                <h3 style="color: #dc3545;">❌ {incorrect}</h3>
+                <p>Sai</p>
+                <small>{incorrect/answered*100:.1f}%</small>
+            </div>
+            """, unsafe_allow_html=True)
         with col4:
-            st.metric("⏳ Chưa làm", unanswered)
+            st.markdown(f"""
+            <div class="stat-card">
+                <h3>⏳ {unanswered}</h3>
+                <p>Chưa làm</p>
+                <small>{unanswered/total_q*100:.1f}%</small>
+            </div>
+            """, unsafe_allow_html=True)
         
-        # Biểu đồ tròn
-        fig1 = px.pie(values=[answered, unanswered], 
-                     names=['Đã làm', 'Chưa làm'],
-                     title='Tiến độ làm bài',
-                     color_discrete_sequence=['#4CAF50', '#FFC107'])
-        st.plotly_chart(fig1, use_container_width=True)
+        # Thanh tiến độ
+        st.progress(answered / total_q)
         
         # Danh sách câu sai
-        st.subheader("📝 Các câu trả lời sai")
+        st.subheader("📝 Các câu trả lời sai cần ôn tập")
         wrong_questions = []
         for q in st.session_state.questions:
             user_ans = st.session_state.user_answers.get(q['id'])
@@ -367,7 +428,7 @@ elif st.session_state.mode == "review":
         
         if wrong_questions:
             df_wrong = pd.DataFrame(wrong_questions)
-            st.dataframe(df_wrong, use_container_width=True)
+            st.dataframe(df_wrong, use_container_width=True, hide_index=True)
             
             if st.button("🔄 Ôn lại các câu sai", use_container_width=True):
                 st.session_state.mode = "practice"
@@ -375,3 +436,9 @@ elif st.session_state.mode == "review":
                 st.rerun()
         else:
             st.success("🎉 Tuyệt vời! Bạn đã trả lời đúng tất cả các câu đã làm!")
+            
+            if answered < total_q:
+                st.info(f"💪 Hãy tiếp tục làm {total_q - answered} câu còn lại để hoàn thành!")
+                if st.button("📖 Tiếp tục ôn tập", use_container_width=True):
+                    st.session_state.mode = "practice"
+                    st.rerun()
