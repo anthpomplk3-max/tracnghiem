@@ -1,30 +1,22 @@
 import streamlit as st
 import json
-from difflib import SequenceMatcher
 
 # ---------------------------
-# 1. Đọc và ghép dữ liệu từ hai file JSON
+# 1. Đọc và ghép dữ liệu
 # ---------------------------
 @st.cache_data
 def load_data():
     with open("GIAITHICH.json", "r", encoding="utf-8") as f:
-        giai_thich = json.load(f)  # list of {id, question, answer, explanation}
+        giai_thich = json.load(f)          # list of {id, question, answer, explanation}
     with open("TN.json", "r", encoding="utf-8") as f:
-        tn = json.load(f)          # list of {id, question, options, answer (null)}
+        tn = json.load(f)                  # list of {id, question, options, answer (null)}
 
-    # Tạo map id -> options (vì thứ tự có thể khớp nhau)
-    options_map = {}
-    for item in tn:
-        options_map[item["id"]] = item["options"]
+    options_map = {item["id"]: item["options"] for item in tn}
 
-    # Ghép câu hỏi từ file giai_thich, thêm options
     questions = []
     for q in giai_thich:
         qid = q["id"]
-        opts = options_map.get(qid, [])
-        # Đảm bảo options là list (trong TN có thể là list)
-        if not opts:
-            opts = ["A", "B", "C", "D"]  # fallback
+        opts = options_map.get(qid, ["A", "B", "C", "D"])
         questions.append({
             "id": qid,
             "question": q["question"],
@@ -34,119 +26,133 @@ def load_data():
         })
     return questions
 
-questions_all = load_data()          # tổng 184 câu
-# Chỉ lấy 180 câu đầu để chia đều 6 bộ * 30 câu
+questions_all = load_data()                 # 184 câu
+# Tạo 6 bộ đề cho thi thử (mỗi bộ 30 câu, lấy từ 180 câu đầu)
 questions_180 = questions_all[:180]
-
-# Chia thành 6 bộ, mỗi bộ 30 câu
-def get_set_questions(set_num):
-    start = (set_num - 1) * 30
-    end = start + 30
-    return questions_180[start:end]
+exam_sets = {i+1: questions_180[i*30:(i+1)*30] for i in range(6)}
 
 # ---------------------------
-# 2. Giao diện Streamlit
+# 2. Hàm hiển thị giải thích chuyên nghiệp
+# ---------------------------
+def format_explanation(text):
+    """
+    Định dạng lại giải thích: thêm tiêu đề, bullet, in đậm các ý chính.
+    """
+    lines = text.split('\n')
+    formatted = "### 📖 Giải thích chi tiết\n\n"
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        # Nếu dòng bắt đầu bằng "•" hoặc "-" thì giữ nguyên bullet
+        if line.startswith(('•', '-', '✓', '●')):
+            formatted += f"{line}\n\n"
+        # Nếu dòng có dạng "Tại sao là X?" -> in đậm câu hỏi
+        elif "Tại sao" in line or "Giải thích" in line:
+            formatted += f"**{line}**\n\n"
+        # Nếu dòng bắt đầu bằng số hoặc từ khóa đặc biệt
+        else:
+            # Thêm bullet cho các ý nhỏ
+            formatted += f"• {line}\n\n"
+    return formatted
+
+# ---------------------------
+# 3. Giao diện Streamlit
 # ---------------------------
 st.set_page_config(page_title="Trắc nghiệm Hệ thống điện", layout="wide")
 st.title("📚 HỆ THỐNG HỌC & THI TRẮC NGHIỆM")
 st.markdown("---")
 
-# Sidebar: chọn bộ đề và chế độ
 with st.sidebar:
     st.header("⚙️ Cài đặt")
-    set_number = st.selectbox("Chọn bộ đề (6 bộ, mỗi bộ 30 câu)", options=[1,2,3,4,5,6], index=0)
-    mode = st.radio("Chọn chế độ", ["📖 Học tập (có giải thích)", "✍️ Thi thử (không giải thích)"])
+    mode = st.radio("Chọn chế độ", ["📖 Học tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
+    if mode == "✍️ Thi thử (không giải thích)":
+        set_number = st.selectbox("Chọn bộ đề (1-6, mỗi bộ 30 câu)", options=[1,2,3,4,5,6], index=0)
     st.markdown("---")
-    st.info("Tổng số câu: 180\n\nChia 6 bộ, mỗi bộ 30 câu.")
+    if mode == "📖 Học tập (có giải thích - 184 câu)":
+        st.info("Tổng số câu học tập: **184**\n\nKhông phân bộ, tự do luyện tập.")
+    else:
+        st.info(f"Bộ đề {set_number}: 30 câu. Thi thử không hiển thị giải thích.")
 
-# Lấy danh sách câu hỏi cho bộ đã chọn
-questions = get_set_questions(set_number)
+# ---------------------------
+# Chế độ HỌC TẬP (184 câu, có giải thích chuyên nghiệp)
+# ---------------------------
+if mode.startswith("📖 Học tập"):
+    st.subheader("🎓 Chế độ Học tập - Toàn bộ 184 câu hỏi")
+    st.caption("Chọn đáp án cho mỗi câu → hiện ngay kết quả đúng/sai và giải thích chi tiết.")
 
-if mode == "📖 Học tập (có giải thích)":
-    st.subheader(f"🎓 Bộ đề {set_number} - Chế độ Học tập")
-    st.caption("Chọn đáp án cho mỗi câu, hệ thống sẽ hiển thị ngay kết quả đúng/sai và giải thích.")
-    
-    # Dùng session_state để lưu lựa chọn của từng câu
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
-    
-    for idx, q in enumerate(questions):
+
+    # Hiển thị lần lượt từng câu
+    for idx, q in enumerate(questions_all, start=1):
         with st.container():
-            st.markdown(f"**Câu {idx+1}:** {q['question']}")
-            # Lấy lựa chọn hiện tại nếu có
+            st.markdown(f"**Câu {idx}:** {q['question']}")
             current = st.session_state.learn_answers.get(q['id'], None)
-            # Tạo radio button riêng cho mỗi câu
             selected = st.radio(
-                label="Chọn đáp án",
+                label=f"Chọn đáp án cho câu {idx}",
                 options=q['options'],
-                index= (q['options'].index(current) if current in q['options'] else None),
+                index=(q['options'].index(current) if current in q['options'] else None),
                 key=f"learn_{q['id']}",
                 label_visibility="collapsed"
             )
             if selected:
                 st.session_state.learn_answers[q['id']] = selected
-                # Kiểm tra đúng/sai
                 if selected == q['answer']:
                     st.success("✅ Đúng")
                 else:
-                    st.error(f"❌ Sai. Đáp án đúng là: {q['answer']}")
-                with st.expander("📖 Xem giải thích chi tiết"):
-                    st.write(q['explanation'])
+                    st.error(f"❌ Sai. Đáp án đúng là: **{q['answer']}**")
+                # Hiển thị giải thích đã được định dạng lại
+                with st.expander("📖 Xem giải thích chi tiết", expanded=True):
+                    st.markdown(format_explanation(q['explanation']))
             st.markdown("---")
 
-elif mode == "✍️ Thi thử (không giải thích)":
+# ---------------------------
+# Chế độ THI THỬ (6 bộ, mỗi bộ 30 câu, không giải thích)
+# ---------------------------
+else:
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
-    st.caption("Hoàn thành 30 câu hỏi, sau đó nhấn **Nộp bài** để chấm điểm.")
-    
-    # Session state lưu câu trả lời của thí sinh
+    st.caption("Hoàn thành 30 câu, sau đó nhấn **Nộp bài** để chấm điểm (không hiển thị giải thích).")
+
+    questions_exam = exam_sets[set_number]
     if "exam_answers" not in st.session_state:
         st.session_state.exam_answers = {}
-    
-    # Hiển thị form thi
+
     with st.form(key="exam_form"):
-        for idx, q in enumerate(questions):
-            st.markdown(f"**{idx+1}. {q['question']}**")
-            # Lấy lựa chọn hiện tại (nếu có)
-            default_index = None
+        for idx, q in enumerate(questions_exam, start=1):
+            st.markdown(f"**{idx}. {q['question']}**")
             current = st.session_state.exam_answers.get(q['id'], None)
-            if current and current in q['options']:
-                default_index = q['options'].index(current)
             selected = st.radio(
                 label=f"lựa chọn {idx}",
                 options=q['options'],
-                index=default_index,
+                index=(q['options'].index(current) if current in q['options'] else None),
                 key=f"exam_{q['id']}",
                 label_visibility="collapsed"
             )
             if selected:
                 st.session_state.exam_answers[q['id']] = selected
             st.markdown("---")
-        
+
         submitted = st.form_submit_button("📤 Nộp bài", use_container_width=True)
-    
+
     if submitted:
-        # Chấm điểm
-        correct_count = 0
-        result_details = []
-        for q in questions:
-            user_ans = st.session_state.exam_answers.get(q['id'], None)
-            is_correct = (user_ans == q['answer'])
-            if is_correct:
-                correct_count += 1
-            result_details.append({
-                "Câu hỏi": q['question'][:80] + "...",
-                "Đáp án của bạn": user_ans if user_ans else "Chưa chọn",
+        correct = sum(1 for q in questions_exam if st.session_state.exam_answers.get(q['id']) == q['answer'])
+        score = correct / len(questions_exam) * 10
+        st.success(f"🎉 Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
+
+        # Bảng chi tiết kết quả
+        details = []
+        for q in questions_exam:
+            user_ans = st.session_state.exam_answers.get(q['id'], "Chưa chọn")
+            details.append({
+                "Câu hỏi": q['question'][:70] + "...",
+                "Đáp án của bạn": user_ans,
                 "Đáp án đúng": q['answer'],
-                "Kết quả": "✅ Đúng" if is_correct else "❌ Sai"
+                "Kết quả": "✅" if user_ans == q['answer'] else "❌"
             })
-        score = correct_count / len(questions) * 10  # điểm 10
-        st.success(f"🎉 Bạn đã trả lời đúng {correct_count}/{len(questions)} câu. Điểm số: {score:.1f}/10")
-        
-        # Hiển thị bảng chi tiết
         with st.expander("📋 Xem chi tiết đáp án từng câu"):
-            st.table(result_details)
-        
-        # Nút làm lại (reset đáp án)
+            st.table(details)
+
         if st.button("🔄 Làm lại bài thi", use_container_width=True):
             st.session_state.exam_answers = {}
             st.rerun()
