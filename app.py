@@ -96,7 +96,7 @@ if mode.startswith("📖 Học tập"):
 
     for idx, q in enumerate(all_questions, start=1):
         with st.container():
-            st.markdown(f"**Câu {idx}:** {q['question']}")
+            st.markdown(f"**Câu {idx} (ID {q['id']}):** {q['question']}")
             current_prefix = st.session_state.learn_answers.get(q['id'], None)
             prefixed_opts = option_with_prefix(q['options'])
             default_index = None
@@ -130,19 +130,16 @@ else:
 
     questions_exam = exam_sets[set_number]
 
-    # Quản lý phiên bản để reset form
     if "exam_version" not in st.session_state:
         st.session_state.exam_version = 0
     if "exam_answers" not in st.session_state:
         st.session_state.exam_answers = {}
 
-    # Hàm reset bài thi
     def reset_exam():
         st.session_state.exam_answers = {}
         st.session_state.exam_version += 1
         st.rerun()
 
-    # Dùng form để tránh tự động rerun khi chọn đáp án
     with st.form(key=f"exam_form_{st.session_state.exam_version}"):
         for idx, q in enumerate(questions_exam, start=1):
             st.markdown(f"**{idx}. {q['question']}**")
@@ -159,7 +156,6 @@ else:
                 key=f"exam_{q['id']}_{st.session_state.exam_version}",
                 label_visibility="collapsed"
             )
-            # Cập nhật ngay lập tức vào session_state (vì dùng form, cần lưu tạm)
             if selected_prefix:
                 st.session_state.exam_answers[q['id']] = selected_prefix
             st.markdown("---")
@@ -177,17 +173,21 @@ else:
         score = correct / len(questions_exam) * 10
         st.success(f"🎉 Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
 
-        # Bảng chi tiết
+        # Bảng chi tiết có thêm cột "Câu (Đề / Học tập)"
         details = []
-        for q in questions_exam:
+        for idx, q in enumerate(questions_exam, start=1):
             selected_prefix = st.session_state.exam_answers.get(q['id'], "Chưa chọn")
             user_letter = get_selected_letter(selected_prefix) if selected_prefix != "Chưa chọn" else "Chưa chọn"
             details.append({
-                "Câu hỏi": q['question'][:70] + "...",
+                "STT trong đề": idx,
+                "ID gốc (Học tập)": q['id'],
+                "Câu hỏi tóm tắt": q['question'][:80] + "...",
                 "Đáp án của bạn": user_letter,
                 "Đáp án đúng": q['answer_letter'],
                 "Kết quả": "✅" if user_letter == q['answer_letter'] else "❌"
             })
+        # Hiển thị bảng với cột "Câu (Đề / Học tập)" dưới dạng "5 / 180"
+        # Tuy nhiên Streamlit table không hỗ trợ merge cột, nên ta để riêng 2 cột.
         with st.expander("📋 Xem chi tiết đáp án từng câu"):
             st.table(details)
 
