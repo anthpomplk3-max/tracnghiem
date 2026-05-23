@@ -3,7 +3,7 @@ import json
 import random
 
 # ---------------------------
-# 1. Đọc và xử lý dữ liệu
+# 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data
 def load_data():
@@ -29,14 +29,14 @@ def load_data():
 
 all_questions = load_data()  # 184 câu
 
-# Xáo trộn 184 câu để tạo 6 bộ đề thi thử (không trùng)
+# Xáo trộn để tạo 6 bộ đề thi thử
 random.seed(42)
-shuffled_questions = all_questions.copy()
-random.shuffle(shuffled_questions)
-exam_sets = {i+1: shuffled_questions[i*30:(i+1)*30] for i in range(6)}
+shuffled = all_questions.copy()
+random.shuffle(shuffled)
+exam_sets = {i+1: shuffled[i*30:(i+1)*30] for i in range(6)}
 
 # ---------------------------
-# 2. Hàm hỗ trợ định dạng
+# 2. Helper functions
 # ---------------------------
 def format_explanation(text):
     lines = text.split('\n')
@@ -60,11 +60,9 @@ def get_selected_letter(selected_prefix):
     return selected_prefix[0] if selected_prefix else None
 
 # ---------------------------
-# 3. Cấu hình giao diện
+# 3. Giao diện chính
 # ---------------------------
 st.set_page_config(page_title="Ôn tập và Thi thử", layout="wide")
-
-# CSS background và styling
 st.markdown(
     """
     <style>
@@ -107,63 +105,65 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div>', unsafe_allow_html=True)
 
-# Sidebar
 with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio("Chọn chế độ", ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
-    if mode == "✍️ Thi thử (không giải thích)":
-        set_number = st.selectbox("Chọn bộ đề (1-6, mỗi bộ 30 câu)", options=[1,2,3,4,5,6], index=0)
+    if mode == "✍️ Thi thử":
+        set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
     st.markdown("---")
-    if mode == "📖 Ôn tập (có giải thích - 184 câu)":
-        st.info("📌 **184 câu hỏi**\n\nMỗi lần hiển thị 1 câu. Bạn có thể chọn câu bằng dropdown hoặc nút chuyển.")
+    if mode == "📖 Ôn tập":
+        st.info("📌 184 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
-        st.info(f"📌 **Bộ đề {set_number}**\n\n30 câu xáo trộn, không trùng lặp giữa các bộ.")
+        st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng.")
 
 # ---------------------------
-# 4. Chế độ ÔN TẬP
+# 4. ÔN TẬP
 # ---------------------------
-if mode.startswith("📖 Ôn tập"):
+if mode == "📖 Ôn tập":
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
-    st.caption("Chọn câu hỏi, trả lời và xem giải thích ngay bên dưới.")
+    st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
-    if "current_idx" not in st.session_state:
-        st.session_state.current_idx = 0
+    # Khởi tạo state
+    if "learn_idx" not in st.session_state:
+        st.session_state.learn_idx = 0
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # Dropdown chọn nhanh theo ID gốc
+    # Dropdown nhảy tới câu
     q_ids = [q["id"] for q in all_questions]
     selected_id = st.selectbox(
-        "🔍 Chọn câu hỏi (theo ID gốc)",
+        "🔍 Nhảy tới câu (ID gốc)",
         options=q_ids,
-        index=st.session_state.current_idx,
-        key="q_selector"
+        index=st.session_state.learn_idx,
+        key="jump"
     )
-    # Nếu người dùng chọn từ dropdown thì cập nhật current_idx
     new_idx = q_ids.index(selected_id)
-    if new_idx != st.session_state.current_idx:
-        st.session_state.current_idx = new_idx
+    if new_idx != st.session_state.learn_idx:
+        st.session_state.learn_idx = new_idx
+        st.rerun()
 
     # Nút điều hướng
-    col1, col2, col3 = st.columns([1, 10, 1])
+    col1, col2, col3 = st.columns([1, 2, 1])
     with col1:
-        if st.button("⬅️ Câu trước", disabled=(st.session_state.current_idx == 0)):
-            st.session_state.current_idx -= 1
+        if st.button("⬅️ Câu trước", use_container_width=True):
+            if st.session_state.learn_idx > 0:
+                st.session_state.learn_idx -= 1
+                st.rerun()
     with col3:
-        if st.button("Câu tiếp ➡️", disabled=(st.session_state.current_idx == len(all_questions)-1)):
-            st.session_state.current_idx += 1
+        if st.button("Câu tiếp ➡️", use_container_width=True):
+            if st.session_state.learn_idx < len(all_questions) - 1:
+                st.session_state.learn_idx += 1
+                st.rerun()
 
-    # Hiển thị câu hỏi hiện tại
-    q = all_questions[st.session_state.current_idx]
-    st.markdown(f"**Câu {st.session_state.current_idx+1} (ID {q['id']}):** {q['question']}")
+    # Hiển thị câu hiện tại
+    q = all_questions[st.session_state.learn_idx]
+    st.markdown(f"**Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
 
-    current_ans = st.session_state.learn_answers.get(q['id'], None)
     prefixed_opts = option_with_prefix(q['options'])
+    current_ans = st.session_state.learn_answers.get(q['id'], None)
     default_idx = prefixed_opts.index(current_ans) if current_ans in prefixed_opts else None
-
     selected = st.radio(
         "Chọn đáp án",
         options=prefixed_opts,
@@ -182,12 +182,11 @@ if mode.startswith("📖 Ôn tập"):
             st.markdown(format_explanation(q['explanation']))
 
 # ---------------------------
-# 5. Chế độ THI THỬ
+# 5. THI THỬ
 # ---------------------------
 else:
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
-    st.caption("Hoàn thành 30 câu, sau đó nhấn **Nộp bài** để chấm điểm (không hiển thị giải thích khi làm).")
-
+    st.caption("Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm.")
     questions_exam = exam_sets[set_number]
 
     if "exam_version" not in st.session_state:
@@ -202,11 +201,11 @@ else:
     with st.form(key=f"exam_form_{st.session_state.exam_version}"):
         for i, q in enumerate(questions_exam, start=1):
             st.markdown(f"**{i}. {q['question']}**")
-            current = st.session_state.exam_answers.get(q['id'], None)
             prefixed = option_with_prefix(q['options'])
+            current = st.session_state.exam_answers.get(q['id'], None)
             default_idx = prefixed.index(current) if current in prefixed else None
             selected = st.radio(
-                label=f"opt_{i}",
+                f"opt_{i}",
                 options=prefixed,
                 index=default_idx,
                 key=f"exam_{q['id']}_{st.session_state.exam_version}",
@@ -239,9 +238,9 @@ else:
         score = correct / len(questions_exam) * 10
         st.success(f"🎉 Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
 
-        with st.expander("📋 Xem chi tiết đáp án từng câu (nhấn để mở/đóng)", expanded=False):
+        with st.expander("📋 Xem chi tiết từng câu", expanded=False):
             for res in results:
-                with st.expander(f"Câu {res['stt']} (ID gốc {res['id_goc']}) - {'✅ Đúng' if res['is_correct'] else '❌ Sai'}"):
+                with st.expander(f"Câu {res['stt']} (ID {res['id_goc']}) - {'✅ Đúng' if res['is_correct'] else '❌ Sai'}"):
                     st.markdown(f"**Câu hỏi:** {res['question']}")
                     for idx_opt, opt in enumerate(res['options']):
                         prefix = chr(65+idx_opt)
@@ -254,5 +253,4 @@ else:
                         st.markdown(f"**Đáp án đúng:** {res['correct_letter']}")
                     st.markdown(format_explanation(res['explanation']))
                     st.markdown("---")
-
         st.button("🔄 Làm lại bài thi", on_click=reset_exam, use_container_width=True)
