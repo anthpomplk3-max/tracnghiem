@@ -1,8 +1,9 @@
 import streamlit as st
 import json
+import random
 
 # ---------------------------
-# 1. Đọc và ghép dữ liệu
+# 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data
 def load_data():
@@ -20,19 +21,24 @@ def load_data():
         questions.append({
             "id": qid,
             "question": q["question"],
-            "options": opts,               # list các nội dung
-            "answer_letter": q["answer"],  # "A", "B", "C", "D"
+            "options": opts,
+            "answer_letter": q["answer"],
             "explanation": q["explanation"]
         })
     return questions
 
-questions_all = load_data()                 # 184 câu
-# Tạo 6 bộ đề cho thi thử (mỗi bộ 30 câu, lấy từ 180 câu đầu)
-questions_180 = questions_all[:180]
-exam_sets = {i+1: questions_180[i*30:(i+1)*30] for i in range(6)}
+all_questions = load_data()  # 184 câu
+
+# Xáo trộn ngẫu nhiên 184 câu với seed cố định để các bộ đề ổn định qua các lần chạy
+random.seed(42)
+shuffled_questions = all_questions.copy()
+random.shuffle(shuffled_questions)
+
+# Tạo 6 bộ đề, mỗi bộ 30 câu (lấy từ danh sách đã xáo trộn)
+exam_sets = {i+1: shuffled_questions[i*30:(i+1)*30] for i in range(6)}
 
 # ---------------------------
-# 2. Hàm định dạng giải thích chuyên nghiệp
+# 2. Hàm hiển thị giải thích chuyên nghiệp
 # ---------------------------
 def format_explanation(text):
     lines = text.split('\n')
@@ -53,13 +59,11 @@ def format_explanation(text):
 # 3. Hàm tạo radio với tiền tố A., B., C., D.
 # ---------------------------
 def option_with_prefix(opts):
-    """Trả về list các chuỗi dạng 'A. <nội dung>'"""
     return [f"{chr(65+i)}. {opt}" for i, opt in enumerate(opts)]
 
-def get_selected_letter(selected_prefix, original_opts):
-    """Từ chuỗi đã chọn (có dạng 'A. ...') -> trả về chữ cái 'A'"""
-    if selected_prefix:
-        return selected_prefix[0]  # lấy ký tự đầu
+def get_selected_letter(selected_prefix):
+    if selected_prefix and len(selected_prefix) > 0:
+        return selected_prefix[0]
     return None
 
 # ---------------------------
@@ -78,10 +82,10 @@ with st.sidebar:
     if mode == "📖 Học tập (có giải thích - 184 câu)":
         st.info("Tổng số câu học tập: **184**\n\nKhông phân bộ, tự do luyện tập.")
     else:
-        st.info(f"Bộ đề {set_number}: 30 câu. Thi thử không hiển thị giải thích.")
+        st.info(f"Bộ đề {set_number}: 30 câu được xáo trộn ngẫu nhiên từ 184 câu, không trùng lặp giữa các bộ.")
 
 # ---------------------------
-# Chế độ HỌC TẬP
+# Chế độ HỌC TẬP (184 câu, giữ nguyên thứ tự gốc)
 # ---------------------------
 if mode.startswith("📖 Học tập"):
     st.subheader("🎓 Chế độ Học tập - Toàn bộ 184 câu hỏi")
@@ -90,14 +94,11 @@ if mode.startswith("📖 Học tập"):
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    for idx, q in enumerate(questions_all, start=1):
+    for idx, q in enumerate(all_questions, start=1):
         with st.container():
             st.markdown(f"**Câu {idx}:** {q['question']}")
-            # Lấy lựa chọn hiện tại (dạng 'A. ...')
             current_prefix = st.session_state.learn_answers.get(q['id'], None)
-            # Tạo danh sách options có tiền tố
             prefixed_opts = option_with_prefix(q['options'])
-            # Xác định index mặc định
             default_index = None
             if current_prefix and current_prefix in prefixed_opts:
                 default_index = prefixed_opts.index(current_prefix)
@@ -111,7 +112,7 @@ if mode.startswith("📖 Học tập"):
             )
             if selected_prefix:
                 st.session_state.learn_answers[q['id']] = selected_prefix
-                selected_letter = get_selected_letter(selected_prefix, q['options'])
+                selected_letter = get_selected_letter(selected_prefix)
                 if selected_letter == q['answer_letter']:
                     st.success("✅ Đúng")
                 else:
@@ -121,17 +122,28 @@ if mode.startswith("📖 Học tập"):
             st.markdown("---")
 
 # ---------------------------
-# Chế độ THI THỬ
+# Chế độ THI THỬ (6 bộ xáo trộn, không trùng)
 # ---------------------------
 else:
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
     st.caption("Hoàn thành 30 câu, sau đó nhấn **Nộp bài** để chấm điểm (không hiển thị giải thích).")
 
     questions_exam = exam_sets[set_number]
+
+    # Quản lý phiên bản để reset form
+    if "exam_version" not in st.session_state:
+        st.session_state.exam_version = 0
     if "exam_answers" not in st.session_state:
         st.session_state.exam_answers = {}
 
-    with st.form(key="exam_form"):
+    # Hàm reset bài thi
+    def reset_exam():
+        st.session_state.exam_answers = {}
+        st.session_state.exam_version += 1
+        st.rerun()
+
+    # Dùng form để tránh tự động rerun khi chọn đáp án
+    with st.form(key=f"exam_form_{st.session_state.exam_version}"):
         for idx, q in enumerate(questions_exam, start=1):
             st.markdown(f"**{idx}. {q['question']}**")
             current_prefix = st.session_state.exam_answers.get(q['id'], None)
@@ -139,16 +151,19 @@ else:
             default_index = None
             if current_prefix and current_prefix in prefixed_opts:
                 default_index = prefixed_opts.index(current_prefix)
+
             selected_prefix = st.radio(
                 label=f"lựa chọn {idx}",
                 options=prefixed_opts,
                 index=default_index,
-                key=f"exam_{q['id']}",
+                key=f"exam_{q['id']}_{st.session_state.exam_version}",
                 label_visibility="collapsed"
             )
+            # Cập nhật ngay lập tức vào session_state (vì dùng form, cần lưu tạm)
             if selected_prefix:
                 st.session_state.exam_answers[q['id']] = selected_prefix
             st.markdown("---")
+
         submitted = st.form_submit_button("📤 Nộp bài", use_container_width=True)
 
     if submitted:
@@ -156,17 +171,17 @@ else:
         for q in questions_exam:
             selected_prefix = st.session_state.exam_answers.get(q['id'], None)
             if selected_prefix:
-                selected_letter = get_selected_letter(selected_prefix, q['options'])
+                selected_letter = get_selected_letter(selected_prefix)
                 if selected_letter == q['answer_letter']:
                     correct += 1
         score = correct / len(questions_exam) * 10
         st.success(f"🎉 Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
 
-        # Bảng chi tiết kết quả
+        # Bảng chi tiết
         details = []
         for q in questions_exam:
             selected_prefix = st.session_state.exam_answers.get(q['id'], "Chưa chọn")
-            user_letter = get_selected_letter(selected_prefix, q['options']) if selected_prefix != "Chưa chọn" else "Chưa chọn"
+            user_letter = get_selected_letter(selected_prefix) if selected_prefix != "Chưa chọn" else "Chưa chọn"
             details.append({
                 "Câu hỏi": q['question'][:70] + "...",
                 "Đáp án của bạn": user_letter,
@@ -176,6 +191,4 @@ else:
         with st.expander("📋 Xem chi tiết đáp án từng câu"):
             st.table(details)
 
-        if st.button("🔄 Làm lại bài thi", use_container_width=True):
-            st.session_state.exam_answers = {}
-            st.rerun()
+        st.button("🔄 Làm lại bài thi", on_click=reset_exam, use_container_width=True)
