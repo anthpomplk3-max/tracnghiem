@@ -110,9 +110,13 @@ st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div
 # Sidebar
 with st.sidebar:
     st.header("⚙️ Cài đặt")
-    mode = st.radio("Chọn chế độ", ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
+    mode = st.radio(
+        "Chọn chế độ",
+        ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"],
+        key="mode_select"
+    )
     st.markdown("---")
-    if mode == "📖 Ôn tập":
+    if mode == "📖 Ôn tập (có giải thích - 184 câu)":
         st.info("📌 184 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
         set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
@@ -121,7 +125,7 @@ with st.sidebar:
 # ---------------------------
 # 4. ÔN TẬP
 # ---------------------------
-if mode == "📖 Ôn tập":
+if mode == "📖 Ôn tập (có giải thích - 184 câu)":
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
     st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
@@ -189,7 +193,7 @@ if mode == "📖 Ôn tập":
 # ---------------------------
 else:
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
-    st.caption("Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm.")
+    st.caption("Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm (không giải thích trong khi làm).")
     questions_exam = exam_sets[set_number]
 
     if "exam_version" not in st.session_state:
