@@ -107,25 +107,24 @@ st.markdown(
 )
 st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div>', unsafe_allow_html=True)
 
+# Sidebar
 with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio("Chọn chế độ", ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
-    if mode == "✍️ Thi thử":
-        set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
     st.markdown("---")
-    if mode == "📖 Ôn tập":
+    if mode == "📖 Ôn tập (có giải thích - 184 câu)":
         st.info("📌 184 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
-        st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng.")
+        set_number = st.selectbox("Chọn bộ đề (1-6, mỗi bộ 30 câu)", options=[1,2,3,4,5,6], index=0)
+        st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng lặp giữa các bộ.")
 
 # ---------------------------
 # 4. ÔN TẬP
 # ---------------------------
-if mode == "📖 Ôn tập":
+if mode == "📖 Ôn tập (có giải thích - 184 câu)":
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
     st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
-    # Khởi tạo state
     if "learn_idx" not in st.session_state:
         st.session_state.learn_idx = 0
     if "learn_answers" not in st.session_state:
@@ -185,6 +184,7 @@ if mode == "📖 Ôn tập":
 # 5. THI THỬ
 # ---------------------------
 else:
+    # mode == "✍️ Thi thử (không giải thích)"
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
     st.caption("Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm.")
     questions_exam = exam_sets[set_number]
