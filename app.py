@@ -142,23 +142,21 @@ if mode.startswith("📖 Ôn tập"):
         index=st.session_state.current_idx,
         key="q_selector"
     )
+    # Nếu người dùng chọn từ dropdown thì cập nhật current_idx
     new_idx = q_ids.index(selected_id)
     if new_idx != st.session_state.current_idx:
         st.session_state.current_idx = new_idx
-        st.rerun()
 
     # Nút điều hướng
     col1, col2, col3 = st.columns([1, 10, 1])
     with col1:
         if st.button("⬅️ Câu trước", disabled=(st.session_state.current_idx == 0)):
             st.session_state.current_idx -= 1
-            st.rerun()
     with col3:
         if st.button("Câu tiếp ➡️", disabled=(st.session_state.current_idx == len(all_questions)-1)):
             st.session_state.current_idx += 1
-            st.rerun()
 
-    # Hiển thị câu hỏi
+    # Hiển thị câu hỏi hiện tại
     q = all_questions[st.session_state.current_idx]
     st.markdown(f"**Câu {st.session_state.current_idx+1} (ID {q['id']}):** {q['question']}")
 
@@ -200,7 +198,6 @@ else:
     def reset_exam():
         st.session_state.exam_answers = {}
         st.session_state.exam_version += 1
-        st.rerun()
 
     with st.form(key=f"exam_form_{st.session_state.exam_version}"):
         for i, q in enumerate(questions_exam, start=1):
