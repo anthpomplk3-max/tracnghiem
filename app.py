@@ -111,12 +111,11 @@ st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div
 with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio("Chọn chế độ", ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
-    if mode == "✍️ Thi thử":
-        set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
     st.markdown("---")
     if mode == "📖 Ôn tập":
         st.info("📌 184 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
+        set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
         st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng.")
 
 # ---------------------------
