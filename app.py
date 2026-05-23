@@ -107,21 +107,21 @@ st.markdown(
 )
 st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div>', unsafe_allow_html=True)
 
-# Sidebar
 with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio("Chọn chế độ", ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
+    if mode == "✍️ Thi thử":
+        set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
     st.markdown("---")
-    if mode == "📖 Ôn tập (có giải thích - 184 câu)":
+    if mode == "📖 Ôn tập":
         st.info("📌 184 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
-        set_number = st.selectbox("Chọn bộ đề (1-6, mỗi bộ 30 câu)", options=[1,2,3,4,5,6], index=0)
-        st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng lặp giữa các bộ.")
+        st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng.")
 
 # ---------------------------
 # 4. ÔN TẬP
 # ---------------------------
-if mode == "📖 Ôn tập (có giải thích - 184 câu)":
+if mode == "📖 Ôn tập":
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
     st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
@@ -130,31 +130,40 @@ if mode == "📖 Ôn tập (có giải thích - 184 câu)":
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # Dropdown nhảy tới câu
-    q_ids = [q["id"] for q in all_questions]
-    selected_id = st.selectbox(
-        "🔍 Nhảy tới câu (ID gốc)",
-        options=q_ids,
-        index=st.session_state.learn_idx,
-        key="jump"
-    )
-    new_idx = q_ids.index(selected_id)
-    if new_idx != st.session_state.learn_idx:
-        st.session_state.learn_idx = new_idx
-        st.rerun()
+    # Callback cho nút
+    def prev_question():
+        if st.session_state.learn_idx > 0:
+            st.session_state.learn_idx -= 1
 
-    # Nút điều hướng
-    col1, col2, col3 = st.columns([1, 2, 1])
+    def next_question():
+        if st.session_state.learn_idx < len(all_questions) - 1:
+            st.session_state.learn_idx += 1
+
+    def jump_to_question():
+        # Callback này sẽ tự động gọi khi selectbox thay đổi
+        # Lấy giá trị từ session_state của selectbox
+        selected_id = st.session_state.jump_select
+        q_ids = [q["id"] for q in all_questions]
+        new_idx = q_ids.index(selected_id)
+        if new_idx != st.session_state.learn_idx:
+            st.session_state.learn_idx = new_idx
+
+    # Bố trí các nút và selectbox
+    col1, col2, col3 = st.columns([1, 3, 1])
     with col1:
-        if st.button("⬅️ Câu trước", use_container_width=True):
-            if st.session_state.learn_idx > 0:
-                st.session_state.learn_idx -= 1
-                st.rerun()
+        st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
     with col3:
-        if st.button("Câu tiếp ➡️", use_container_width=True):
-            if st.session_state.learn_idx < len(all_questions) - 1:
-                st.session_state.learn_idx += 1
-                st.rerun()
+        st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
+    with col2:
+        q_ids = [q["id"] for q in all_questions]
+        st.selectbox(
+            "Nhảy tới câu (ID gốc)",
+            options=q_ids,
+            index=st.session_state.learn_idx,
+            key="jump_select",
+            on_change=jump_to_question,
+            label_visibility="collapsed"
+        )
 
     # Hiển thị câu hiện tại
     q = all_questions[st.session_state.learn_idx]
@@ -184,7 +193,6 @@ if mode == "📖 Ôn tập (có giải thích - 184 câu)":
 # 5. THI THỬ
 # ---------------------------
 else:
-    # mode == "✍️ Thi thử (không giải thích)"
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
     st.caption("Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm.")
     questions_exam = exam_sets[set_number]
