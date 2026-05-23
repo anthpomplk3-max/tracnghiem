@@ -1,0 +1,2026 @@
+[
+  {
+    "id": 1,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Nhân viên vận hành nhà máy điện xử lý đầu tiên theo phương án nào khi xác định nhà máy đang nằm trong khu vực bị rã lưới",
+    "options": [
+      "Báo cáo Điều độ viên có quyền điều khiển tình hình nhà máy bị mất điện để nhận lệnh cắt toàn bộ máy cắt",
+      "Báo cáo Lãnh đạo, bộ phận trong đơn vị theo quy định nội bộ",
+      "Cắt tất cả các máy cắt đang ở trạng thái đóng",
+      "Khởi động nguồn điện diesel dự phòng (nếu được trang bị), chuyển đổi hệ thống tự dùng sang nhận từ nguồn điện diesel dự phòng"
+    ],
+    "answer": null
+  },
+  {
+    "id": 2,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Trước khi đưa thiết bị hoặc đường dây vào vận hành sau sửa chữa thì nhân viên vận hành cần lưu ý điều kiện gì",
+    "options": [
+      "Đơn vị quản lý vận hành phải khẳng định người và phương tiện đã rút hết.",
+      "Đơn vị quản lý vận hành phải khẳng định các tiếp địa di động đã tháo hết.",
+      "Đơn vị quản lý vận hành phải khẳng định chắc chắn các đơn vị công tác (người và phương tiện) đã rút hết, đã tháo hết tiếp địa di động, đã khoá tất cả các phiếu công tác; đường dây, thiết bị đủ tiêu chuẩn vận hành và sẵn sàng nhận điện, các phiếu công tác; đường dây, thiết bị đủ tiêu chuẩn vận hành và sẵn sàng nhận điện.",
+      "Đơn vị thi công phải khẳng định người và phương tiện đã rút hết."
+    ],
+    "answer": null
+  },
+  {
+    "id": 3,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Khi cần điều chỉnh thời gian kết thúc bảo dưỡng, sửa chữa muộn hơn từ  2 đến 3 02 đến 03 ngày so với kế hoạch đã duyệt, Đơn vị phát điện cần gửi phiếu đăng ký bảo dưỡng, sửa chữa lưới điện điều chỉnh tới Cấp điều độ",
+    "options": [
+      "Trước 48 giờ so với thời gian kết thúc bảo dưỡng, sửa chữa đã được duyệt.",
+      "Trước 24 giờ so với thời gian kết thúc bảo dưỡng, sửa chữa đã được duyệt.",
+      "Trước 10 giờ so với thời gian kết thúc bảo dưỡng, sửa chữa đã được duyệt.",
+      "Ngay sau khi xuất hiện các yếu tố dẫn đến kéo dài thời gian kết thúc bảo dưỡng, sửa chữa."
+    ],
+    "answer": null
+  },
+  {
+    "id": 4,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thời điểm thông báo Phương thức vận hành hệ thống điện quốc gia hai tuần tới theo phương án nào",
+    "options": [
+      "Trước 15 h 00 ngày thứ Năm hàng tuần",
+      "Trước 15 h 30 ngày thứ Năm hàng tuần",
+      "Trước 16 h 00 ngày thứ Năm hàng tuần",
+      "Trước 16 h 30 ngày thứ Năm hàng tuần"
+    ],
+    "answer": null
+  },
+  {
+    "id": 5,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng cho phép nhà máy điện tạm ngừng thao tác",
+    "options": [
+      "Thời gian thao tác kéo dài liên tục quá 04 giờ",
+      "Thao tác phải thực hiện ngoài trời trong điều kiện thời tiết xấu",
+      "Đang thao tác thì xảy ra sự cố hoặc có cảnh báo hiện tượng bất thường",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 6,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Điều chỉnh tần số cấp I được hiểu đúng theo phương án nào",
+    "options": [
+      "Điều chỉnh của bộ tự động điều chỉnh công suất của các tổ máy phát điện đã được quy định trước nhằm duy trì tần số hệ thống điện trong giới hạn 50 ± 0,2 Hz",
+      "Điều chỉnh của bộ tự động điều chỉnh công suất của các tổ máy phát điện đã được quy định trước nhằm đưa tần số hệ thống điện trong giới hạn 50 ± 0,5 Hz",
+      "Điều chỉnh bằng lệnh điều độ của cấp điều độ có quyền điều khiển để đưa tần số hệ thống điện vận hành trong giới hạn 50 ± 0,2 Hz",
+      "Điều chỉnh của nhà máy điện được giao nhiệm vụ điều tần cấp I duy trì tần số hệ thống điện trong giới hạn 50 ± 0,2 Hz."
+    ],
+    "answer": null
+  },
+  {
+    "id": 7,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được tính như thế nào?",
+    "options": [
+      "Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được tính từ khi cấp điều độ có quyền điều khiển bàn giao thiết bị cho Đơn vị quản lý vận hành đến khi được bàn giao trở lại.",
+      "Thời gian sửa chữa, bảo dưỡng lưới điện được tính từ khi cấp điều độ có quyền điều khiển bắt đầu ra lệnh thao tác cắt điện cho đến khi ra lệnh thao tác đóng điện",
+      "Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được tính từ khi cấp điều độ có quyền điều khiển bàn giao thiết bị cho Đơn vị quản lý vận hành đến khi tái lập điện thiết bị trở lại",
+      "Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được xác định theo thời gian mất điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 8,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Sau khi thao tác máy cắt, nếu sau đó có thao tác tại chỗ dao cách ly hai phía của máy cắt, nhân viên vận hành phải",
+    "options": [
+      "Kiểm tra chỉ thị tại chỗ trạng thái của máy cắt, khoá điều khiển của máy cắt",
+      "Kiểm tra chỉ thị trạng thái của máy cắt thông qua tín hiệu điều khiển",
+      "Kiểm tra chỉ thị tại chỗ trạng thái của máy cắt, khóa điều khiển bảo vệ",
+      "Kiểm tra thông số vận hành của máy cắt."
+    ],
+    "answer": null
+  },
+  {
+    "id": 9,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Phương án nào quy định đúng khi lệnh của lãnh đạo trực tiếp trái với lệnh điều độ của nhân viên vận hành cấp trên thì",
+    "options": [
+      "Nhân viên vận hành cấp dưới phải thi hành nếu mệnh lệnh đó là hợp lý.",
+      "Nhân viên vận hành cấp dưới không thi hành",
+      "Nhân viên vận hành cấp dưới có quyền không thi hành và thông báo lại với nhân viên vận hành cấp trên trừ trường hợp nguy hiểm đến tính mạng con người hoặc an toàn thiết bị.",
+      "Nhân viên vận hành cấp dưới thì hành không bàn cãi, không chậm trễ lệnh của nhân viên vận hành cấp trên."
+    ],
+    "answer": null
+  },
+  {
+    "id": 10,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định đánh số thiết bị rơ le bảo vệ và tự động đúng theo phương án nào",
+    "options": [
+      "Đánh số theo bản vẽ thiết kế",
+      "Đánh số theo quy định của Đơn vị quản lý vận hành",
+      "Đánh số theo quy định của cấp điều độ có quyền điều khiển",
+      "Đánh số phù hợp với sơ đồ nhất"
+    ],
+    "answer": null
+  },
+  {
+    "id": 11,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Cột Địa điểm, Trình tự thao tác trong phiếu thao tác do nhà máy điện lập ghi đúng theo phương án nào",
+    "options": [
+      "Ghi tên các nhà máy, nhà máy điện, vị trí thực hiện thao tác hoặc đơn vị phối hợp thao tác",
+      "Ghi tên vị trí thực hiện thao tác hoặc đơn vị phối hợp thao tác tương ứng với cột Mục",
+      "Ghi tên đơn vị thực hiện thao tác hoặc đơn vị phối hợp thao tác tương ứng với cột Mục",
+      "Ghi tên nhà máy điện thực hiện thao tác hoặc đơn vị phối hợp thao tác tương ứng với cột Mục"
+    ],
+    "answer": null
+  },
+  {
+    "id": 12,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nhân viên vận hành tham gia trực tiếp công tác điều độ, vận hành hệ thống điện phải được định kỳ huấn luyện, diễn tập xử lý sự cố, diễn tập khởi động đen và khôi phục hệ thống điện quốc gia",
+    "options": [
+      "Ít nhất 03 tháng 1 lần",
+      "Ít nhất 12 tháng 1 lần",
+      "Ít nhất 18 tháng 1 lần",
+      "Không quy định số lần"
+    ],
+    "answer": null
+  },
+  {
+    "id": 13,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trong trường hợp nào sau đây nhân viên vận hành cấp dưới không thực hiện lệnh điều độ của nhân viên vận hành cấp trên",
+    "options": [
+      "Lệnh điều độ đó làm thay đổi biểu đồ công suất phát, trào lưu công suất của nhà máy, trạm biến áp đã được lập kế hoạch.",
+      "Lệnh điều độ trái với lệnh chỉ đạo của lãnh đạo trực tiếp nhân viên vận hành đơn vị đó.",
+      "Lệnh điều độ làm ảnh hưởng đến kết dây cơ bản của nhà máy, trạm biến áp.",
+      "Lệnh điều độ đó gây nguy hiểm đến tính mạng con người hoặc an toàn của thiết bị."
+    ],
+    "answer": null
+  },
+  {
+    "id": 14,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định trình tự thao tác dao cách ly hai phía máy cắt trong trường hợp một phía có điện áp, một phía không có điện áp",
+    "options": [
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía có điện áp trước, mở dao cách ly phía không có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía không có điện áp trước, đóng dao cách ly phía có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía không có điện áp trước, mở dao cách ly phía có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía có điện áp trước, đóng dao cách ly phía không có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía có điện áp trước, mở dao cách ly phía không có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía có điện áp trước, đóng dao cách ly phía không có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía đường dây trước, mở dao cách ly phía thanh cái sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía thanh cái trước, đóng dao cách ly phía đường dây sau"
+    ],
+    "answer": null
+  },
+  {
+    "id": 15,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Khi một vài rơ le bảo vệ các thiết bị điện hoặc đường dây được tách ra không cho làm việc do bị hư hỏng và những rơ le bảo vệ còn lại bảo đảm bảo vệ đầy đủ chống mọi dạng sự cố, nhưng không bảo đảm thời gian loại trừ ngắn mạch cho các thiết bị điện và đường dây dẫn điện thì phải xử lý theo phương án nào?",
+    "options": [
+      "Phải cắt điện các thiết bị điện hoặc đường dây đó ra khỏi vận hành.",
+      "Phải đặt bảo vệ tạm thời và được Cấp điều độ có quyền điều khiển cho phép.",
+      "Phải đặt thời gian tác động bảo vệ còn lại theo phiếu chỉnh định rơle do cấp điều độ có quyền điều khiển ban hành.",
+      "Phương án A hoặc B hoặc C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 16,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Các tổ máy phát điện của nhà máy điện đấu nối lưới điện truyền tải phải có khả năng làm việc liên tục ở chế độ tải không cân bằng giữa 3 pha trong phạm vi",
+    "options": [
+      "Từ 1% đến 10%.",
+      "Từ 1% đến 5%.",
+      "Từ 5% đến 10%.",
+      "Từ 3% đến 5%."
+    ],
+    "answer": null
+  },
+  {
+    "id": 17,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Trường hợp phát hiện thiết bị đang vận hành có nguy cơ đe dọa đến tính mạng con người và an toàn thiết bị, nhân viên vận hành của các đơn vị quản lý vận hành thiết bị đó có quyền",
+    "options": [
+      "Báo cáo ngay cho Lãnh đạo đơn vị để tách thiết bị ra khỏi vận hành.",
+      "Báo cáo ngay cho Cấp điều độ có quyền điều khiển để ra lệnh điều độ.",
+      "Tách khẩn cấp thiết bị ra khỏi hệ thống điện và không phải chịu trách nhiệm về quyết định của mình.",
+      "Tách khẩn cấp thiết bị ra khỏi hệ thống điện và phải chịu hoàn toàn trách nhiệm về quyết định của mình."
+    ],
+    "answer": null
+  },
+  {
+    "id": 18,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Phương án nào quy định đúng trách nhiệm của các đơn vị trong trường hợp rã lưới, mất thông tin liên lạc phục vụ điều độ hệ thống điện",
+    "options": [
+      "Cấp điều độ có quyền điều khiển",
+      "Đơn vị quản lý vận hành",
+      "Đơn vị cung cấp dịch vụ viễn thông điện lực",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 19,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Trưởng ca nhà máy điện phát độc lập xử lý không đúng theo phương án nào",
+    "options": [
+      "Chủ động điều chỉnh tần số và điện áp đưa về giới hạn cho phép theo quy định.",
+      "Báo cáo Điều độ viên có quyền điều khiển về dao động tần số và điện áp để phối hợp xử lý.",
+      "Kiểm tra khả năng điều chỉnh công suất của nhà máy để hoà đồng bộ nhà máy điện với hệ thống điện.",
+      "Chủ động cắt tải để điều chỉnh tần số và điện áp đưa về giới hạn cho phép theo quy định"
+    ],
+    "answer": null
+  },
+  {
+    "id": 20,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng về việc viết và duyệt phiếu thao tác theo kế hoạch tại trung tâm điều khiển",
+    "options": [
+      "Người viết phiếu là nhân viên vận hành, người duyệt phiếu là Trưởng, Phó trung tâm điều khiển.",
+      "Người viết phiếu là nhân viên vận hành, người duyệt phiếu là Trưởng, Phó trung tâm điều khiển hoặc người được uỷ quyền.",
+      "Người viết phiếu là nhân viên vận hành hoặc nhân viên được giao nhiệm vụ viết phiếu thao tác, người duyệt phiếu là Trưởng, Phó trung tâm điều khiển.",
+      "Người viết phiếu là nhân viên vận hành hoặc nhân viên được giao nhiệm vụ viết phiếu thao tác, người duyệt phiếu là Trưởng, Phó trung tâm điều khiển hoặc người được uỷ quyền."
+    ],
+    "answer": null
+  },
+  {
+    "id": 21,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi lệnh của lãnh đạo trực tiếp trái với lệnh điều độ của nhân viên vận hành cấp trên thì nhân viên vận hành cấp dưới",
+    "options": [
+      "Không thi hành theo lệnh của lãnh đạo trực tiếp",
+      "Thi hành theo lệnh của lãnh đạo trực tiếp và không phải chịu trách nhiệm",
+      "Chưa thi hành và báo cáo lại với nhân viên vận hành cấp trên",
+      "Đề nghị nhân viên vận hành cấp trên ra lệnh điều độ phù hợp với lệnh của lãnh đạo trực tiếp"
+    ],
+    "answer": null
+  },
+  {
+    "id": 22,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Lãnh đạo của nhân viên vận hành cấp trên có quyền nào",
+    "options": [
+      "Thay đổi lệnh điều độ của nhân viên vận hành",
+      "Thay đổi phương thức vận hành",
+      "Ra lệnh ngừng thiết bị dự phòng",
+      "Đình chỉ công tác của nhân viên vận hành cấp dưới"
+    ],
+    "answer": null
+  },
+  {
+    "id": 23,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện được phép không thực hiện biểu đồ điện áp theo quy định trong trường hợp nào",
+    "options": [
+      "Nhà máy điện đang ngừng dự phòng toàn bộ các tổ máy.",
+      "Đang thực hiện thao tác khác.",
+      "Hết khả năng điều chỉnh được điện áp theo biểu đồ.",
+      "Đang trong thời gian cao điểm."
+    ],
+    "answer": null
+  },
+  {
+    "id": 24,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng mức mang tải của các đường dây và trạm biến áp chính trong lưới điện truyền tải vận hành ở chế độ cực kỳ khẩn cấp",
+    "options": [
+      "Trên 110% giá trị định mức và sự cố có thể dẫn đến rã lưới",
+      "Trên 110% giá trị định mức",
+      "Sự cố đường dây và máy biến áp dẫn đến quá tải trên 110% giá trị định mức phần tử khác",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 25,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp việc thực hiện lệnh điều độ từ nhân viên vận hành cấp trên có thể gây nguy hại đến con người, thiết bị, nhân viên vận hành cấp dưới",
+    "options": [
+      "Có quyền chưa thực hiện nhưng phải báo cáo với nhân viên vận hành cấp trên",
+      "Có quyền từ chối thực hiện",
+      "Có quyền chưa thực hiện nhưng phải báo cáo với lãnh đạo của nhân viên vận hành cấp trên",
+      "Thực hiện không bàn cãi và không phải chịu trách nhiệm"
+    ],
+    "answer": null
+  },
+  {
+    "id": 26,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Nhà máy điện phải lập phiếu thao tác theo phương án nào Yêu cầu chung về thao tác",
+    "options": [
+      "Thao tác đơn giản có số bước thao tác không quá 03 bước và được thực hiện tại chỗ",
+      "Thao tác đơn giản có số bước thao tác không quá 03 bước và được thực hiện bằng điều khiển từ xa",
+      "Đã thuộc phiếu thao tác mẫu và thực hiện thao tác theo trí nhớ",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 27,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Trường hợp tách sửa chữa khẩn cấp thiết bị, đơn vị quản lý vận hành thiết bị có trách nhiệm thực hiện theo phương án nào",
+    "options": [
+      "Cập nhật và báo cáo ngay các thông tin liên quan đến thiết bị này trong thời hạn một (01) giờ.",
+      "Trong thời hạn một (01) giờ, phải thông báo cho Đơn vị vận hành hệ thống điện và thị trường điện về sự thay đổi trạng thái của thiết bị.",
+      "Trong thời hạn hai mươi tư (24) giờ phải lập báo cáo giải trình gửi Cục Điều tiết điện lực về lý do tách thiết bị khỏi vận hành và nêu rõ nguyên nhân.",
+      "Phương án A, B, C."
+    ],
+    "answer": null
+  },
+  {
+    "id": 28,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nhân viên vận hành cấp dưới có quyền kiến nghị với nhân viên vận hành cấp trên khi nhận thấy lệnh điều độ chưa hợp lý. Trong trường hợp kiến nghị không được nhân viên vận hành cấp trên chấp nhận thì",
+    "options": [
+      "Vẫn phải thực hiện đúng lệnh điều độ của nhân viên vận hành cấp trên và phải chịu trách nhiệm về hậu quả",
+      "Có quyền không thực hiện lệnh điều độ của nhân viên vận hành cấp trên và không phải chịu trách nhiệm về hậu quả",
+      "Vẫn phải thực hiện đúng lệnh điều độ của nhân viên vận hành cấp trên và không phải chịu trách nhiệm về hậu quả",
+      "Có quyền không thực hiện lệnh điều độ của nhân viên vận hành cấp trên và phải chịu trách nhiệm về hậu quả"
+    ],
+    "answer": null
+  },
+  {
+    "id": 29,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nào Trưởng ca nhà máy điện hoặc trung tâm điều khiển nhà máy điện không có quyền điều khiển các thiết bị?",
+    "options": [
+      "Tổ máy phát của nhà máy điện trong trường hợp vận hành tách lưới giữ tự dùng",
+      "Tổ máy phát của nhà máy điện trong trường hợp nhà máy tách mảng vận hành độc lập với hệ thống điện quốc gia",
+      "Hệ thống điện tự dùng của nhà máy điện",
+      "Lưới điện thuộc sở hữu của nhà máy điện cung cấp điện cho khách hàng mua điện trực tiếp từ nhà máy điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 30,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Lưu ý trong phiếu thao tác thiết bị điện do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi những thay đổi có thể xảy ra về chế độ vận hành các thiết bị điện khác tại nhà máy",
+      "Ghi những biện pháp an toàn cần phải thực hiện",
+      "Ghi lại lưu ý do Điều độ viên có quyền điều khiển nhắc nhở"
+    ],
+    "answer": null
+  },
+  {
+    "id": 31,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp một nhân viên vận hành đương trực ca bị đau nặng, không đủ sức khỏe để tiếp tục trực ca, Trưởng ca chọn hướng xử lý theo phương án nào",
+    "options": [
+      "Cho phép nhân viên vận hành bị đau nghỉ, tự mình đảm nhiệm công việc của nhân viên vận hành đó",
+      "Báo cáo Lãnh đạo trực tiếp để cử nhân viên vận hành khác đến thay thế",
+      "Bố trí người khác đảm nhiệm công việc của nhân viên vận hành bị đau",
+      "Phương án A hoặc B hoặc C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 32,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Ghi tên Người duyệt phiếu trong phiếu thao tác do cấp điều độ có quyền điều khiển lập và thực hiện tại nhà máy điện mà nhân viên vận hành tại nhà máy điện phải bổ sung các bước thao tác có liên quan",
+    "options": [
+      "Ghi họ và tên Người duyệt phiếu theo phiếu của cấp điều độ có quyền điều khiển",
+      "Ghi họ và tên Trực vận hành đương ca được giao nhiệm vụ",
+      "Ghi họ và tên Trưởng ca đương ca",
+      "Bỏ trống không ghi"
+    ],
+    "answer": null
+  },
+  {
+    "id": 33,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Lệnh điều độ bằng chữ viết có thể được thực hiện thông qua các hình thức nào?",
+    "options": [
+      "Thông qua hệ thống Email; Hệ thống máy fax",
+      "Thông qua hệ thống quản lý thông tin điều độ DIM; Hệ thống máy fax",
+      "Hệ thống máy fax",
+      "Thông qua hệ thống Email; hệ thống quản lý thông tin điều độ DIM; Hệ thống máy fax."
+    ],
+    "answer": null
+  },
+  {
+    "id": 34,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nguyên tắc điều chỉnh điện áp tại nhà máy điện",
+    "options": [
+      "Đảm bảo điện áp trong giới hạn cho phép",
+      "Đảm bảo chi phí nhỏ nhất",
+      "Đảm bảo thao tác ít nhất",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 35,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào đặt không đúng theo yêu cầu về giá trị hệ số tĩnh của đặc tính điều chỉnh bộ điều tốc tổ máy phát",
+    "options": [
+      "6%",
+      "5%",
+      "4%",
+      "Phương án B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 36,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Trước khi đưa thiết bị hoặc đường dây vào vận hành sau sửa chữa thì nhân viên vận hành cần lưu ý điều kiện gì",
+    "options": [
+      "Đơn vị quản lý vận hành phải khẳng định người và phương tiện đã rút hết.",
+      "Đơn vị quản lý vận hành phải khẳng định các tiếp địa di động đã tháo hết.",
+      "Đơn vị quản lý vận hành phải khẳng định chắc chắn các đơn vị công tác (người và phương tiện) đã rút hết, đã tháo hết tiếp địa di động, đã khoá tất cả các phiếu công tác; đường dây, thiết bị đủ tiêu chuẩn vận hành và sẵn sàng nhận điện.",
+      "Đơn vị thi công phải khẳng định người và phương tiện đã rút hết."
+    ],
+    "answer": null
+  },
+  {
+    "id": 37,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng cho phép một người thực hiện thao tác tại nhà máy",
+    "options": [
+      "Thao tác đóng cắt máy cắt từ xa",
+      "Thao tác thay đổi công suất tổ máy",
+      "Phương án A, B",
+      "Thao tác đóng cắt aptomat nhị thứ"
+    ],
+    "answer": null
+  },
+  {
+    "id": 38,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nào không thuộc trách nhiệm của Đơn vị phát điện?",
+    "options": [
+      "Tuân thủ phương thức vận hành, lệnh điều độ của cấp điều độ có quyền điều khiển",
+      "Đảm bảo nhà máy điện vận hành an toàn, ổn định; đảm bảo dự phòng ở mức độ sẵn sàng vận hành cao nhất",
+      "Điều tiết hồ chứa của các nguồn thủy điện tuân thủ các quy trình, quy định liên quan",
+      "Cung cấp tài liệu kỹ thuật, thông số kỹ thuật, thông số vận hành, quy trình vận hành thiết bị của nhà máy điện cho các cấp điều độ có quyền điều khiển khi có yêu cầu"
+    ],
+    "answer": null
+  },
+  {
+    "id": 39,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nhân viên vận hành thực hiện quyền điều khiển thế nào là không đúng quy trình trong trường hợp sự cố hoặc đe dọa sự cố",
+    "options": [
+      "Xin phép cấp điều độ có quyền kiểm tra",
+      "Thực hiện quyền điều khiển để xử lý sự cố hoặc đe dọa sự cố sau khi cấp điều độ có quyền kiểm tra cho phép",
+      "Báo cáo cho cấp điều độ có quyền kiểm tra và thông báo cho đơn vị có quyền nắm thông tin ngay sau khi thực hiện quyền điều khiển.",
+      "Cả A, B, C."
+    ],
+    "answer": null
+  },
+  {
+    "id": 40,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Khi điện áp lưới điện 220 kV có giá trị 243 kV, hệ thống điện truyền tải đang vận hành ở chế độ",
+    "options": [
+      "Chế độ vận hành bình thường",
+      "Chế độ cảnh báo",
+      "Chế độ khẩn cấp",
+      "Chế độ cực kỳ khẩn cấp"
+    ],
+    "answer": null
+  },
+  {
+    "id": 41,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Phương án nào quy định không đúng trách nhiệm của đơn vị quản lý vận hành nhà máy điện",
+    "options": [
+      "Khẩn trương khắc phục sự cố, nhanh chóng bàn giao thiết bị vào vận hành trong thời gian ngắn nhất sau sự cố",
+      "Định kỳ kiểm tra, bảo dưỡng hệ thống tự dùng một chiều tại trạm điện, đảm bảo hệ thống tự dùng một chiều không bị sự cố khi mất điện hệ thống tự dùng xoay chiều.",
+      "Tổ chức bồi dưỡng, huấn luyện, đào tạo nhân viên vận hành đảm bảo đủ trình độ tham gia xử lý sự cố mất điện toàn trạm theo chức danh vận hành",
+      "Thông báo về sự cố mất điện tại nhà máy điện và quá trình khôi phục cho các đơn vị liên quan"
+    ],
+    "answer": null
+  },
+  {
+    "id": 42,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định trình tự đầu tiên khi tách máy biến áp",
+    "options": [
+      "Cắt máy cắt, dao cách ly các phía máy biến áp theo quy định",
+      "Chuyển nguồn tự dùng",
+      "Kiểm tra trào lưu công suất qua máy biến áp",
+      "Cấp điều độ có quyền điều khiển ra lệnh thao tác"
+    ],
+    "answer": null
+  },
+  {
+    "id": 43,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Chậm nhất mười lăm ( ) ngày trước ngày đóng điện điểm đấu nối, khách hàng có nhu cầu đấu nối phải cung cấp cho Đơn vị truyền tải điện các nội dung nào",
+    "options": [
+      "Thỏa thuận lịch chạy thử và vận hành các trang thiết bị điện; Thỏa thuận phân định trách nhiệm mỗi bên về quản lý, vận hành trang thiết bị đấu nối.",
+      "Các quy định nội bộ cho an toàn vận hành thiết bị đấu nối.",
+      "Danh sách các nhân viên vận hành của mỗi bên đã có chứng nhận vận hành được Cấp điều độ có quyền điều khiển cấp bao gồm họ tên, chức danh chuyên môn, trách nhiệm kèm theo số điện thoại và số fax liên lạc.",
+      "Phương án A, B, C."
+    ],
+    "answer": null
+  },
+  {
+    "id": 44,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng mức mang tải của các đường dây và trạm biến áp chính trong lưới điện truyền tải vận hành ở chế độ vận hành bình thường",
+    "options": [
+      "Đến 90% giá trị định mức",
+      "Dưới 85% giá trị định mức",
+      "Dưới 90% giá trị định mức",
+      "Dưới 100% giá trị định mức"
+    ],
+    "answer": null
+  },
+  {
+    "id": 45,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi lệnh của lãnh đạo trực tiếp trái với lệnh điều độ của nhân viên vận hành cấp trên thì nhân viên vận hành cấp dưới",
+    "options": [
+      "Không thi hành theo lệnh của lãnh đạo trực tiếp",
+      "Thi hành theo lệnh của lãnh đạo trực tiếp và không phải chịu trách nhiệm",
+      "Chưa thi hành và báo cáo lại với nhân viên vận hành cấp trên",
+      "Đề nghị nhân viên vận hành cấp trên ra lệnh điều độ phù hợp với lệnh của lãnh đạo trực tiếp"
+    ],
+    "answer": null
+  },
+  {
+    "id": 46,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Lệnh chỉ điều độ được truyền đi bằng",
+    "options": [
+      "Lời nói hoặc tín hiệu điều khiển hoặc chữ viết.",
+      "Lời nói hoặc văn bản",
+      "Tín hiệu điều khiển hoặc văn bản",
+      "Lời nói"
+    ],
+    "answer": null
+  },
+  {
+    "id": 47,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Lãnh đạo của nhân viên vận hành cấp trên có quyền nào",
+    "options": [
+      "Thay đổi lệnh điều độ của nhân viên vận hành",
+      "Thay đổi phương thức vận hành",
+      "Ra lệnh ngừng thiết bị dự phòng",
+      "Đình chỉ công tác của nhân viên vận hành cấp dưới"
+    ],
+    "answer": null
+  },
+  {
+    "id": 48,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Giao nhận, nghiệm thu đường dây, thiết bị điện trước khi thao tác trong phiếu thao tác cắt điện thiết bị điện để sửa chữa do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi tên Họ tên, Nội dung giao nhận với cấp điều độ có quyền điều khiển ra lệnh thao tác",
+      "Ghi tên các đơn vị đăng ký công tác trên thiết bị điện và đã được cấp phiếu công tác",
+      "Ghi tên Trực ban đơn vị quản lý vận hành đề nghị thao tác"
+    ],
+    "answer": null
+  },
+  {
+    "id": 49,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện xử lý theo phương án nào khi không thể thực hiện được điều chỉnh điện áp theo biểu đồ",
+    "options": [
+      "Báo cáo Điều độ viên cấp trên lý do không thực hiện được.",
+      "Kiến nghị Điều độ viên cấp trên giao biểu đồ khác phù hợp.",
+      "Tự khởi động, hòa lưới tổ máy dự phòng để đáp ứng điều chỉnh điện áp theo biểu đồ.",
+      "Không quy định."
+    ],
+    "answer": null
+  },
+  {
+    "id": 50,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Sau khi thao tác máy cắt, nếu sau đó có thao tác tại chỗ dao cách ly hai phía của máy cắt, nhân viên vận hành phải",
+    "options": [
+      "Kiểm tra chỉ thị tại chỗ trạng thái của máy cắt, khoá điều khiển của máy cắt",
+      "Kiểm tra chỉ thị trạng thái của máy cắt thông qua tín hiệu điều khiển",
+      "Kiểm tra chỉ thị tại chỗ trạng thái của máy cắt, khóa điều khiển bảo vệ",
+      "Kiểm tra thông số vận hành của máy cắt."
+    ],
+    "answer": null
+  },
+  {
+    "id": 51,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Trường hợp máy biến áp bị cắt sự cố do bảo vệ quá dòng tác động, điều kiện để đưa máy biến áp trở lại vận hành theo phương án nào",
+    "options": [
+      "Đơn vị quản lý vận hành đã tiến hành thí nghiệm, kiểm tra thử nghiệm các thông số, phân tích mẫu khí, mẫu dầu, khắc phục những nhược điểm bất thường đã phát hiện.",
+      "Nhân viên vận hành kiểm tra, báo cáo tình trạng bên ngoài của máy biến áp không phát hiện có dấu hiệu bất thường.",
+      "Nhân viên vận hành kiểm tra, báo cáo tình trạng bên ngoài của máy biến áp không phát hiện có dấu hiệu bất thường, khẳng định mạch bảo vệ không tác động nhầm.",
+      "Đơn vị quản lý vận hành khẳng định máy biến áp đủ tiêu chuẩn vận hành."
+    ],
+    "answer": null
+  },
+  {
+    "id": 52,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Chế độ vận hành thiếu trang bị rơ le bảo vệ hoặc tự động phải được quy định cụ thể bởi",
+    "options": [
+      "Cấp điều độ có quyền điều khiển.",
+      "Cục Điều tiết điện lực.",
+      "Đơn vị quản lý vận hành.",
+      "Tập đoàn Điện lực Việt Nam"
+    ],
+    "answer": null
+  },
+  {
+    "id": 53,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Các trường hợp nào dưới đây Trưởng ca phải tách ngay máy biến áp ra khỏi vận hành",
+    "options": [
+      "Mức dầu hạ thấp dưới mức quy định và còn tiếp tục hạ thấp.",
+      "Màu sắc của dầu thay đổi đột ngột.",
+      "Máy biến áp bị quá tải 20%.",
+      "Điện áp vận hành vượt quá 20% so với điện áp định mức của đầu phân áp tương ứng."
+    ],
+    "answer": null
+  },
+  {
+    "id": 54,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Lệnh điều độ bằng chữ viết có thể được thực hiện thông qua các hình thức nào?",
+    "options": [
+      "Thông qua hệ thống Email; Hệ thống máy fax",
+      "Thông qua hệ thống quản lý thông tin điều độ DIM; Hệ thống máy fax",
+      "Hệ thống máy fax.",
+      "Thông qua hệ thống Email; hệ thống quản lý thông tin điều độ DIM; Hệ thống máy fax."
+    ],
+    "answer": null
+  },
+  {
+    "id": 55,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Đơn vị quản lý vận hành có trách nhiệm gửi Báo cáo sự cố cho đơn vị quản lý cấp trên trong thời hạn bao nhiêu kể từ khi sự cố xảy ra",
+    "options": [
+      "3 ngày",
+      "1 ngày",
+      "2 ngày",
+      "Sau khi khắc phục sự cố"
+    ],
+    "answer": null
+  },
+  {
+    "id": 56,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Phương thức vận hành hệ thống điện quốc gia tháng tới do cơ quan nào phê duyệt",
+    "options": [
+      "Bộ Công Thương",
+      "Cục Điều tiết điện lực",
+      "Tập đoàn Điện lực Việt Nam",
+      "Cấp điều độ quốc gia"
+    ],
+    "answer": null
+  },
+  {
+    "id": 57,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Trưởng ca xử lý theo phương án nào khi rơ le hơi của máy biến áp tác động báo tín hiệu, sau khi lấy mẫu khí trong rơ le để phân tích kiểm tra, kết quả trong khí có các thành phần phân hủy của chất",
+    "options": [
+      "Theo dõi các thông số vận hành của máy biến áp, báo cáo ngay Điều độ viên có quyền điều khiển khi có thay đổi.",
+      "Báo cáo lãnh đạo đơn vị để xin tách máy biến áp ra khỏi vận hành.",
+      "Tách ngay máy biến áp ra khỏi vận hành để tránh sự cố cháy nổ.",
+      "Báo cáo ngay với Cấp điều độ có quyền điều khiển để tách máy biến áp."
+    ],
+    "answer": null
+  },
+  {
+    "id": 58,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Trưởng ca nhà máy điện khởi động đen xử lý không đúng theo phương án nào",
+    "options": [
+      "Tự khởi động các tổ máy phát để cung cấp điện cho hệ thống tự dùng của nhà máy điện.",
+      "Xử lý sự cố mất điện toàn nhà máy điện theo Quy trình do đơn vị ban hành.",
+      "Kiểm tra điều kiện cần thiết sẵn sàng đóng điện đường dây, thiết bị điện.",
+      "Báo cáo Điều độ viên có quyền điều khiển để nhận lệnh khởi động đen."
+    ],
+    "answer": null
+  },
+  {
+    "id": 59,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nhân viên vận hành ca sau đến nhận ca có biểu hiện đã uống rượu bia, nhân viên vận hành ca trước chọn hướng xử lý theo phương án nào",
+    "options": [
+      "Vẫn thực hiện thủ tục giao nhận ca, ký giao ca và ra về",
+      "Báo cáo Lãnh đạo trực tiếp để cử nhân viên vận hành khác đến nhận ca",
+      "Tiếp tục trực ca cho đến khi nhân viên vận hành ca sau tỉnh táo",
+      "Thực hiện thủ tục giao nhận ca nếu nhân viên vận hành ca sau vẫn tỉnh táo"
+    ],
+    "answer": null
+  },
+  {
+    "id": 60,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Khi một vài rơ le bảo vệ các thiết bị điện hoặc đường dây được tách ra không cho làm việc do bị hư hỏng và những rơ le bảo vệ còn lại bảo đảm bảo vệ đầy đủ chống mọi dạng sự cố, nhưng không bảo đảm thời gian loại trừ ngắn mạch cho các thiết bị điện và đường dây dẫn điện thì phải xử lý theo phương án nào?",
+    "options": [
+      "Phải cắt điện các thiết bị điện hoặc đường dây đó ra khỏi vận hành.",
+      "Phải đặt bảo vệ tạm thời và được Cấp điều độ có quyền điều khiển cho phép.",
+      "Phải đặt thời gian tác động bảo vệ còn lại theo phiếu chỉnh định rơle do cấp điều độ có quyền điều khiển ban hành.",
+      "Phương án A hoặc B hoặc C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 61,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Điều kiện cần có để thực hiện trong phiếu thao tác thiết bị điện do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi rõ những điều kiện bắt buộc phải có mới được thực hiện thao tác",
+      "Ghi những biện pháp an toàn cần phải thực hiện",
+      "Ghi lại điều kiện do Điều độ viên có quyền điều khiển yêu cầu"
+    ],
+    "answer": null
+  },
+  {
+    "id": 62,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng điện áp lưới điện truyền tải đang ở chế độ cực kỳ khẩn cấp",
+    "options": [
+      "Ngoài dải từ 198 kV đến 242 kV",
+      "Ngoài dải từ 209 kV đến 242 kV",
+      "Trong dải từ 198 kV đến 242 kV",
+      "Phương án B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 63,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Đóng cắt thử máy cắt được thực hiện trong trường hợp nào dưới đây",
+    "options": [
+      "Các dao cách ly hai phía của máy cắt được cắt hoàn toàn và chỉ đóng dao tiếp địa hoặc tiếp địa di động ở một phía của máy cắt.",
+      "Dao cách ly một phía của máy cắt đóng, dao tiếp địa của máy cắt đang cắt.",
+      "Dao cách ly một phía của máy cắt đóng, dao tiếp địa của máy cắt về phía không điện đang mở.",
+      "Đóng dao cách ly hai phía của máy cắt, dao tiếp địa của máy cắt hai phía đang đóng mở."
+    ],
+    "answer": null
+  },
+  {
+    "id": 64,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Sau khi thao tác máy cắt yêu cầu cần phải kiểm tra chỉ thị trạng thái tại chỗ của máy cắt trong trường hợp nào dưới đây",
+    "options": [
+      "Không có thao tác dao cách ly hai phía máy cắt.",
+      "Có thao tác tại chỗ dao cách ly một phía máy cắt.",
+      "Có thao tác dao cách ly hai phía máy cắt bằng điều khiển từ xa.",
+      "Có thao tác dao cách ly một phía máy cắt bằng thao tác từ xa."
+    ],
+    "answer": null
+  },
+  {
+    "id": 65,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định về viết phiếu thao tác bằng tay đúng theo phương án nào",
+    "options": [
+      "Phiếu thao tác được viết trên khổ giấy A4, kích thước và phông chữ theo quy định",
+      "Phiếu thao tác được viết trên khổ giấy A4, kích thước và phông chữ do đơn vị quy định",
+      "Phiếu thao tác được viết trên khổ giấy A4, kích thước và phông chữ do người viết quy định",
+      "Không quy định"
+    ],
+    "answer": null
+  },
+  {
+    "id": 66,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thực hiện lịch sửa chữa bảo dưỡng theo kế hoạch đã được phê duyệt như thế nào?",
+    "options": [
+      "Đơn vị quản lý vận hành chủ động thực hiện theo kế hoạch.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền điều khiển.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền kiểm tra.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền điều khiển, quyền kiểm tra."
+    ],
+    "answer": null
+  },
+  {
+    "id": 67,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định không đúng cho phép kiểm tra trạng thái máy cắt theo chỉ thị của tín hiệu và thông số đo lường tại phòng điều khiển",
+    "options": [
+      "Sau khi thao tác máy cắt, không thao tác dao cách ly hai phía của máy cắt",
+      "Sau khi thao tác máy cắt, việc thao tác dao cách ly hai phía máy cắt được thực hiện bằng điều khiển từ xa",
+      "Thực hiện thao tác xa",
+      "Thao tác trong điều kiện thời tiết xấu"
+    ],
+    "answer": null
+  },
+  {
+    "id": 68,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Nhân viên vận hành NMĐ căn cứ vào đâu để biết được hệ thống đang bị rã lưới toàn bộ hoặc một phần",
+    "options": [
+      "Mất điện toàn bộ nguồn tự dùng xoay chiều chính và dự phòng",
+      "Mất điện toàn bộ thiết bị nhất thứ",
+      "Điều độ viên có quyền điều khiển thông báo về rã lưới",
+      "Thiết bị đóng cắt ngăn đường dây liên kết NMĐ với HTĐ vẫn đóng, nhưng nhà máy vẫn mất toàn bộ điện áp nhất thứ và nguồn tự dùng xoay chiều nhận từ lưới điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 69,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện được phép không thực hiện biểu đồ điện áp theo quy định trong trường hợp nào",
+    "options": [
+      "Nhà máy điện đang ngừng dự phòng toàn bộ các tổ máy.",
+      "Đang thực hiện thao tác khác.",
+      "Hết khả năng điều chỉnh được điện áp theo biểu đồ.",
+      "Đang trong thời gian cao điểm."
+    ],
+    "answer": null
+  },
+  {
+    "id": 70,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nào sau đây không được phép giao nhận ca khi đang xử lý sự cố",
+    "options": [
+      "Sau khi nhân viên vận hành ca sau đồng ý ký nhận ca.",
+      "Khi người giao ca chưa hoàn thành báo cáo sự cố.",
+      "Sau khi đã báo cáo và được lãnh đạo đơn vị cho phép.",
+      "Khi xử lý sự cố xong và hoàn thành tất cả các sự vụ liên quan."
+    ],
+    "answer": null
+  },
+  {
+    "id": 71,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Lệnh chỉ điều độ được truyền đi bằng",
+    "options": [
+      "Lời nói hoặc tín hiệu điều khiển hoặc chữ viết.",
+      "Lời nói hoặc văn bản",
+      "Tín hiệu điều khiển hoặc văn bản",
+      "Lời nói"
+    ],
+    "answer": null
+  },
+  {
+    "id": 72,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thực hiện lịch sửa chữa bảo dưỡng theo kế hoạch đã được phê duyệt như thế nào?",
+    "options": [
+      "Đơn vị quản lý vận hành chủ động thực hiện theo kế hoạch.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền điều khiển.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền kiểm tra.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền điều khiển, quyền kiểm tra."
+    ],
+    "answer": null
+  },
+  {
+    "id": 73,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được tính như thế nào?",
+    "options": [
+      "Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được tính từ khi cấp điều độ có quyền điều khiển bàn giao thiết bị cho Đơn vị quản lý vận hành đến khi được bàn giao trở lại.",
+      "Thời gian sửa chữa, bảo dưỡng lưới điện được tính từ khi cấp điều độ có quyền điều khiển bắt đầu ra lệnh thao tác cắt điện cho đến khi ra lệnh thao tác đóng điện",
+      "Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được tính từ khi cấp điều độ có quyền điều khiển bàn giao thiết bị cho Đơn vị quản lý vận hành đến khi tái lập điện thiết bị trở lại",
+      "Thời gian sửa chữa, bảo dưỡng nguồn điện, lưới điện được xác định theo thời gian mất điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 74,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện xử lý theo phương án nào khi không thể thực hiện được điều chỉnh điện áp theo biểu đồ",
+    "options": [
+      "Báo cáo Điều độ viên cấp trên lý do không thực hiện được.",
+      "Kiến nghị Điều độ viên cấp trên giao biểu đồ khác phù hợp.",
+      "Tự khởi động, hòa lưới tổ máy dự phòng để đáp ứng điều chỉnh điện áp theo biểu đồ.",
+      "Không quy định."
+    ],
+    "answer": null
+  },
+  {
+    "id": 75,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thời điểm thông báo Phương thức vận hành hệ thống điện quốc gia năm tới theo phương án nào",
+    "options": [
+      "Trước ngày 15 tháng 10 hàng năm",
+      "Trước ngày 01 tháng 11 hàng năm",
+      "Trước ngày 15 tháng 11 hàng năm",
+      "Trước ngày 20 tháng 11 hàng năm"
+    ],
+    "answer": null
+  },
+  {
+    "id": 76,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trong trường hợp nào sau đây nhân viên vận hành cấp dưới không thực hiện lệnh điều độ của nhân viên vận hành cấp trên",
+    "options": [
+      "Lệnh điều độ đó làm thay đổi biểu đồ công suất phát, trào lưu công suất của nhà máy, trạm biến áp đã được lập kế hoạch.",
+      "Lệnh điều độ trái với lệnh chỉ đạo của lãnh đạo trực tiếp nhân viên vận hành đơn vị đó.",
+      "Lệnh điều độ làm ảnh hưởng đến kết dây cơ bản của nhà máy, trạm biến áp.",
+      "Lệnh điều độ đó gây nguy hiểm đến tính mạng con người hoặc an toàn của thiết bị."
+    ],
+    "answer": null
+  },
+  {
+    "id": 77,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi tần số hệ thống điện 49,45 Hz kéo dài quá thời gian quy định, Trưởng ca nhà máy điện có nhiệm vụ điều tần cấp II phải thực hiện theo phương án nào",
+    "options": [
+      "Tự tăng công suất tác dụng của tổ máy để đưa tần số về 50 ± 0,5 Hz",
+      "Tự tăng công suất tác dụng của tổ máy để đưa tần số về 49,5 Hz",
+      "Tự động hòa lưới tổ máy phát công suất tác dụng để đưa tần số về 49,5 Hz",
+      "Tự tăng công suất tác dụng của tổ máy để đưa tần số về 49,8 Hz"
+    ],
+    "answer": null
+  },
+  {
+    "id": 78,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp việc thực hiện lệnh điều độ từ nhân viên vận hành cấp trên có thể gây nguy hại đến con người, thiết bị, nhân viên vận hành cấp dưới",
+    "options": [
+      "Có quyền chưa thực hiện nhưng phải báo cáo với nhân viên vận hành cấp trên",
+      "Có quyền từ chối thực hiện",
+      "Có quyền chưa thực hiện nhưng phải báo cáo với lãnh đạo của nhân viên vận hành cấp trên",
+      "Thực hiện không bàn cãi và không phải chịu trách nhiệm"
+    ],
+    "answer": null
+  },
+  {
+    "id": 79,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Nhân viên vận hành nhà máy điện xử lý đầu tiên theo phương án nào khi xác định nhà máy đang nằm trong khu vực bị rã lưới",
+    "options": [
+      "Báo cáo Điều độ viên có quyền điều khiển tình hình nhà máy bị mất điện để nhận lệnh cắt toàn bộ máy cắt",
+      "Báo cáo Lãnh đạo, bộ phận trong đơn vị theo quy định nội bộ",
+      "Cắt tất cả các máy cắt đang ở trạng thái đóng",
+      "Khởi động nguồn điện diesel dự phòng (nếu được trang bị), chuyển đổi hệ thống tự dùng sang nhận từ nguồn điện diesel dự phòng"
+    ],
+    "answer": null
+  },
+  {
+    "id": 80,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Việc cô lập hoặc đưa các rơ le bảo vệ và tự động vào vận hành trở lại chỉ được thực hiện khi có mệnh lệnh cho phép của",
+    "options": [
+      "Điều độ viên cấp điều độ có quyền điều khiển.",
+      "Điều độ viên cấp điều độ có quyền kiểm tra.",
+      "Lãnh đạo đơn vị quản lý vận hành.",
+      "Lãnh đạo cấp điều độ có quyền điều khiển."
+    ],
+    "answer": null
+  },
+  {
+    "id": 81,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Nhân viên vận hành NMĐ căn cứ vào đâu để biết được hệ thống đang bị rã lưới toàn bộ hoặc một phần",
+    "options": [
+      "Mất điện toàn bộ nguồn tự dùng xoay chiều chính và dự phòng",
+      "Mất điện toàn bộ thiết bị nhất thứ",
+      "Điều độ viên có quyền điều khiển thông báo về rã lưới",
+      "Thiết bị đóng cắt ngăn đường dây liên kết NMĐ với HTĐ vẫn đóng, nhưng nhà máy vẫn mất toàn bộ điện áp nhất thứ và nguồn tự dùng xoay chiều nhận từ lưới điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 82,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Trường hợp nhà máy điện khởi động đen xử lý không đúng theo phương án nào",
+    "options": [
+      "Tự khởi động các tổ máy phát để cung cấp điện cho hệ thống tự dùng của nhà máy điện.",
+      "Xử lý sự cố mất điện toàn nhà máy điện theo Quy trình do đơn vị ban hành.",
+      "Kiểm tra điều kiện cần thiết sẵn sàng đóng điện đường dây, thiết bị điện.",
+      "Báo cáo Điều độ viên có quyền điều khiển để nhận lệnh khởi động đen."
+    ],
+    "answer": null
+  },
+  {
+    "id": 83,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Các trường hợp nào dưới đây Trưởng ca phải tách ngay máy biến áp ra khỏi vận hành",
+    "options": [
+      "Mức dầu hạ thấp dưới mức quy định và còn tiếp tục hạ thấp.",
+      "Màu sắc của dầu thay đổi đột ngột.",
+      "Máy biến áp bị quá tải 20%.",
+      "Điện áp vận hành vượt quá 20% so với điện áp định mức của đầu phân áp tương ứng."
+    ],
+    "answer": null
+  },
+  {
+    "id": 84,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Đơn vị quản lý vận hành có trách nhiệm gửi Báo cáo sự cố cho đơn vị quản lý cấp trên trong thời hạn bao nhiêu kể từ khi sự cố xảy ra",
+    "options": [
+      "3 ngày",
+      "1 ngày",
+      "2 ngày",
+      "Sau khi khắc phục sự cố"
+    ],
+    "answer": null
+  },
+  {
+    "id": 85,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Lưu ý trong phiếu thao tác thiết bị điện do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi những thay đổi có thể xảy ra về chế độ vận hành các thiết bị điện khác tại nhà máy",
+      "Ghi những biện pháp an toàn cần phải thực hiện",
+      "Ghi lại lưu ý do Điều độ viên có quyền điều khiển nhắc nhở"
+    ],
+    "answer": null
+  },
+  {
+    "id": 86,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định đúng điều kiện cho phép khép mạch vòng trên hệ thống điện",
+    "options": [
+      "Đồng tần, đồng áp, đồng pha",
+      "Góc lệch pha điện áp không quá 15 độ, chênh lệch điện áp không quá 10%",
+      "Góc lệch pha điện áp không quá 30 độ, chênh lệch điện áp không quá 5%",
+      "Góc lệch pha điện áp không quá 30 độ, chênh lệch điện áp không quá 10%"
+    ],
+    "answer": null
+  },
+  {
+    "id": 87,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Đường dây trên không vận hành ở chế độ đóng điện không tải từ một nguồn hoặc ở chế độ dự phòng cần thực hiện theo phương án nào",
+    "options": [
+      "Không cần phải mở dao cách ly để khi cần có thể đóng lại đường dây được ngay.",
+      "Phải mở dao cách ly phía đường dây của các máy cắt đang ở trạng thái mở.",
+      "Phải mở dao cách ly phía thanh cái của các máy cắt đang ở trạng thái mở.",
+      "Phải mở dao cách ly cả 2 phía của các máy cắt đang ở trạng thái mở."
+    ],
+    "answer": null
+  },
+  {
+    "id": 88,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Điều kiện cần có để thực hiện trong phiếu thao tác thiết bị điện do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi rõ những điều kiện bắt buộc phải có mới được thực hiện thao tác",
+      "Ghi những biện pháp an toàn cần phải thực hiện",
+      "Ghi lại điều kiện do Điều độ viên có quyền điều khiển yêu cầu"
+    ],
+    "answer": null
+  },
+  {
+    "id": 89,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Giao nhận, nghiệm thu đường dây, thiết bị điện trước khi thao tác trong phiếu thao tác cắt điện thiết bị điện để sửa chữa do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi tên Họ tên, Nội dung giao nhận với cấp điều độ có quyền điều khiển ra lệnh thao tác",
+      "Ghi tên các đơn vị đăng ký công tác trên thiết bị điện và đã được cấp phiếu công tác",
+      "Ghi tên Trực ban đơn vị quản lý vận hành đề nghị thao tác"
+    ],
+    "answer": null
+  },
+  {
+    "id": 90,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Không cho phép dùng dao cách ly tiến hành các thao tác có điện trong trường hợp nào sau đây",
+    "options": [
+      "Đóng và cắt điểm trung tính của các máy biến áp",
+      "Đóng và cắt không tải thanh cái hoặc đoạn thanh dẫn",
+      "Đóng và cắt dao cách ly nối tắt thiết bị điện",
+      "Đóng và cắt không tải máy biến áp, máy biến dòng"
+    ],
+    "answer": null
+  },
+  {
+    "id": 91,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định trình tự thao tác dao cách ly hai phía máy cắt trong trường hợp một phía có điện áp, một phía không có điện áp",
+    "options": [
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía có điện áp trước, mở dao cách ly phía không có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía không có điện áp trước, đóng dao cách ly phía có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía không có điện áp trước, mở dao cách ly phía có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía có điện áp trước, đóng dao cách ly phía không có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía có điện áp trước, mở dao cách ly phía không có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía có điện áp trước, đóng dao cách ly phía không có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía đường dây trước, mở dao cách ly phía thanh cái sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía thanh cái trước, đóng dao cách ly phía đường dây sau"
+    ],
+    "answer": null
+  },
+  {
+    "id": 92,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định về viết bổ sung các bước thao tác có liên quan đến thao tác mạch nhị thứ đúng theo phương án nào",
+    "options": [
+      "Nhân viên vận hành tại nhà máy phải lập phiếu thao tác mới, ghi thêm các thao tác bổ sung các thao tác mạch nhị thứ dưới các hạng mục thao tác nhất thứ theo thứ tự hạng mục thao tác nhất thứ của phiếu thao tác do đơn vị có thẩm quyền cấp",
+      "Nhân viên vận hành tại nhà máy ghi thêm các thao tác bổ sung các thao tác mạch nhị thứ dưới các hạng mục thao tác nhất thứ tại phiếu thao tác do Cấp điều độ có quyền điều khiển cấp",
+      "Nhân viên vận hành tại nhà máy yêu cầu đơn vị cấp phiếu phải lập phiếu thao tác mới và ghi thêm các thao tác bổ sung các thao tác mạch nhị thứ",
+      "Đơn vị quản lý vận hành quy định"
+    ],
+    "answer": null
+  },
+  {
+    "id": 93,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định không đúng thời gian phiếu thao tác theo kế hoạch phải được chuyển tới nhân viên vận hành trực tiếp thao tác trước thời gian dự kiến bắt đầu thao tác",
+    "options": [
+      "120 phút",
+      "90 phút",
+      "45 phút",
+      "30 phút"
+    ],
+    "answer": null
+  },
+  {
+    "id": 94,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Trường hợp các tổ máy nhiệt điện, tuabin khí có chung đuôi hơi có thời điểm vận hành chu trình đơn, vận hành với nhiên liệu hỗn hợp hoặc không phải nhiên liệu chính theo yêu cầu của Đơn vị vận hành hệ thống điện và thị trường điện để đảm bảo an ninh hệ thống điện thì trạng thái tham gia thị trường điện trong các chu kỳ giao dịch đó như thế nào?",
+    "options": [
+      "Nhà máy gián tiếp tham gia thị trường điện;",
+      "Nhà máy trực tiếp tham gia thị trường điện;",
+      "Tổ máy vận hành chu trình đơn, vận hành với nhiên liệu hỗn hợp hoặc không phải nhiên liệu chính gián tiếp tham gia thị trường điện.",
+      ""
+    ],
+    "answer": null
+  },
+  {
+    "id": 95,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Các thông tin về cảnh báo thừa công suất trong ngày tới, bao gồm",
+    "options": [
+      "Các chu kỳ giao dịch dự kiến thừa công suất",
+      "Các tổ máy dự kiến sẽ dừng phát điện",
+      "Các chu kỳ giao dịch thừa công suất và tổng lượng công suất thừa",
+      "Cả a và b"
+    ],
+    "answer": null
+  },
+  {
+    "id": 96,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  các nhà máy thủy điện trong thị trường điện được phân thành mấy loại?",
+    "options": [
+      "4",
+      "3",
+      "2",
+      "1"
+    ],
+    "answer": null
+  },
+  {
+    "id": 97,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  khi nào Đơn vị vận hành hệ thống điện và thị trường điện có trách nhiệm lập và phát hành bảng kê thanh toán thị trường điện cho chu kỳ thanh toán?",
+    "options": [
+      "Trước M+2",
+      "Trước M+4",
+      "Trước M+6",
+      "Trước M+10"
+    ],
+    "answer": null
+  },
+  {
+    "id": 98,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Đơn vị nào có trách nhiệm tính toán khoản thanh toán cho Đơn vị phát điện cung cấp dịch vụ dự phòng quay?",
+    "options": [
+      "Cục Điều tiết Điện lực;",
+      "Bộ công thương;",
+      "Đơn vị vận hành hệ thống điện và thị trường điện;",
+      "Theo hợp đồng cung cấp dịch vụ phụ trợ theo mẫu do Bộ Công Thương ban hành."
+    ],
+    "answer": null
+  },
+  {
+    "id": 99,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Giá điện năng thị trường được xác định ở khung thời gian tính toán nào?",
+    "options": [
+      "Trước 16h00 hàng ngày, Đơn vị vận hành hệ thống điện và thị trường điện công bố giá điện năng thị trường cho từng chu kỳ giao dịch của ngày tới",
+      "Đơn vị vận hành hệ thống điện và thị trường điện có công bố giá điện năng thị trường giờ tới trước 15 phút trước chu kỳ giao dịch",
+      "Trước 9h00 ngày D+2 (2 ngày sau ngày vận hành), Đơn vị vận hành hệ thống điện và thị trường điện công bố giá điện năng thị trường của từng chu kỳ giao dịch trong ngày D",
+      ""
+    ],
+    "answer": null
+  },
+  {
+    "id": 100,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Sản lượng theo lệnh điều độ (Qđd) của nhà máy được xác định từ",
+    "options": [
+      "Công suất ra lệnh điều độ và tốc độ tăng giảm tải",
+      "Công suất hoàn thành lệnh của trưởng ca",
+      "Sản lượng đo đếm từ công tơ",
+      ""
+    ],
+    "answer": null
+  },
+  {
+    "id": 101,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Các phát biểu sau, phát biểu nào không đúng với sản lượng sai khác so với lệnh điều độ (Qđd) của nhà máy vẫn mất toàn bộ điện áp nhất thứ và nguồn tự dùng xoay chiều nhận từ lưới điện",
+    "options": [
+      "Bằng   khi Qmq > Qđd và khác   khi Qmq <= \"\" p=\"\" style=\"box-sizing  border-box;\">",
+      "Sai số Qđd cho phép đối với tổ máy công suất đặt dưới 100 MW là 5%",
+      "Sai số Qđd cho phép đối với tổ máy công suất đặt từ 100 MW trở lên là 3%",
+      ""
+    ],
+    "answer": null
+  },
+  {
+    "id": 102,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Lượng công suất để tính thanh toán công suất thị trường được tính toán",
+    "options": [
+      "Lượng công suất thực tại đầu cực tổ máy trong chu kỳ giao dịch i",
+      "Lượng công suất của tổ máy trong chu kỳ giao dịch i được quy đổi về điểm đo đếm",
+      "Công suất phát lớn nhất của tổ máy trong chu kỳ i theo lệnh điều độ DIM",
+      "Sản lượng công bố của tổ máy theo công bố công suất ngày tới"
+    ],
+    "answer": null
+  },
+  {
+    "id": 103,
+    "question": "Theo Thông tư quy định thị trường phát điện cạnh tranh  Lập lịch có ràng buộc",
+    "options": [
+      "là việc sắp xếp thứ tự huy động các tổ máy phát điện theo phương pháp tối đa chi phí mua điện có xét đến ràng buộc kỹ thuật trong hệ thống điện",
+      "là việc sắp xếp thứ tự huy động các tổ máy phát điện theo phương pháp tối thiểu chi phí mua điện có xét đến ràng buộc truyền tải trong hệ thống điện",
+      "là việc sắp xếp thứ tự huy động các tổ máy phát điện theo phương pháp tối thiểu chi phí mua điện có xét đến ràng buộc kỹ thuật trong hệ thống điện",
+      "là việc sắp xếp thứ tự huy động các tổ máy phát điện theo phương pháp tối đa chi phí mua điện có xét đến ràng buộc truyền tải trong hệ thống điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 104,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng điện áp lưới điện truyền tải đang ở chế độ cực kỳ khẩn cấp",
+    "options": [
+      "Ngoài dải từ 198 kV đến 242 kV",
+      "Ngoài dải từ 209 kV đến 242 kV",
+      "Trong dải từ 198 kV đến 242 kV",
+      "Phương án B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 105,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Trường hợp phát hiện thiết bị đang vận hành có nguy cơ đe dọa đến tính mạng con người và an toàn thiết bị, nhân viên vận hành của các đơn vị quản lý vận hành thiết bị đó có quyền",
+    "options": [
+      "Báo cáo ngay cho Lãnh đạo đơn vị để tách thiết bị ra khỏi vận hành.",
+      "Báo cáo ngay cho Cấp điều độ có quyền điều khiển để ra lệnh điều độ.",
+      "Tách khẩn cấp thiết bị ra khỏi hệ thống điện và không phải chịu trách nhiệm về quyết định của mình.",
+      "Tách khẩn cấp thiết bị ra khỏi hệ thống điện và phải chịu hoàn toàn trách nhiệm về quyết định của mình."
+    ],
+    "answer": null
+  },
+  {
+    "id": 106,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Khi cần điều chỉnh thời gian kết thúc bảo dưỡng, sửa chữa muộn hơn từ 04 đến 06 ngày so với kế hoạch đã duyệt, Đơn vị phát điện cần gửi phiếu đăng ký bảo dưỡng, sửa chữa lưới điện điều chỉnh tới Cấp điều độ",
+    "options": [
+      "Trước 48 giờ so với thời gian kết thúc bảo dưỡng, sửa chữa đã được duyệt.",
+      "Trước 24 giờ so với thời gian kết thúc bảo dưỡng, sửa chữa đã được duyệt.",
+      "Trước 10 giờ so với thời gian kết thúc bảo dưỡng, sửa chữa đã được duyệt.",
+      "Ngay sau khi xuất hiện các yếu tố dẫn đến kéo dài thời gian kết thúc bảo dưỡng, sửa chữa."
+    ],
+    "answer": null
+  },
+  {
+    "id": 107,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Đơn vị nào có trách nhiệm xem xét giải quyết việc khôi phục đầu nối thiết bị của khách hàng sử dụng lưới điện truyền tải khi nguyên nhân dẫn đến tách đấu nối đã được loại trừ và hậu quả (nếu có) đã được khắc phục",
+    "options": [
+      "Đơn vị truyền tải điện.",
+      "Đơn vị vận hành hệ thống điện và thị trường điện.",
+      "Tập đoàn Điện lực Việt Nam.",
+      "Cục Điều tiết điện lực."
+    ],
+    "answer": null
+  },
+  {
+    "id": 108,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Yêu cầu khả năng phát và nhận công suất phản kháng của tổ máy phát điện theo phương án nào",
+    "options": [
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,85; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,90",
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,85; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,95",
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,9; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,9",
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,85; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,95"
+    ],
+    "answer": null
+  },
+  {
+    "id": 109,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện thực hiện như thế nào là đúng quy trình trong trường hợp khẩn cấp không thể trì hoãn được?",
+    "options": [
+      "Trưởng ca báo cáo ngay cho nhân viên vận hành cấp trên có quyền điều khiển sau khi xử lý sự cố.",
+      "Chỉ huy thao tác thiết bị theo các quy trình liên quan và phải chịu trách nhiệm về thao tác của mình.",
+      "Sau khi xử lý xong, Trưởng ca phải thông báo cho nhân viên vận hành có quyền nắm thông tin các thiết bị bị sự cố.",
+      "Phương án A, B, C."
+    ],
+    "answer": null
+  },
+  {
+    "id": 110,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Cấp Lãnh đạo trực tiếp của nhân viên vận hành không có quyền nào dưới đây",
+    "options": [
+      "Thay đổi lệnh điều độ của nhân viên vận hành cấp trên.",
+      "Kiến nghị với Lãnh đạo của nhân viên vận hành cấp trên về lệnh điều độ.",
+      "Thay đổi nhân viên vận hành của mình nếu xét thấy không đủ năng lực vận hành.",
+      "Có quyền ra lệnh cho nhân viên vận hành dưới quyền mình nhưng lệnh đó không được trái với lệnh của nhân viên vận hành cấp trên và quy chuẩn, quy trình, quy định hiện hành."
+    ],
+    "answer": null
+  },
+  {
+    "id": 111,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nội dung nào dưới đây không phải là lệnh điều độ",
+    "options": [
+      "Chuyển nấc máy biến áp",
+      "Đóng cắt tụ bù để điều chỉnh điện áp",
+      "Chỉnh định lại rơ le bảo vệ và tự động",
+      "Yêu cầu gửi báo cáo nhanh sự cố"
+    ],
+    "answer": null
+  },
+  {
+    "id": 112,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nhân viên vận hành tham gia trực tiếp công tác điều độ, vận hành hệ thống điện phải được định kỳ huấn luyện, diễn tập xử lý sự cố, diễn tập khởi động đen và khôi phục hệ thống điện quốc gia",
+    "options": [
+      "Ít nhất 03 tháng 1 lần",
+      "Ít nhất 12 tháng 1 lần",
+      "Ít nhất 18 tháng 1 lần",
+      "Không quy định số lần"
+    ],
+    "answer": null
+  },
+  {
+    "id": 113,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi có đầy đủ lý do cho thấy nhân viên vận hành của mình không đủ năng lực vận hành trong ca trực, Lãnh đạo trực tiếp có thể",
+    "options": [
+      "Đình chỉ tạm thời công tác của nhân viên vận hành trong ca trực đó.",
+      "Tự mình đảm nhiệm trách nhiệm trực ca vận hành.",
+      "Thông báo cho nhân viên vận hành cấp trên biết.",
+      "Cử nhân viên vận hành khác thay thế."
+    ],
+    "answer": null
+  },
+  {
+    "id": 114,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Phương thức vận hành hệ thống điện quốc gia tháng tới do cơ quan nào phê duyệt",
+    "options": [
+      "Bộ Công Thương",
+      "Cục Điều tiết điện lực",
+      "Tập đoàn Điện lực Việt Nam",
+      "Cấp điều độ quốc gia"
+    ],
+    "answer": null
+  },
+  {
+    "id": 115,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nhân viên vận hành cấp trên không có quyền nào",
+    "options": [
+      "Cho phép thay đổi nhân viên vận hành cấp dưới",
+      "Đề nghị lãnh đạo trực tiếp của nhân viên vận hành cấp dưới thay thế nhân viên vận hành này",
+      "Ra lệnh chỉ huy vận hành cho nhân viên vận hành cấp dưới",
+      "Yêu cầu nhân viên vận hành báo cáo đầy đủ tình hình vận hành"
+    ],
+    "answer": null
+  },
+  {
+    "id": 116,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi tần số hệ thống điện 50,55 Hz kéo dài quá thời gian quy định, Trưởng ca nhà máy điện có nhiệm vụ điều tần cấp II phải thực hiện theo phương án nào",
+    "options": [
+      "Tự giảm công suất tác dụng của tổ máy để đưa tần số về 50 ± 0,5 Hz",
+      "Tự giảm công suất tác dụng của tổ máy để đưa tần số về 50,5 Hz",
+      "Giữ nguyên công suất tác dụng của tổ máy, báo cáo ngay cho cấp điều độ có quyền điều khiển biết",
+      "Tự giảm công suất tác dụng của tổ máy để đưa tần số về 50,2 Hz"
+    ],
+    "answer": null
+  },
+  {
+    "id": 117,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp việc thực hiện lệnh điều độ từ nhân viên vận hành cấp trên có thể gây nguy hại đến con người, thiết bị, nhân viên vận hành cấp dưới",
+    "options": [
+      "Có quyền chưa thực hiện nhưng phải báo cáo với nhân viên vận hành cấp trên",
+      "Có quyền từ chối thực hiện",
+      "Có quyền chưa thực hiện nhưng phải báo cáo với lãnh đạo của nhân viên vận hành cấp trên",
+      "Thực hiện không bàn cãi và không phải chịu trách nhiệm"
+    ],
+    "answer": null
+  },
+  {
+    "id": 118,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Mức giới hạn truyền tải đường dây trên không được xác định không đúng theo giới hạn nào",
+    "options": [
+      "Giới hạn phát nhiệt của dây dẫn hoặc thiết bị điện nối tiếp trên đường dây.",
+      "Giới hạn góc truyền tải theo điều kiện ổn định.",
+      "Giới hạn theo điện áp thấp -10 % điện áp danh định.",
+      "Giới hạn dòng điện theo loại dây dẫn do Đơn vị quản lý vận hành quy định."
+    ],
+    "answer": null
+  },
+  {
+    "id": 119,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Phương án nào quy định đúng trách nhiệm ngăn ngừa sự cố lan rộng",
+    "options": [
+      "Đơn vị quản lý vận hành",
+      "Cấp điều độ có quyền điều khiển",
+      "Nhân viên vận hành",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 120,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Trưởng ca nhà máy điện khởi động đen xử lý không đúng theo phương án nào",
+    "options": [
+      "Tự khởi động các tổ máy phát để cung cấp điện cho hệ thống tự dùng của nhà máy điện.",
+      "Xử lý sự cố mất điện toàn nhà máy điện theo Quy trình do đơn vị ban hành.",
+      "Kiểm tra điều kiện cần thiết sẵn sàng đóng điện đường dây, thiết bị điện.",
+      "Báo cáo Điều độ viên có quyền điều khiển để nhận lệnh khởi động đen."
+    ],
+    "answer": null
+  },
+  {
+    "id": 121,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Trình tự thao tác mở dao cách ly hai phía máy cắt khi một phía có điện áp, một phía không có điện áp",
+    "options": [
+      "Mở dao cách ly phía có điện áp sau",
+      "Mở dao cách ly phía có điện áp trước",
+      "Mở dao cách ly phía nào trước cũng được",
+      "Mở dao cách ly phía không có điện áp sau"
+    ],
+    "answer": null
+  },
+  {
+    "id": 122,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Hạn chế thực hiện thao tác vào thời điểm nào ?",
+    "options": [
+      "Giờ có nhu cầu sử dụng điện cao",
+      "Chuẩn bị giao nhận ca",
+      "Đang xử lý sự cố",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 123,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng người nhận lệnh không cần phải xác định rõ họ tên, chức danh người ra lệnh",
+    "options": [
+      "Thao tác thay đổi công suất tổ máy",
+      "Thao tác thay đổi điện áp máy phát",
+      "Thao tác thực hiện theo phiếu thao tác do nhà máy lập",
+      "Không cho phép"
+    ],
+    "answer": null
+  },
+  {
+    "id": 124,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Giao nhận, nghiệm thu đường dây, thiết bị điện trước khi thao tác trong phiếu thao tác cắt điện thiết bị điện để sửa chữa do nhà máy lập phiếu thao tác ghi đúng theo phương án nào",
+    "options": [
+      "Để trống, không cần ghi",
+      "Ghi tên Họ tên, Nội dung giao nhận với cấp điều độ có quyền điều khiển ra lệnh thao tác",
+      "Ghi tên các đơn vị đăng ký công tác trên thiết bị điện và đã được cấp phiếu công tác",
+      "Ghi tên Trực ban đơn vị quản lý vận hành đề nghị thao tác"
+    ],
+    "answer": null
+  },
+  {
+    "id": 125,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Hình thức chuyển phiếu thao tác giữa các đơn vị tham gia thao tác thực hiện không cho phép theo hình thức nào",
+    "options": [
+      "Chuyển qua fax",
+      "Chuyển qua thư điện tử",
+      "Chuyển trực tiếp",
+      "Chuyển qua tin nhắn"
+    ],
+    "answer": null
+  },
+  {
+    "id": 126,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định trình tự thao tác dao cách ly hai phía máy cắt trong trường hợp một phía có điện áp, một phía không có điện áp",
+    "options": [
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía có điện áp trước, mở dao cách ly phía không có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía không có điện áp trước, đóng dao cách ly phía có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía không có điện áp trước, mở dao cách ly phía có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía có điện áp trước, đóng dao cách ly phía không có điện áp có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía có điện áp trước, mở dao cách ly phía không có điện áp sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía có điện áp trước, đóng dao cách ly phía không có điện áp sau",
+      "Khi thao tác mở dao cách ly  Mở dao cách ly phía đường dây trước, mở dao cách ly phía thanh cái sau; Khi thao tác đóng dao cách ly  Đóng dao cách ly phía thanh cái trước, đóng dao cách ly phía đường dây sau"
+    ],
+    "answer": null
+  },
+  {
+    "id": 127,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phiếu thao tác không được hủy trong trường hợp nào",
+    "options": [
+      "Thao tác có xảy ra sự cố hoặc tai nạn",
+      "Thao tác đóng điện công trình mới",
+      "Thao tác xử lý sự cố",
+      "Không quy định"
+    ],
+    "answer": null
+  },
+  {
+    "id": 128,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định đối với trường hợp khi phải cắt dao tiếp địa cố định mà vẫn có đội công tác trên đường dây",
+    "options": [
+      "Phải đặt tiếp địa di động thay thế trước khi cắt các dao tiếp địa",
+      "Phải đóng tiếp địa khác hoặc đặt tiếp địa di động thay thế trước khi cắt các dao tiếp địa",
+      "Phải đóng tiếp địa khác hoặc đặt tiếp địa di động thay thế sau khi đã cắt các dao tiếp địa",
+      "Phải đặt tiếp địa di động thay thế sau khi đã cắt các dao tiếp địa"
+    ],
+    "answer": null
+  },
+  {
+    "id": 129,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Ghi tên Người giám sát trong phiếu thao tác thiết bị điện do nhà máy lập phiếu thao tác và thực hiện tại phòng điều khiển nhà máy đúng theo phương án nào",
+    "options": [
+      "Ghi họ và tên Trưởng ca đương ca",
+      "Ghi họ và tên Phó GĐ nhà máy",
+      "Ghi họ và tên Quản đốc",
+      "Ghi họ và tên Điều độ viên ra lệnh trực tiếp"
+    ],
+    "answer": null
+  },
+  {
+    "id": 130,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định trách nhiệm của Nhân viên vận hành trực ban trung gian khi truyền lệnh",
+    "options": [
+      "Phải ghi âm, ghi chép lệnh đầy đủ vào sổ và có trách nhiệm chuyển ngay lệnh thao tác đến đúng người nhận lệnh",
+      "Phải có trách nhiệm chuyển ngay lệnh thao tác đến đúng người nhận lệnh. Trường hợp nhân viên vận hành trực ban trung gian không liên lạc được với người nhận lệnh, phải báo lại ngay cho người ra lệnh biết",
+      "Phải ghi âm, ghi chép lệnh đầy đủ vào sổ và có trách nhiệm chuyển ngay lệnh thao tác đến đúng người nhận lệnh. Trường hợp nhân viên vận hành trực ban trung gian không liên lạc được với người nhận lệnh, phải báo lại ngay cho người ra lệnh biết",
+      "Không quy định"
+    ],
+    "answer": null
+  },
+  {
+    "id": 131,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng về việc viết và duyệt phiếu thao tác theo kế hoạch tại nhà máy điện",
+    "options": [
+      "Người viết phiếu là nhân viên vận hành, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy; Quản đốc, Phó quản đốc phân xưởng vận hành.",
+      "Người viết phiếu là nhân viên vận hành, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy; Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện hoặc người được ủy quyền.",
+      "Người viết phiếu là nhân viên vận hành hoặc nhân viên được giao nhiệm vụ viết phiếu thao tác, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy; Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện hoặc người được ủy quyền.",
+      "Người viết phiếu là nhân viên vận hành hoặc nhân viên được giao nhiệm vụ viết phiếu thao tác, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy; Quản đốc, Phó quản đốc phân xưởng vận hành"
+    ],
+    "answer": null
+  },
+  {
+    "id": 132,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng về việc viết và duyệt phiếu thao tác đột xuất tại nhà máy điện",
+    "options": [
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy điện.",
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện.",
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện, Trưởng ca, Trưởng kíp.",
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy; Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện; Trưởng ca, Trưởng kíp."
+    ],
+    "answer": null
+  },
+  {
+    "id": 133,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Trong trường hợp can thiệp vào thị trường điện, đơn vị phát điện được thanh toán",
+    "options": [
+      "Thanh toán hoàn toàn theo giá hợp đồng",
+      "Thanh toán theo giá hợp đồng trong trường hợp can thiệp lớn hơn  h",
+      "Thanh toán bình thường trong trường hợp can thiệp nhỏ hơn  h",
+      "Phương án B và C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 134,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Trường hợp nhà máy có tổ máy phát điện thí nghiệm thì sản lượng phát của nhà máy trong các chu kỳ có thí nghiệm được thanh toán như thế nào?",
+    "options": [
+      "Theo giá hợp đồng mua bán điện đã ký giữa Đơn vị mua buôn duy nhất và Đơn vị phát điện;",
+      "Không được thanh toán.",
+      "Theo giá điện năng thị trường.",
+      ""
+    ],
+    "answer": null
+  },
+  {
+    "id": 135,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Các tổ máy được lập lịch nhận giá công suất thị trường, trừ trường hợp",
+    "options": [
+      "Các tổ máy khởi động chậm đã ngừng dự phòng",
+      "Các tổ máy đã ngừng sự cố",
+      "Các tổ máy ngừng do thừa nguồn",
+      "Phương án A và B"
+    ],
+    "answer": null
+  },
+  {
+    "id": 136,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Lịch huy động giờ tới được đơn vị vận hành hệ thống điện và thị trường điện lập theo phương pháp nào?",
+    "options": [
+      "Phương pháp lập lịch có ràng buộc",
+      "Phương pháp lập lịch không ràng buộc",
+      "Phương pháp khác",
+      "Đáp án A và B"
+    ],
+    "answer": null
+  },
+  {
+    "id": 137,
+    "question": "Theo Thông tư quy định thị trường phát điện cạnh tranh  Trước bao nhiêu lâu kể từ thời điểm chậm nhất phải tham gia thị trường điện theo quy định, Đơn vị phát điện có trách nhiệm hoàn thiện hồ sơ đăng ký tham gia thị trường điện?",
+    "options": [
+      "1 tháng",
+      "2 tháng",
+      "3 tháng",
+      "4 tháng"
+    ],
+    "answer": null
+  },
+  {
+    "id": 138,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Tổ máy thủy điện được huy động do điều kiện ràng buộc phải phát và có giá chào cao hơn giá trần thị trường (SMP cap) hoặc được huy động công suất với dải chào giá cao hơn SMP cap thì phần sản lượng phát tương ứng được thanh toán với giá nào?",
+    "options": [
+      "Giá hợp đồng (Pc)",
+      "SMP cap",
+      "Giá block công suất tổ máy được huy động",
+      "Giá của tổ máy nhiệt điện đắt nhất được thanh toán trong chu kỳ giao dịch đó"
+    ],
+    "answer": null
+  },
+  {
+    "id": 139,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Khung thời gian quy định gửi bản chào giá sửa đổi (bản chào giờ)?",
+    "options": [
+      "Trước chu kỳ giao dịch",
+      "Trước  30p chu kỳ giao dịch",
+      "Trước  45p chu kỳ giao dịch",
+      "Trước  60p chu kỳ giao dịch"
+    ],
+    "answer": null
+  },
+  {
+    "id": 140,
+    "question": "Theo Thông tư quy định thị trường phát điện cạnh tranh  Đơn vị mua buôn duy nhất",
+    "options": [
+      "là đơn vị mua điện duy nhất trong thị trường điện, có chức năng mua toàn bộ điện năng qua thị trường điện và qua hợp đồng mua bán điện",
+      "là đơn vị mua điện duy nhất trong thị trường điện, có chức năng mua một phần điện năng qua thị trường điện và qua hợp đồng mua bán điện",
+      "là đơn vị mua điện duy nhất trong thị trường điện, có chức năng mua một phần điện năng qua thị trường điện và qua hợp đồng mua bán điện và đơn vị chào giá thay cho các nhà máy điện BOT và SMHP",
+      "là đơn vị mua buôn điện từ tất cả các đơn vị phát điện trong hệ thống điện Việt Nam"
+    ],
+    "answer": null
+  },
+  {
+    "id": 141,
+    "question": "Theo Văn bản pháp luật quy định thị trường điện  Nhược điểm của mô hình thị trường điện một người mua",
+    "options": [
+      "(i) Cạnh tranh ban đầu bị hạn chế. (ii) Đòi hỏi cơ quan mua duy nhất có vị thế tín dụng mạnh. (iii) Các công ty phân phối không có cơ hội lựa chọn đối tác cung cấp điện. (iv) Cắt giảm các chi phí cung cấp điện sẽ bị hạn chế.",
+      "(i) Thị trường có các thay đổi lớn. (ii) Các khách hàng vừa và nhỏ có thể không thu được lợi ích từ thị trường. (iii) Xây dựng và vận hành thị trường này sẽ tốn kém và phức tạp.",
+      "(i) Các khách hàng vừa và nhỏ sẽ mất nhiều thời gian hơn để hiện thực hóa tiết kiệm chi phí và hiệu năng thị trường. (ii) Cần đầu tư nhiều hơn về cơ sở hạ tầng. (iii) Phát sinh các chi phí bổ sung. (iv) Yêu cầu thông tin tới khách hàng rộng rãi.",
+      "Phương án A, B, C."
+    ],
+    "answer": null
+  },
+  {
+    "id": 142,
+    "question": "Theo thông tư Quy định vận hành thị trường phát điện cạnh tranh  Các nhà máy điện sẽ được điều độ, vận hành theo các nguyên tắc nào?",
+    "options": [
+      "Đảm bảo hệ thống vận hành an toàn, ổn định, tin cậy với chi phí mua điện cho toàn hệ thống thấp nhất;",
+      "Đảm bảo thực hiện các thoả thuận về sản lượng trong các hợp đồng xuất khẩu, nhập khẩu điện, hợp đồng mua bán điện của các nhà máy điện BOT và các hợp đồng mua bán điện có cam kết sản lượng của các nhà máy điện khác;",
+      "Cả a và b.",
+      ""
+    ],
+    "answer": null
+  },
+  {
+    "id": 143,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng tiêu chuẩn điện áp thanh cái trên lưới điện 110 kV ở chế độ vận hành bình thường",
+    "options": [
+      "Từ 104 kV đến 121 kV",
+      "Từ 99 kV đến 121 kV",
+      "Từ 104 kV đến 115 kV",
+      "Từ 99 kV đến 115 kV"
+    ],
+    "answer": null
+  },
+  {
+    "id": 144,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng điện áp lưới điện truyền tải đang ở chế độ khẩn cấp",
+    "options": [
+      "Ngoài dải từ 198 kV đến 242 kV",
+      "Ngoài dải từ 209 kV đến 242 kV",
+      "Trong dải từ 198 kV đến 242 kV",
+      "Phương án B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 145,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng tiêu chuẩn điện áp thanh cái trên lưới điện 110 kV ở chế độ sự cố đơn lẻ",
+    "options": [
+      "Từ 104 kV đến 121 kV",
+      "Từ 99 kV đến 121 kV",
+      "Từ 104 kV đến 125 kV",
+      "Từ 99 kV đến 115 kV"
+    ],
+    "answer": null
+  },
+  {
+    "id": 146,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Khi điện áp đầu cực máy phát điện nằm trong khoảng từ 80÷120% điện áp định mức và tần số hệ thống nằm trong dải từ 47÷52 Hz, hệ thống kích từ máy phát điện có công suất đặt trên 30 MW phải có khả năng nâng được dòng điện và điện áp kích từ tới các giá trị",
+    "options": [
+      "1,8 lần định mức trong ít nhất hai mươi (20) giây đối với thủy điện và 2,0 lần định mức trong ít nhất ba mươi (30) giây đối với nhiệt điện.",
+      "1,6 lần định mức trong ít nhất hai mươi (20) giây đối với thủy điện và 2,0 lần định mức trong ít nhất ba mươi (30) giây đối với nhiệt điện.",
+      "1,8 lần định mức trong ít nhất hai mươi (10) giây đối với thủy điện và 2,0 lần định mức trong ít nhất ba mươi (20) giây đối với nhiệt điện.",
+      "2,0 lần định mức trong ít nhất ba mươi (20) giây đối với thủy điện và 3,0 lần định mức trong ít nhất hai mươi (30) giây đối với nhiệt điện."
+    ],
+    "answer": null
+  },
+  {
+    "id": 147,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng mức mang tải của các đường dây và trạm biến áp chính trong lưới điện truyền tải vận hành ở chế độ khẩn cấp",
+    "options": [
+      "Từ 100% đến 110% giá trị định mức",
+      "Trên 100% đến dưới 110% giá trị định mức",
+      "Sự cố đường dây và máy biến áp dẫn đến quá tải trên 110% giá trị định mức phần tử khác",
+      "Phương án B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 148,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng mức mang tải của các đường dây và trạm biến áp chính trong lưới điện truyền tải vận hành ở chế độ cực kỳ khẩn cấp",
+    "options": [
+      "Trên 110% giá trị định mức và sự cố có thể dẫn đến rã lưới",
+      "Trên 110% giá trị định mức",
+      "Sự cố đường dây và máy biến áp dẫn đến quá tải trên 110% giá trị định mức phần tử khác",
+      "Phương án B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 149,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Nhân viên vận hành NMĐ căn cứ vào đâu để biết được hệ thống đang bị rã lưới toàn bộ hoặc một phần",
+    "options": [
+      "Mất điện toàn bộ nguồn tự dùng xoay chiều chính và dự phòng",
+      "Mất điện toàn bộ thiết bị nhất thứ",
+      "Điều độ viên có quyền điều khiển thông báo về rã lưới",
+      "Thiết bị đóng cắt ngắn đường dây liên kết NMĐ với HTĐ vẫn đóng, nhưng nhà máy vẫn mất toàn bộ điện áp nhất thứ và nguồn tự dùng xoay chiều nhận từ lưới điện"
+    ],
+    "answer": null
+  },
+  {
+    "id": 150,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Yêu cầu khả năng phát và nhận công suất phản kháng của tổ máy phát điện theo phương án nào",
+    "options": [
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,85; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,90",
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,9; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,9",
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,9; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,95",
+      "Chế độ phát công suất phản kháng tối đa tương ứng với hệ số công suất 0,85; Chế độ nhận công suất phản kháng tối đa tương ứng với hệ số công suất 0,95"
+    ],
+    "answer": null
+  },
+  {
+    "id": 151,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng về việc viết và duyệt phiếu thao tác đột xuất tại trung tâm điều khiển",
+    "options": [
+      "Người viết phiếu là nhân viên vận hành trung tâm điều khiển, người duyệt phiếu là Trưởng, Phó trung tâm điều khiển.",
+      "Người viết phiếu là nhân viên vận hành trung tâm điều khiển, người duyệt phiếu là Trưởng kíp.",
+      "Người viết phiếu là nhân viên vận hành trung tâm điều khiển, người duyệt phiếu là Trưởng, Phó trung tâm điều khiển; Trưởng ca, Trưởng kíp.",
+      "Người viết phiếu là nhân viên vận hành trung tâm điều khiển, người duyệt phiếu là Trưởng ca, Trưởng kíp."
+    ],
+    "answer": null
+  },
+  {
+    "id": 152,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Trách nhiệm khắc phục khiếm khuyết của trang thiết bị rơ le bảo vệ và tự động trong trường hợp tác động sai hoặc từ chối tác động",
+    "options": [
+      "Đơn vị quản lý vận hành",
+      "Cấp điều độ có quyền điều khiển",
+      "Nhân viên vận hành",
+      "Phương án A, B"
+    ],
+    "answer": null
+  },
+  {
+    "id": 153,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Trưởng ca nhà máy điện khởi động đen xử lý không đúng theo phương án nào",
+    "options": [
+      "Tự khởi động các tổ máy phát để cung cấp điện cho hệ thống tự dùng của nhà máy điện.",
+      "Xử lý sự cố mất điện toàn nhà máy điện theo Quy trình do đơn vị ban hành.",
+      "Kiểm tra điều kiện cần thiết sẵn sàng đóng điện đường dây, thiết bị điện.",
+      "Báo cáo Điều độ viên có quyền điều khiển để nhận lệnh khởi động đen."
+    ],
+    "answer": null
+  },
+  {
+    "id": 154,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Điều chỉnh tần số cấp I được hiểu đúng theo phương án nào",
+    "options": [
+      "Điều chỉnh của bộ tự động điều chỉnh công suất của các tổ máy phát điện đã được quy định trước nhằm duy trì tần số hệ thống điện trong giới hạn 50 ± 0,2 Hz",
+      "Điều chỉnh của bộ tự động điều chỉnh công suất của các tổ máy phát điện đã được quy định trước nhằm đưa tần số hệ thống điện trong giới hạn 50 ± 0,5 Hz",
+      "Điều chỉnh bằng lệnh điều độ của cấp điều độ có quyền điều khiển để đưa tần số hệ thống điện vận hành trong giới hạn 50 ± 0,2 Hz",
+      "Điều chỉnh của nhà máy điện được giao nhiệm vụ điều tần cấp I duy trì tần số hệ thống điện trong giới hạn 50 ± 0,2 Hz."
+    ],
+    "answer": null
+  },
+  {
+    "id": 155,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Phương án nào cho phép đưa tổ máy trở lại vận hành không cần văn bản Đơn vị quản lý vận hành khẳng định máy phát điện có đủ tiêu chuẩn vận hành",
+    "options": [
+      "Bảo vệ quá dòng điện áp thấp",
+      "Bảo vệ mất kích từ",
+      "Bảo vệ chạm đất stator",
+      "Bảo vệ so lệch"
+    ],
+    "answer": null
+  },
+  {
+    "id": 156,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Phương án nào quy định đúng về việc viết và duyệt phiếu thao tác đột xuất tại nhà máy điện",
+    "options": [
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy điện.",
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện.",
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện, Trưởng ca, Trưởng kíp.",
+      "Người viết phiếu là nhân viên vận hành thiết bị điện, người duyệt phiếu là Giám đốc, Phó giám đốc nhà máy; Quản đốc, Phó quản đốc phân xưởng vận hành nhà máy điện; Trưởng ca, Trưởng kíp."
+    ],
+    "answer": null
+  },
+  {
+    "id": 157,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng tiêu chuẩn điện áp thanh cái trên lưới điện 500 kV ở chế độ sự cố đơn lẻ",
+    "options": [
+      "Từ 475 kV đến 525 kV",
+      "Từ 450 kV đến 550 kV",
+      "Từ 485 kV đến 515 kV",
+      "Từ 470 kV đến 530 kV"
+    ],
+    "answer": null
+  },
+  {
+    "id": 158,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố HTĐ quốc gia  Việc cô lập hoặc đưa các rơ le bảo vệ và tự động vào vận hành trở lại chỉ được thực hiện khi có mệnh lệnh cho phép của",
+    "options": [
+      "Điều độ viên cấp điều độ có quyền điều khiển.",
+      "Điều độ viên cấp điều độ có quyền kiểm tra.",
+      "Lãnh đạo đơn vị quản lý vận hành.",
+      "Lãnh đạo cấp điều độ có quyền điều khiển."
+    ],
+    "answer": null
+  },
+  {
+    "id": 159,
+    "question": "Theo Thông tư quy định hệ thống điện truyền tải  Phương án nào quy định đúng dải tần số hệ thống điện vận hành bình thường của hệ thống điện",
+    "options": [
+      "Từ 49,8 Hz đến 50,2 Hz",
+      "Từ 49,9 Hz đến 50,2 Hz",
+      "Từ 49,5 Hz đến 50,5 Hz",
+      "Từ 49,8 Hz đến 50,1 Hz"
+    ],
+    "answer": null
+  },
+  {
+    "id": 160,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Cô lập bảo vệ so lệch thanh cái khi có điều kiện nào",
+    "options": [
+      "Bảo vệ so lệch thanh cái còn lại làm việc bình thường",
+      "Đặt bảo vệ dự phòng sự cố thanh cái",
+      "Cắt điện thanh cái này",
+      "Phương án A hoặc B hoặc C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 161,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Ghi tên Người duyệt phiếu trong phiếu thao tác do cấp điều độ có quyền điều khiển lập và thực hiện tại nhà máy điện mà nhân viên vận hành tại nhà máy điện phải bổ sung các bước thao tác có liên quan",
+    "options": [
+      "Ghi họ và tên Người duyệt phiếu theo phiếu của cấp điều độ có quyền điều khiển",
+      "Ghi họ và tên Trực vận hành đương ca được giao nhiệm vụ",
+      "Ghi họ và tên Trưởng ca đương ca",
+      "Bỏ trống không ghi"
+    ],
+    "answer": null
+  },
+  {
+    "id": 162,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Phương án nào quy định không đúng trách nhiệm của đơn vị quản lý vận hành nhà máy điện",
+    "options": [
+      "Khẩn trương khắc phục sự cố, nhanh chóng bàn giao thiết bị vào vận hành trong thời gian ngắn nhất sau sự cố",
+      "Định kỳ kiểm tra, bảo dưỡng hệ thống tự dùng một chiều tại trạm điện, đảm bảo hệ thống tự dùng một chiều không bị sự cố khi mất điện hệ thống tự dùng xoay chiều.",
+      "Tổ chức bồi dưỡng, huấn luyện, đào tạo nhân viên vận hành đảm bảo đủ trình độ tham gia xử lý sự cố mất điện toàn trạm theo chức danh vận hành",
+      "Thông báo về sự cố mất điện tại nhà máy điện và quá trình khôi phục cho các đơn vị liên quan"
+    ],
+    "answer": null
+  },
+  {
+    "id": 163,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nhân viên vận hành ca sau đến nhận ca có biểu hiện đã uống rượu bia, nhân viên vận hành ca trước chọn hướng xử lý theo phương án nào",
+    "options": [
+      "Vẫn thực hiện thủ tục giao nhận ca, ký giao ca và ra về",
+      "Báo cáo Lãnh đạo trực tiếp để cử nhân viên vận hành khác đến nhận ca",
+      "Tiếp tục trực ca cho đến khi nhân viên vận hành ca sau tỉnh táo",
+      "Thực hiện thủ tục giao nhận ca nếu nhân viên vận hành ca sau vẫn tỉnh táo"
+    ],
+    "answer": null
+  },
+  {
+    "id": 164,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi tần số hệ thống điện 50,5 Hz kéo dài quá thời gian quy định, Trưởng ca nhà máy điện có nhiệm vụ điều tần cấp II phải thực hiện theo phương án nào",
+    "options": [
+      "Tự giảm công suất tác dụng của tổ máy để đưa tần số về 50 ± 0,2 Hz",
+      "Giữ nguyên công suất tác dụng của tổ máy",
+      "Tự giảm công suất tác dụng để đưa tần số về 50,2 Hz",
+      "Tự giảm công suất tác dụng của tổ máy để đưa tần số về 50,0 Hz"
+    ],
+    "answer": null
+  },
+  {
+    "id": 165,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thực hiện lịch sửa chữa bảo dưỡng theo kế hoạch đã được phê duyệt như thế nào?",
+    "options": [
+      "Đơn vị quản lý vận hành chủ động thực hiện theo kế hoạch.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền điều khiển.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền kiểm tra.",
+      "Trước đó Đơn vị quản lý vận hành phải thông báo và được sự đồng ý của Điều độ viên trực ban tại cấp điều độ có quyền điều khiển, quyền kiểm tra."
+    ],
+    "answer": null
+  },
+  {
+    "id": 166,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định trình tự đầu tiên khi tách máy biến áp",
+    "options": [
+      "Cắt máy cắt, dao cách ly các phía máy biến áp theo quy định",
+      "Chuyển nguồn tự dùng",
+      "Kiểm tra trào lưu công suất qua máy biến áp",
+      "Cấp điều độ có quyền điều khiển ra lệnh thao tác"
+    ],
+    "answer": null
+  },
+  {
+    "id": 167,
+    "question": "Theo Thông tư quy định quy trình xử lý sự cố  Xử lý của Nhân viên vận hành tại nhà máy điện hoặc trung tâm điều khiển khi truyền tải trên đường dây trên không cấp điện áp từ 35kV đến 220kV vượt giới hạn cho phép",
+    "options": [
+      "Báo cáo ngay cho Cấp điều độ có quyền điều khiển",
+      "Báo cáo ngay cho Lãnh đạo trực tiếp của đơn vị",
+      "Báo cáo ngay cho Trực ban đơn vị quản lý vận hành",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 168,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nhân viên vận hành cấp dưới có quyền kiến nghị với nhân viên vận hành cấp trên khi nhận thấy lệnh điều độ chưa hợp lý. Trong trường hợp kiến nghị không được nhân viên vận hành cấp trên chấp nhận thì",
+    "options": [
+      "Vẫn phải thực hiện đúng lệnh điều độ của nhân viên vận hành cấp trên và phải chịu trách nhiệm về hậu quả",
+      "Có quyền không thực hiện lệnh điều độ của nhân viên vận hành cấp trên và không phải chịu trách nhiệm về hậu quả",
+      "Vẫn phải thực hiện đúng lệnh điều độ của nhân viên vận hành cấp trên và không phải chịu trách nhiệm về hậu quả",
+      "Có quyền không thực hiện lệnh điều độ của nhân viên vận hành cấp trên và phải chịu trách nhiệm về hậu quả"
+    ],
+    "answer": null
+  },
+  {
+    "id": 169,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Nguyên tắc điều chỉnh điện áp tại nhà máy điện",
+    "options": [
+      "Đảm bảo điện áp trong giới hạn cho phép",
+      "Đảm bảo chi phí nhỏ nhất",
+      "Đảm bảo thao tác ít nhất",
+      "Phương án A, B, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 170,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi thực hiện lệnh điều độ bằng lời nói, kênh thông tin liên lạc nào được ưu tiên sử dụng trước",
+    "options": [
+      "Kênh điện thoại cố định",
+      "Kênh điện thoại di động",
+      "Kênh trực thông hoặc vô tuyến",
+      "Không quy định thứ tự."
+    ],
+    "answer": null
+  },
+  {
+    "id": 171,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Thao tác đóng điện đường dây mới khác với đóng điện đường dây sau sửa chữa ở điểm nào",
+    "options": [
+      "Dùng máy cắt và rơ le bảo vệ dự phòng đã được chỉnh định để đóng điện đường dây lần đầu",
+      "Khoá mạch tự động đóng lại đường dây trước khi đóng điện lần đầu",
+      "Kiểm tra điều kiện khép vòng hoặc hòa đồng bộ đầu còn lại trước khi đóng khép vòng hoặc hoà hai hệ thống",
+      "Đóng điện đường dây theo phiếu thao tác đã được phê duyệt"
+    ],
+    "answer": null
+  },
+  {
+    "id": 172,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nào không thuộc trách nhiệm của Đơn vị phát điện?",
+    "options": [
+      "Tuân thủ phương thức vận hành, lệnh điều độ của cấp điều độ có quyền điều khiển",
+      "Đảm bảo nhà máy điện vận hành an toàn, ổn định; đảm bảo dự phòng ở mức độ sẵn sàng vận hành cao nhất",
+      "Điều tiết hồ chứa của các nguồn thủy điện tuân thủ các quy trình, quy định liên quan",
+      "Cung cấp tài liệu kỹ thuật, thông số kỹ thuật, thông số vận hành, quy trình vận hành thiết bị của nhà máy điện cho các cấp điều độ có quyền điều khiển khi có yêu cầu"
+    ],
+    "answer": null
+  },
+  {
+    "id": 173,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện xử lý theo phương án nào khi không thể thực hiện được điều chỉnh điện áp theo biểu đồ",
+    "options": [
+      "Báo cáo Điều độ viên cấp trên lý do không thực hiện được.",
+      "Kiến nghị Điều độ viên cấp trên giao biểu đồ khác phù hợp.",
+      "Tự khởi động, hòa lưới tổ máy dự phòng để đáp ứng điều chỉnh điện áp theo biểu đồ.",
+      "Không quy định."
+    ],
+    "answer": null
+  },
+  {
+    "id": 174,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Thời gian không thao tác kéo dài quá bao nhiêu tháng thì Đơn vị quản lý vận hành có trách nhiệm thực hiện thao tác thử đóng cắt máy cắt, dao cách ly, chuyển nấc máy biến áp bằng điều khiển từ xa",
+    "options": [
+      "3 tháng",
+      "6 tháng",
+      "12 tháng",
+      "24 tháng"
+    ],
+    "answer": null
+  },
+  {
+    "id": 175,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Khi tần số hệ thống điện 49,45 Hz kéo dài quá thời gian quy định, Trưởng ca nhà máy điện có nhiệm vụ điều tần cấp II phải thực hiện theo phương án nào",
+    "options": [
+      "Tự tăng công suất tác dụng của tổ máy để đưa tần số về 50 ±  0,5 Hz",
+      "Tự tăng công suất tác dụng của tổ máy để đưa tần số về 49,5 Hz",
+      "Tự động hòa lưới tổ máy phát công suất tác dụng để đưa tần số về 49,5 Hz",
+      "Tự tăng công suất tác dụng của tổ máy để đưa tần số về 49,8 Hz"
+    ],
+    "answer": null
+  },
+  {
+    "id": 176,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp nào sau đây không được phép giao nhận ca khi đang xử lý sự cố",
+    "options": [
+      "Sau khi nhân viên vận hành nhận ca đồng ý ký nhận ca.",
+      "Khi người giao ca chưa hoàn thành báo cáo sự cố.",
+      "Sau khi đã báo cáo và được lãnh đạo đơn vị cho phép.",
+      "Khi xử lý sự cố xong và hoàn thành tất cả các sự vụ liên quan."
+    ],
+    "answer": null
+  },
+  {
+    "id": 177,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Quy định đúng điều kiện cho phép khép mạch vòng trên hệ thống điện",
+    "options": [
+      "Đồng tần, đồng áp, đồng pha",
+      "Góc lệch pha điện áp không quá 15 độ, chênh lệch điện áp không quá 10%",
+      "Góc lệch pha điện áp không quá 30 độ, chênh lệch điện áp không quá 5%",
+      "Góc lệch pha điện áp không quá 30 độ, chênh lệch điện áp không quá 10%"
+    ],
+    "answer": null
+  },
+  {
+    "id": 178,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Thời gian sửa chữa được tính như thế nào?",
+    "options": [
+      "Thời gian từ khi bắt đầu thao tác đến khi kết thúc thao tác khôi phục theo đăng ký.",
+      "Thời gian từ khi cấp điều độ có quyền điều khiển bàn giao thiết bị cho Đơn vị quản lý vận hành đến khi được bàn giao trở lại.",
+      "Thời gian từ khi bắt đầu thao tác đến khi được bàn giao trở lại.",
+      "Thời gian từ khi bàn giao cho Đơn vị quản lý vận hành đến khi kết thúc thao tác khôi phục."
+    ],
+    "answer": null
+  },
+  {
+    "id": 179,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Tổ máy phát điện của nhà máy điện có công suất lắp đặt trên 30 MW phải được trang bị thiết bị tự động điều chỉnh điện áp (AVR) hoạt động liên tục có khả năng giữ điện áp đầu cực với độ sai lệch điện áp trong toàn bộ dải làm việc cho phép của máy phát",
+    "options": [
+      "Không quá ± 5% điện áp định mức.",
+      "Không quá ± 2% điện áp định mức.",
+      "Không quá ± 1% điện áp định mức.",
+      "Không quá ± 0,5% điện áp định mức."
+    ],
+    "answer": null
+  },
+  {
+    "id": 180,
+    "question": "Theo Quy định khởi động đen và khôi phục hệ thống điện quốc gia  Tổ máy phát của nhà máy điện có tổng công suất đặt lớn hơn 300 MW đấu nối lưới điện 220 kV, 500 kV thuộc quyền điều khiển của cấp điều độ nào trong trường hợp rã lưới",
+    "options": [
+      "Cấp điều độ quốc gia",
+      "Cấp điều độ miền",
+      "Cấp điều độ quốc gia điều khiển công suất tác dụng, Cấp điều độ miền điều khiển công suất phản kháng",
+      "Không quy định"
+    ],
+    "answer": null
+  },
+  {
+    "id": 181,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trưởng ca nhà máy điện thực hiện biểu đồ điện áp đúng theo phương án nào",
+    "options": [
+      "Theo dõi điện áp thanh cái cần phải điều chỉnh theo biểu đồ, khi điện áp ra ngoài biểu đồ, tự điều chỉnh công suất phản kháng của tổ máy phát để đưa điện áp vào trong khoảng biểu đồ điện áp",
+      "Theo dõi điện áp thanh cái cần phải điều chỉnh theo biểu đồ, khi điện áp ra ngoài biểu đồ, báo cáo Điều độ viên có quyền điều khiển cho phép điều chỉnh công suất phản kháng của tổ máy phát để đưa điện áp vào trong khoảng biểu đồ điện áp",
+      "Theo dõi điện áp thanh cái cần phải điều chỉnh theo biểu đồ, khi điện áp ra ngoài biểu đồ, báo cáo Điều độ viên có quyền điều khiển cho phép điều chỉnh công suất phản kháng của tổ máy phát để đưa điện áp vào trong khoảng biểu đồ điện áp",
+      "Phương án A, C"
+    ],
+    "answer": null
+  },
+  {
+    "id": 182,
+    "question": "Theo Thông tư quy định quy trình thao tác HTĐ quốc gia  Ghi tên Người viết phiếu trong phiếu thao tác do cấp điều độ có quyền điều khiển lập và thực hiện tại nhà máy điện mà nhân viên vận hành tại nhà máy điện phải bổ sung các bước thao tác có liên quan đến thao tác mạch nhị thứ hoặc an toàn điện đúng theo phương án nào",
+    "options": [
+      "Ghi họ và tên Người viết phiếu theo phiếu của cấp điều độ có quyền điều khiển",
+      "Ghi họ và tên Trực vận hành đương ca được giao nhiệm vụ",
+      "Ghi họ và tên Trực chính đương ca",
+      "Bỏ trống không ghi"
+    ],
+    "answer": null
+  },
+  {
+    "id": 183,
+    "question": "Theo Thông tư quy định HTĐ truyền tải  Trường hợp có cảnh báo suy giảm an ninh hệ thống điện dẫn đến phải thay đổi lịch tách thiết bị ra sửa chữa, các đơn vị quản lý vận hành thiết bị phải đăng ký lại với Cấp điều độ có quyền điều khiển ít nhất bao lâu trước giờ thiết bị được tách ra khỏi vận hành, kể cả sửa chữa trong kế hoạch và ngoài kế hoạch",
+    "options": [
+      "24 giờ.",
+      "36 giờ.",
+      "48 giờ.",
+      "72 giờ."
+    ],
+    "answer": null
+  },
+  {
+    "id": 184,
+    "question": "Theo Thông tư quy định quy trình điều độ HTĐ quốc gia  Trường hợp đang trực ca, Trưởng ca có việc riêng cần thiết phải về nhà giải quyết gấp, Trưởng ca chọn hướng xử lý theo phương án nào",
+    "options": [
+      "Bàn giao ca trực cho Trực chính trung tâm đảm nhiệm",
+      "Báo cáo Lãnh đạo trực tiếp để cử người khác đến thay thế",
+      "Liên lạc trực tiếp với Trưởng ca ca sau và nhờ đến nhận ca sớm",
+      "Phương án B hoặc C"
+    ],
+    "answer": null
+  }
+]
