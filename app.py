@@ -107,6 +107,7 @@ st.markdown(
 )
 st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div>', unsafe_allow_html=True)
 
+# Sidebar
 with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio("Chọn chế độ", ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"])
@@ -130,7 +131,6 @@ if mode == "📖 Ôn tập":
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # Callback cho nút
     def prev_question():
         if st.session_state.learn_idx > 0:
             st.session_state.learn_idx -= 1
@@ -140,15 +140,12 @@ if mode == "📖 Ôn tập":
             st.session_state.learn_idx += 1
 
     def jump_to_question():
-        # Callback này sẽ tự động gọi khi selectbox thay đổi
-        # Lấy giá trị từ session_state của selectbox
         selected_id = st.session_state.jump_select
         q_ids = [q["id"] for q in all_questions]
         new_idx = q_ids.index(selected_id)
         if new_idx != st.session_state.learn_idx:
             st.session_state.learn_idx = new_idx
 
-    # Bố trí các nút và selectbox
     col1, col2, col3 = st.columns([1, 3, 1])
     with col1:
         st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
@@ -165,7 +162,6 @@ if mode == "📖 Ôn tập":
             label_visibility="collapsed"
         )
 
-    # Hiển thị câu hiện tại
     q = all_questions[st.session_state.learn_idx]
     st.markdown(f"**Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
 
