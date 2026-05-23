@@ -3,6 +3,42 @@ import json
 import random
 
 # ---------------------------
+# 0. ĐĂNG NHẬP
+# ---------------------------
+def check_login():
+    if "logged_in" not in st.session_state:
+        st.session_state.logged_in = False
+
+    if not st.session_state.logged_in:
+        st.set_page_config(page_title="Đăng nhập", layout="centered")
+        st.markdown(
+            """
+            <style>
+            .stApp {
+                background-image: url("https://images.unsplash.com/photo-1581094288338-1f4b2d6f9b5a?q=80&w=2070&auto=format&fit=crop");
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+        st.markdown('<h1 style="text-align:center;">🔐 ĐĂNG NHẬP</h1>', unsafe_allow_html=True)
+        with st.form("login_form"):
+            username = st.text_input("Tên đăng nhập")
+            password = st.text_input("Mật khẩu", type="password")
+            submitted = st.form_submit_button("Đăng nhập", use_container_width=True)
+            if submitted:
+                if username == "PECC2.POM" and password == "POM.OCC":
+                    st.session_state.logged_in = True
+                    st.rerun()
+                else:
+                    st.error("Sai tên đăng nhập hoặc mật khẩu!")
+        st.stop()
+
+check_login()
+
+# ---------------------------
 # 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data
@@ -121,6 +157,9 @@ with st.sidebar:
     else:
         set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
         st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng.")
+    if st.button("🚪 Đăng xuất"):
+        st.session_state.logged_in = False
+        st.rerun()
 
 # ---------------------------
 # 4. ÔN TẬP
