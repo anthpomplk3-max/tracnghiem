@@ -29,7 +29,7 @@ def load_data():
 
 all_questions = load_data()  # 184 câu
 
-# Xáo trộn ngẫu nhiên 184 câu với seed cố định để các bộ đề ổn định qua các lần chạy
+# Xáo trộn ngẫu nhiên 184 câu với seed cố định
 random.seed(42)
 shuffled_questions = all_questions.copy()
 random.shuffle(shuffled_questions)
@@ -85,7 +85,7 @@ with st.sidebar:
         st.info(f"Bộ đề {set_number}: 30 câu được xáo trộn ngẫu nhiên từ 184 câu, không trùng lặp giữa các bộ.")
 
 # ---------------------------
-# Chế độ HỌC TẬP (184 câu, giữ nguyên thứ tự gốc)
+# Chế độ HỌC TẬP
 # ---------------------------
 if mode.startswith("📖 Học tập"):
     st.subheader("🎓 Chế độ Học tập - Toàn bộ 184 câu hỏi")
@@ -117,16 +117,16 @@ if mode.startswith("📖 Học tập"):
                     st.success("✅ Đúng")
                 else:
                     st.error(f"❌ Sai. Đáp án đúng là: **{q['answer_letter']}**")
-                with st.expander("📖 Xem giải thích chi tiết", expanded=True):
+                with st.expander("📖 Xem giải thích chi tiết", expanded=False):
                     st.markdown(format_explanation(q['explanation']))
             st.markdown("---")
 
 # ---------------------------
-# Chế độ THI THỬ (6 bộ xáo trộn, không trùng)
+# Chế độ THI THỬ
 # ---------------------------
 else:
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
-    st.caption("Hoàn thành 30 câu, sau đó nhấn **Nộp bài** để chấm điểm (không hiển thị giải thích).")
+    st.caption("Hoàn thành 30 câu, sau đó nhấn **Nộp bài** để chấm điểm (không hiển thị giải thích trong khi làm).")
 
     questions_exam = exam_sets[set_number]
 
@@ -164,31 +164,43 @@ else:
 
     if submitted:
         correct = 0
-        for q in questions_exam:
+        results = []
+        for idx, q in enumerate(questions_exam, start=1):
             selected_prefix = st.session_state.exam_answers.get(q['id'], None)
-            if selected_prefix:
-                selected_letter = get_selected_letter(selected_prefix)
-                if selected_letter == q['answer_letter']:
-                    correct += 1
+            user_letter = get_selected_letter(selected_prefix) if selected_prefix else "Chưa chọn"
+            is_correct = (user_letter == q['answer_letter'])
+            if is_correct:
+                correct += 1
+            results.append({
+                "stt": idx,
+                "id_goc": q['id'],
+                "question_full": q['question'],
+                "options": q['options'],
+                "user_letter": user_letter,
+                "correct_letter": q['answer_letter'],
+                "is_correct": is_correct,
+                "explanation": q['explanation']
+            })
         score = correct / len(questions_exam) * 10
         st.success(f"🎉 Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
 
-        # Bảng chi tiết có thêm cột "Câu (Đề / Học tập)"
-        details = []
-        for idx, q in enumerate(questions_exam, start=1):
-            selected_prefix = st.session_state.exam_answers.get(q['id'], "Chưa chọn")
-            user_letter = get_selected_letter(selected_prefix) if selected_prefix != "Chưa chọn" else "Chưa chọn"
-            details.append({
-                "STT trong đề": idx,
-                "ID gốc (Học tập)": q['id'],
-                "Câu hỏi tóm tắt": q['question'][:80] + "...",
-                "Đáp án của bạn": user_letter,
-                "Đáp án đúng": q['answer_letter'],
-                "Kết quả": "✅" if user_letter == q['answer_letter'] else "❌"
-            })
-        # Hiển thị bảng với cột "Câu (Đề / Học tập)" dưới dạng "5 / 180"
-        # Tuy nhiên Streamlit table không hỗ trợ merge cột, nên ta để riêng 2 cột.
-        with st.expander("📋 Xem chi tiết đáp án từng câu"):
-            st.table(details)
+        # Hiển thị chi tiết từng câu bằng expander, có thể mở/đóng
+        with st.expander("📋 Xem chi tiết đáp án từng câu (nhấn để mở/đóng)", expanded=False):
+            for res in results:
+                with st.expander(f"Câu {res['stt']} (ID gốc {res['id_goc']}) - Kết quả: {'✅ Đúng' if res['is_correct'] else '❌ Sai'}"):
+                    st.markdown(f"**Câu hỏi:** {res['question_full']}")
+                    # Hiển thị các lựa chọn, tô đậm đáp án đúng
+                    for i, opt in enumerate(res['options']):
+                        prefix = chr(65+i)
+                        if prefix == res['correct_letter']:
+                            st.markdown(f"- **{prefix}. {opt}** (Đáp án đúng)")
+                        else:
+                            st.markdown(f"- {prefix}. {opt}")
+                    st.markdown(f"**Đáp án của bạn:** {res['user_letter']}")
+                    if not res['is_correct']:
+                        st.markdown(f"**Đáp án đúng:** {res['correct_letter']}")
+                    # Hiển thị giải thích chi tiết
+                    st.markdown(format_explanation(res['explanation']))
+                    st.markdown("---")
 
         st.button("🔄 Làm lại bài thi", on_click=reset_exam, use_container_width=True)
