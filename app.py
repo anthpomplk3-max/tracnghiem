@@ -114,7 +114,7 @@ def get_selected_letter(selected_prefix):
 # ---------------------------
 st.set_page_config(page_title="Ôn tập và Thi thử - PECC2", layout="wide")
 
-# CSS tùy chỉnh nâng cao + hiệu ứng 3D cho câu trả lời đúng
+# CSS tùy chỉnh nâng cao + hiệu ứng confetti
 st.markdown(
     """
     <style>
@@ -155,43 +155,6 @@ st.markdown(
         padding: 1.5rem;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         margin-bottom: 1.5rem;
-        transition: all 0.3s ease;
-    }
-    /* Hiệu ứng 3D cho thông báo đúng */
-    .correct-3d {
-        animation: correctFlash 0.6s ease-in-out, correctShadow 1s ease-in-out;
-        background: linear-gradient(145deg, #00cc66, #00994d);
-        border-radius: 30px;
-        padding: 12px;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 0 4px rgba(0,255,100,0.3);
-        transform: scale(1.02);
-        margin-bottom: 15px;
-    }
-    @keyframes correctFlash {
-        0% { transform: scale(0.95); opacity: 0.7; background: #00ff88; }
-        50% { transform: scale(1.05); background: #00cc66; box-shadow: 0 0 20px #00ff88; }
-        100% { transform: scale(1); opacity: 1; background: #00994d; }
-    }
-    @keyframes correctShadow {
-        0% { box-shadow: 0 0 0 0 rgba(0,255,100,0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(0,255,100,0); }
-        100% { box-shadow: 0 0 0 0 rgba(0,255,100,0); }
-    }
-    /* Hiệu ứng shake cho khung câu hỏi khi đúng (vui mắt) */
-    .shake-correct {
-        animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-        transform-origin: center;
-    }
-    @keyframes shake {
-        0% { transform: translate(0, 0) rotate(0deg); }
-        20% { transform: translate(-2px, 1px) rotate(-0.5deg); }
-        40% { transform: translate(2px, -1px) rotate(0.5deg); }
-        60% { transform: translate(-1px, 2px) rotate(0.2deg); }
-        80% { transform: translate(1px, -2px) rotate(-0.2deg); }
-        100% { transform: translate(0, 0) rotate(0); }
     }
     .stButton button {
         background-color: #0066cc;
@@ -277,7 +240,7 @@ with st.sidebar:
             st.warning(f"📌 Bộ đề {set_number}: 30 câu (có thể trùng)")
 
 # ---------------------------
-# 5. ÔN TẬP (CÓ HIỆU ỨNG 3D KHI ĐÚNG)
+# 5. ÔN TẬP (CÓ HIỆU ỨNG TUNG HOA 3D)
 # ---------------------------
 if mode.startswith("📖 Ôn tập"):
     st.markdown('<div class="content-card">', unsafe_allow_html=True)
@@ -289,23 +252,23 @@ if mode.startswith("📖 Ôn tập"):
         st.session_state.learn_idx = 0
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
-    # Biến để kích hoạt hiệu ứng shake (đặt khi vừa trả lời đúng)
-    if "effect_trigger" not in st.session_state:
-        st.session_state.effect_trigger = False
+    # Biến để kích hoạt confetti (tránh bắn nhiều lần)
+    if "confetti_trigger" not in st.session_state:
+        st.session_state.confetti_trigger = False
 
     # Hàm chuyển câu
     def go_prev():
-        st.session_state.effect_trigger = False
+        st.session_state.confetti_trigger = False
         if st.session_state.learn_idx > 0:
             st.session_state.learn_idx -= 1
 
     def go_next():
-        st.session_state.effect_trigger = False
+        st.session_state.confetti_trigger = False
         if st.session_state.learn_idx < total_questions - 1:
             st.session_state.learn_idx += 1
 
     def go_to_question():
-        st.session_state.effect_trigger = False
+        st.session_state.confetti_trigger = False
         jump_num = st.session_state.jump_number
         if 1 <= jump_num <= total_questions:
             st.session_state.learn_idx = jump_num - 1
@@ -335,11 +298,7 @@ if mode.startswith("📖 Ôn tập"):
 
     # Hiển thị câu hỏi hiện tại
     q = all_questions[st.session_state.learn_idx]
-    # Áp dụng class shake nếu vừa trả lời đúng
-    shake_class = "shake-correct" if st.session_state.effect_trigger else ""
-    st.markdown(f"<div class='{shake_class}' style='transition: all 0.2s;'>", unsafe_allow_html=True)
     st.markdown(f"**📄 Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
-    st.markdown("</div>", unsafe_allow_html=True)
 
     prefixed_opts = option_with_prefix(q['options'])
     current_ans = st.session_state.learn_answers.get(q['id'], None)
@@ -351,32 +310,39 @@ if mode.startswith("📖 Ôn tập"):
         key=f"learn_{q['id']}",
         label_visibility="visible"
     )
+    
+    # Xử lý khi người dùng chọn đáp án
     if selected:
         st.session_state.learn_answers[q['id']] = selected
         user_letter = get_selected_letter(selected)
         if user_letter == q['answer_letter']:
-            # Hiển thị thông báo đúng với hiệu ứng 3D
-            st.markdown('<div class="correct-3d">✅ CHÍNH XÁC! Bạn đã trả lời đúng.</div>', unsafe_allow_html=True)
-            # Kích hoạt hiệu ứng shake cho khung câu hỏi
-            st.session_state.effect_trigger = True
-            # Tự động tắt hiệu ứng sau 1 giây (streamlit rerun sẽ reset)
-            # Dùng JavaScript để xóa class sau một khoảng thời gian
-            st.markdown("""
-                <script>
-                setTimeout(() => {
-                    let elements = document.getElementsByClassName('shake-correct');
-                    for(let el of elements) el.classList.remove('shake-correct');
-                }, 500);
-                </script>
-            """, unsafe_allow_html=True)
+            # Hiển thị thông báo đúng
+            st.success("✅ CHÍNH XÁC! Bạn đã trả lời đúng.")
+            # Kích hoạt hiệu ứng tung hoa nếu chưa kích hoạt cho lần chọn này
+            if not st.session_state.confetti_trigger:
+                st.session_state.confetti_trigger = True
+                # Gọi JavaScript canvas-confetti (tung hoa rực rỡ)
+                st.markdown("""
+                    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+                    <script>
+                        // Bắn confetti từ nhiều hướng
+                        canvasConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 }, startVelocity: 15, colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'] });
+                        canvasConfetti({ particleCount: 100, spread: 130, origin: { y: 0.5, x: 0.2 }, startVelocity: 20 });
+                        canvasConfetti({ particleCount: 100, spread: 130, origin: { y: 0.5, x: 0.8 }, startVelocity: 20 });
+                        // Thêm hiệu ứng hoa rơi
+                        setTimeout(() => {
+                            canvasConfetti({ particleCount: 300, spread: 70, origin: { y: 0.7 }, startVelocity: 8, decay: 0.9 });
+                        }, 200);
+                    </script>
+                """, unsafe_allow_html=True)
         else:
             st.error(f"❌ SAI. Đáp án đúng là: **{q['answer_letter']}**")
-            st.session_state.effect_trigger = False
+            st.session_state.confetti_trigger = False
         with st.expander("📖 Xem giải thích chi tiết", expanded=False):
             st.markdown(format_explanation(q['explanation'], q['answer_letter']))
     else:
-        # Nếu chưa chọn đáp án, tắt hiệu ứng
-        st.session_state.effect_trigger = False
+        # Reset trigger khi chưa chọn
+        st.session_state.confetti_trigger = False
 
     st.markdown('</div>', unsafe_allow_html=True)
 
