@@ -253,41 +253,44 @@ if mode.startswith("📖 Ôn tập"):
         if st.session_state.learn_idx < len(all_questions) - 1:
             st.session_state.learn_idx += 1
 
-    def jump_to_question():
-        selected_id = st.session_state.jump_select
-        for idx, q in enumerate(all_questions):
-            if q["id"] == selected_id:
-                st.session_state.learn_idx = idx
-                break
+    # Hàm xử lý khi chọn câu từ selectbox
+    def on_select_question():
+        selected_label = st.session_state.question_selector
+        # selected_label có dạng "Câu 123 (ID 456)" -> tách lấy index
+        # Cách đơn giản: lưu index trực tiếp vào value của selectbox
+        # Ta sẽ xây dựng options = list of indices, format = f"Câu {i+1} (ID {q['id']})"
+        # và set index = st.session_state.learn_idx
+        # Khi change, lấy index từ vị trí được chọn
+        # Vì selectbox trả về giá trị là phần tử trong options, ta cần map lại
+        # Cách tốt: dùng dictionary mapping label -> index
+        # Nhưng đơn giản hơn: dùng list comprehension và lấy chỉ số bằng cách tìm lại
+        selected_index = question_labels.index(selected_label)
+        if selected_index != st.session_state.learn_idx:
+            st.session_state.learn_idx = selected_index
 
-    # --- Điều hướng gộp: Câu trước | [Dropdown + Số thứ tự] | Câu tiếp ---
+    # Tạo danh sách các lựa chọn cho selectbox
+    question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
+    current_label = question_labels[st.session_state.learn_idx]
+
+    # Bố trí 3 cột: Câu trước | Selectbox + Số thứ tự | Câu tiếp
     col_prev, col_mid, col_next = st.columns([1, 2, 1])
     with col_prev:
         st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
     with col_next:
         st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
     with col_mid:
-        # Hai cột con: dropdown (chọn ID) và hiển thị số thứ tự
-        sub_col1, sub_col2 = st.columns([3, 1])
-        with sub_col1:
-            q_ids = [q["id"] for q in all_questions]
-            current_id = all_questions[st.session_state.learn_idx]["id"]
-            st.selectbox(
-                "Chọn câu theo ID",
-                options=q_ids,
-                index=q_ids.index(current_id),
-                key="jump_select",
-                on_change=jump_to_question,
-                label_visibility="collapsed"
-            )
-        with sub_col2:
-            st.markdown(
-                f"<div style='text-align: center; font-size: 1rem; font-weight: bold; margin-top: 8px;'>📌 Câu {st.session_state.learn_idx+1}/{total_questions}</div>",
-                unsafe_allow_html=True
-            )
+        # Selectbox duy nhất vừa chọn câu vừa hiển thị số thứ tự
+        st.selectbox(
+            "Chọn câu hỏi",
+            options=question_labels,
+            index=st.session_state.learn_idx,
+            key="question_selector",
+            on_change=on_select_question,
+            label_visibility="collapsed"
+        )
 
     q = all_questions[st.session_state.learn_idx]
-    st.markdown(f"**📄 Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
+    st.markdown(f"**📄 {question_labels[st.session_state.learn_idx]}:** {q['question']}")
 
     prefixed_opts = option_with_prefix(q['options'])
     current_ans = st.session_state.learn_answers.get(q['id'], None)
