@@ -14,26 +14,26 @@ def check_login():
         st.session_state.logged_in = False
 
     if not st.session_state.logged_in:
-        st.markdown('<div class="login-header"><h1>🔐 ĐĂNG NHẬP HỆ THỐNG</h1></div>', unsafe_allow_html=True)
+        st.markdown('<div class="main-header"><h1>🔐 ĐĂNG NHẬP</h1></div>', unsafe_allow_html=True)
         with st.form("login_form"):
             username = st.text_input("Tên đăng nhập")
             password = st.text_input("Mật khẩu", type="password")
-            submitted = st.form_submit_button("Đăng nhập", use_container_width=True)
+            submitted = st.form_submit_button("Đăng nhập")
             if submitted:
                 if username == VALID_USERNAME and password == VALID_PASSWORD:
                     st.session_state.logged_in = True
                     st.rerun()
                 else:
-                    st.error("❌ Sai tên đăng nhập hoặc mật khẩu!")
+                    st.error("Sai tên đăng nhập hoặc mật khẩu!")
         st.stop()
     else:
         with st.sidebar:
-            if st.button("🚪 Đăng xuất", use_container_width=True):
+            if st.button("🚪 Đăng xuất"):
                 st.session_state.logged_in = False
                 st.rerun()
 
 # ---------------------------
-# 1. Đọc dữ liệu
+# 1. Đọc dữ liệu (có cache và nút reload)
 # ---------------------------
 @st.cache_data(show_spinner=False)
 def load_data_cached():
@@ -112,98 +112,59 @@ def get_selected_letter(selected_prefix):
 # ---------------------------
 # 4. Giao diện chính
 # ---------------------------
-st.set_page_config(page_title="Ôn tập và Thi thử - PECC2", layout="wide")
-
+st.set_page_config(page_title="Ôn tập và Thi thử", layout="wide")
 st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background-image: url("https://images.unsplash.com/photo-1581094288338-1f4b2d6f9b5a?q=80&w=2070&auto=format&fit=crop");
+        background-size: cover;
         background-attachment: fixed;
+        background-position: center;
     }
     .main-header {
-        background: rgba(0, 51, 102, 0.85);
-        backdrop-filter: blur(5px);
-        border-radius: 20px;
-        padding: 1rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         text-align: center;
+        padding: 20px;
+        background-color: rgba(0,0,0,0.6);
+        border-radius: 15px;
+        margin-bottom: 25px;
     }
     .main-header h1 {
         color: white;
-        font-size: 2rem;
-        font-weight: 700;
-        margin: 0;
+        font-size: 3em;
         text-shadow: 2px 2px 4px #000000;
-    }
-    .main-header h2 {
-        color: #ffd966;
-        font-size: 1.3rem;
         margin: 0;
-        font-weight: 500;
-    }
-    .login-header {
-        text-align: center;
-        margin-top: 10vh;
-        margin-bottom: 2rem;
-    }
-    .login-header h1 {
-        color: #003366;
-        font-size: 2.5rem;
-        font-weight: bold;
-    }
-    .content-card {
-        background-color: rgba(255,255,255,0.95);
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        margin-bottom: 1.5rem;
-    }
-    .stButton button {
-        background-color: #0066cc;
-        color: white;
-        font-weight: 600;
-        border-radius: 30px;
-        border: none;
-        transition: all 0.3s ease;
-    }
-    .stButton button:hover {
-        background-color: #004999;
-        transform: scale(1.02);
     }
     .stRadio > div {
-        background-color: #f8f9fa;
+        background-color: rgba(255,255,255,0.95);
         padding: 12px;
-        border-radius: 15px;
-        margin-top: 8px;
-        border-left: 4px solid #0066cc;
+        border-radius: 12px;
+        margin-top: 5px;
+    }
+    .stButton button {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
     }
     .stSelectbox > div {
-        background-color: white;
-        border-radius: 30px;
-    }
-    .streamlit-expanderHeader {
-        background-color: #e9ecef;
-        border-radius: 15px;
-        font-weight: bold;
-    }
-    .css-1d391kg {
-        background-color: rgba(0,51,102,0.9);
+        background-color: rgba(255,255,255,0.9);
+        border-radius: 8px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# Kiểm tra đăng nhập
 check_login()
 
+# Nút tải lại dữ liệu (chỉ hiển thị khi đã đăng nhập)
 with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/2232/2232688.png", width=80)
-    st.markdown("### ⚙️ QUẢN LÝ")
-    if st.button("🔄 Tải lại dữ liệu JSON", use_container_width=True):
+    if st.button("🔄 Tải lại dữ liệu từ file JSON"):
         reload_data()
 
+# Load dữ liệu
 all_questions = load_data_cached()
 if not all_questions:
     st.error("Không thể tải dữ liệu. Vui lòng kiểm tra file JSON.")
@@ -212,103 +173,99 @@ if not all_questions:
 total_questions = len(all_questions)
 exam_sets = create_exam_sets(all_questions, total_questions)
 
-st.markdown(
-    '<div class="main-header">'
-    '<h1>TRUNG TÂM ĐIỀU ĐỘ HỆ THỐNG ĐIỆN QUỐC GIA</h1>'
-    '<h2>📚 ÔN TẬP & THI THỬ</h2>'
-    '</div>', 
-    unsafe_allow_html=True
-)
+st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div>', unsafe_allow_html=True)
 
+# Sidebar
 with st.sidebar:
-    st.markdown("---")
+    st.header("⚙️ Cài đặt")
     mode = st.radio(
-        "🔘 CHẾ ĐỘ",
+        "Chọn chế độ",
         [f"📖 Ôn tập (có giải thích - {total_questions} câu)", "✍️ Thi thử (không giải thích)"],
         key="mode_select"
     )
     st.markdown("---")
     if mode.startswith("📖 Ôn tập"):
-        st.info(f"📌 Tổng số: {total_questions} câu")
+        st.info(f"📌 {total_questions} câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
-        set_number = st.selectbox("🎯 Chọn bộ đề (1-25)", options=list(range(1, 26)), index=0)
+        set_number = st.selectbox("Chọn bộ đề (1-25)", options=list(range(1, 26)), index=0)
         if set_number <= 23 and total_questions >= 690:
-            st.success(f"📌 Bộ đề {set_number}: 30 câu không trùng")
+            st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng với các bộ khác.")
         else:
-            st.warning(f"📌 Bộ đề {set_number}: 30 câu (có thể trùng)")
+            st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn (có thể trùng).")
 
 # ---------------------------
 # 5. ÔN TẬP
 # ---------------------------
 if mode.startswith("📖 Ôn tập"):
-    st.markdown('<div class="content-card">', unsafe_allow_html=True)
-    st.subheader("🎓 ÔN TẬP TOÀN BỘ CÂU HỎI")
-    st.caption("✏️ Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
+    st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
+    st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
     if "learn_idx" not in st.session_state:
         st.session_state.learn_idx = 0
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # --- Hàng 1: Câu trước, hiển thị số thứ tự, Câu tiếp ---
-    col_prev, col_info, col_next = st.columns([1, 2, 1])
-    with col_prev:
-        if st.button("⬅️ Câu trước", use_container_width=True):
-            if st.session_state.learn_idx > 0:
-                st.session_state.learn_idx -= 1
-    with col_next:
-        if st.button("Câu tiếp ➡️", use_container_width=True):
-            if st.session_state.learn_idx < total_questions - 1:
-                st.session_state.learn_idx += 1
-    with col_info:
-        current_label = f"Câu {st.session_state.learn_idx+1} / {total_questions} (ID {all_questions[st.session_state.learn_idx]['id']})"
-        st.markdown(f"<div style='text-align: center; font-size: 1.2rem; font-weight: bold;'>{current_label}</div>", unsafe_allow_html=True)
+    def prev_question():
+        if st.session_state.learn_idx > 0:
+            st.session_state.learn_idx -= 1
 
-    # --- Hàng 2: Selectbox chọn câu (riêng biệt) ---
-    question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
-    selected_index = st.selectbox(
-        "Chọn câu hỏi nhanh",
-        options=range(total_questions),
-        format_func=lambda i: question_labels[i],
-        index=st.session_state.learn_idx,
-        key="quick_select",
-        label_visibility="visible"
-    )
-    if selected_index != st.session_state.learn_idx:
-        st.session_state.learn_idx = selected_index
+    def next_question():
+        if st.session_state.learn_idx < len(all_questions) - 1:
+            st.session_state.learn_idx += 1
 
-    # --- Hiển thị câu hỏi hiện tại ---
+    def jump_to_question():
+        selected_id = st.session_state.jump_select
+        for idx, q in enumerate(all_questions):
+            if q["id"] == selected_id:
+                st.session_state.learn_idx = idx
+                break
+
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col1:
+        st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
+    with col3:
+        st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
+    with col2:
+        q_ids = [q["id"] for q in all_questions]
+        current_id = all_questions[st.session_state.learn_idx]["id"]
+        st.selectbox(
+            "Nhảy tới câu (ID gốc)",
+            options=q_ids,
+            index=q_ids.index(current_id),
+            key="jump_select",
+            on_change=jump_to_question,
+            label_visibility="collapsed"
+        )
+
     q = all_questions[st.session_state.learn_idx]
-    st.markdown(f"**📄 {question_labels[st.session_state.learn_idx]}:** {q['question']}")
+    st.markdown(f"**Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
 
     prefixed_opts = option_with_prefix(q['options'])
     current_ans = st.session_state.learn_answers.get(q['id'], None)
     default_idx = prefixed_opts.index(current_ans) if current_ans in prefixed_opts else None
     selected = st.radio(
-        "Lựa chọn đáp án:",
+        "Chọn đáp án",
         options=prefixed_opts,
         index=default_idx,
         key=f"learn_{q['id']}",
-        label_visibility="visible"
+        label_visibility="collapsed"
     )
     if selected:
         st.session_state.learn_answers[q['id']] = selected
         user_letter = get_selected_letter(selected)
         if user_letter == q['answer_letter']:
-            st.success("✅ CHÍNH XÁC! Bạn đã trả lời đúng.")
+            st.success("✅ Đúng")
         else:
-            st.error(f"❌ SAI. Đáp án đúng là: **{q['answer_letter']}**")
+            st.error(f"❌ Sai. Đáp án đúng là: **{q['answer_letter']}**")
         with st.expander("📖 Xem giải thích chi tiết", expanded=False):
             st.markdown(format_explanation(q['explanation'], q['answer_letter']))
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # ---------------------------
 # 6. THI THỬ
 # ---------------------------
 else:
-    st.markdown('<div class="content-card">', unsafe_allow_html=True)
-    st.subheader(f"📝 BỘ ĐỀ {set_number} - THI THỬ")
-    st.caption("⏳ Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm (không giải thích trong khi làm).")
+    st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
+    st.caption("Hoàn thành 30 câu, nhấn Nộp bài để chấm điểm (không giải thích trong khi làm).")
     questions_exam = exam_sets[set_number]
 
     if "exam_version" not in st.session_state:
@@ -336,7 +293,7 @@ else:
             if selected:
                 st.session_state.exam_answers[q['id']] = selected
             st.markdown("---")
-        submitted = st.form_submit_button("📤 NỘP BÀI", use_container_width=True)
+        submitted = st.form_submit_button("📤 Nộp bài", use_container_width=True)
 
     if submitted:
         correct = 0
@@ -358,8 +315,7 @@ else:
                 "explanation": q['explanation']
             })
         score = correct / len(questions_exam) * 10
-        st.balloons()
-        st.success(f"🎉 KẾT QUẢ: Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
+        st.success(f"🎉 Đúng {correct}/{len(questions_exam)} câu. Điểm: {score:.1f}/10")
 
         with st.expander("📋 Xem chi tiết từng câu", expanded=False):
             for res in results:
@@ -377,4 +333,3 @@ else:
                     st.markdown(format_explanation(res['explanation'], res['correct_letter']))
                     st.markdown("---")
         st.button("🔄 Làm lại bài thi", on_click=reset_exam, use_container_width=True)
-    st.markdown('</div>', unsafe_allow_html=True)
