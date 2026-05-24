@@ -4,7 +4,7 @@ import random
 import re
 
 # ---------------------------
-# 1. Đọc dữ liệu
+# 1. Đọc dữ liệu từ hai file
 # ---------------------------
 @st.cache_data
 def load_data():
@@ -17,23 +17,20 @@ def load_data():
         st.error(f"Lỗi đọc file JSON: {e}")
         st.stop()
 
-    if len(giai_thich) != len(tn):
-        st.warning(f"Số câu không khớp: GIAITHICH={len(giai_thich)}, TN={len(tn)}. Sẽ lấy số nhỏ hơn.")
-        min_len = min(len(giai_thich), len(tn))
-        giai_thich = giai_thich[:min_len]
-        tn = tn[:min_len]
-
-    options_map = {item["id"]: item["options"] for item in tn}
+    # Tạo map từ id -> giải thích và đáp án
+    giai_thich_map = {item["id"]: item for item in giai_thich}
+    
     questions = []
-    for q in giai_thich:
-        qid = q["id"]
-        opts = options_map.get(qid, ["A", "B", "C", "D"])
+    for tn_item in tn:
+        qid = tn_item["id"]
+        # Lấy thông tin từ GIAITHICH nếu có
+        g_item = giai_thich_map.get(qid, {})
         questions.append({
             "id": qid,
-            "question": q["question"],
-            "options": opts,
-            "answer_letter": q["answer"],
-            "explanation": q.get("explanation", "Không có giải thích")
+            "question": tn_item["question"],               # lấy từ TN.json
+            "options": tn_item["options"],                 # lấy từ TN.json
+            "answer_letter": g_item.get("answer"),         # lấy từ GIAITHICH
+            "explanation": g_item.get("explanation", "Không có giải thích")
         })
     return questions
 
@@ -64,25 +61,18 @@ def format_explanation(text, correct_answer=None):
     if correct_answer:
         header = f"**✅ Đáp án đúng: {correct_answer}**\n\n"
     
-    # Tách các ý dựa trên dấu đầu dòng • hoặc -
-    # Thay thế các dấu hiệu bằng xuống dòng + dấu •
     processed = re.sub(r'\s*[•\-]\s*', '\n• ', text)
     processed = processed.lstrip('\n')
-    
-    # Xử lý từng dòng
     lines = processed.split('\n')
     formatted = "### 📖 Giải thích chi tiết\n\n" + header
     for line in lines:
         line = line.strip()
         if not line:
             continue
-        # Nếu dòng bắt đầu bằng • thì giữ nguyên, không thêm gì thêm
         if line.startswith('•'):
             formatted += f"{line}\n\n"
         else:
-            # Văn bản thường (ví dụ câu mở đầu) cũng xuống dòng
             formatted += f"{line}\n\n"
-    # Loại bỏ dòng trống thừa
     formatted = re.sub(r'\n{3,}', '\n\n', formatted)
     return formatted
 
