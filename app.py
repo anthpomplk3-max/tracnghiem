@@ -4,7 +4,37 @@ import random
 import re
 
 # ---------------------------
-# 1. Đọc dữ liệu từ hai file
+# 0. Xác thực đăng nhập
+# ---------------------------
+VALID_USERNAME = "PECC2.POM"
+VALID_PASSWORD = "POM.OCC"
+
+def check_login():
+    if "logged_in" not in st.session_state:
+        st.session_state.logged_in = False
+
+    if not st.session_state.logged_in:
+        st.markdown('<div class="main-header"><h1>🔐 ĐĂNG NHẬP</h1></div>', unsafe_allow_html=True)
+        with st.form("login_form"):
+            username = st.text_input("Tên đăng nhập")
+            password = st.text_input("Mật khẩu", type="password")
+            submitted = st.form_submit_button("Đăng nhập")
+            if submitted:
+                if username == VALID_USERNAME and password == VALID_PASSWORD:
+                    st.session_state.logged_in = True
+                    st.rerun()
+                else:
+                    st.error("Sai tên đăng nhập hoặc mật khẩu!")
+        st.stop()
+    else:
+        # Thêm nút đăng xuất ở sidebar
+        with st.sidebar:
+            if st.button("🚪 Đăng xuất"):
+                st.session_state.logged_in = False
+                st.rerun()
+
+# ---------------------------
+# 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data
 def load_data():
@@ -17,50 +47,44 @@ def load_data():
         st.error(f"Lỗi đọc file JSON: {e}")
         st.stop()
 
-    # Tạo map từ id -> giải thích và đáp án
     giai_thich_map = {item["id"]: item for item in giai_thich}
-    
     questions = []
     for tn_item in tn:
         qid = tn_item["id"]
-        # Lấy thông tin từ GIAITHICH nếu có
         g_item = giai_thich_map.get(qid, {})
         questions.append({
             "id": qid,
-            "question": tn_item["question"],               # lấy từ TN.json
-            "options": tn_item["options"],                 # lấy từ TN.json
-            "answer_letter": g_item.get("answer"),         # lấy từ GIAITHICH
+            "question": tn_item["question"],
+            "options": tn_item["options"],
+            "answer_letter": g_item.get("answer"),
             "explanation": g_item.get("explanation", "Không có giải thích")
         })
     return questions
 
-all_questions = load_data()
-total_questions = len(all_questions)
-
 # ---------------------------
 # 2. Tạo 25 bộ đề thi thử
 # ---------------------------
-if total_questions >= 690:
-    random.seed(42)
-    shuffled = all_questions.copy()
-    random.shuffle(shuffled)
-    exam_sets = {}
-    for i in range(23):
-        exam_sets[i+1] = shuffled[i*30:(i+1)*30]
-    for i in range(23, 25):
-        exam_sets[i+1] = random.sample(all_questions, 30)
-else:
-    exam_sets = {i+1: random.sample(all_questions, 30) for i in range(25)}
+def create_exam_sets(all_questions, total_questions):
+    if total_questions >= 690:
+        random.seed(42)
+        shuffled = all_questions.copy()
+        random.shuffle(shuffled)
+        exam_sets = {}
+        for i in range(23):
+            exam_sets[i+1] = shuffled[i*30:(i+1)*30]
+        for i in range(23, 25):
+            exam_sets[i+1] = random.sample(all_questions, 30)
+    else:
+        exam_sets = {i+1: random.sample(all_questions, 30) for i in range(25)}
+    return exam_sets
 
 # ---------------------------
 # 3. Helper functions
 # ---------------------------
 def format_explanation(text, correct_answer=None):
-    """Hiển thị giải thích với các mục được xuống dòng rõ ràng"""
     header = ""
     if correct_answer:
         header = f"**✅ Đáp án đúng: {correct_answer}**\n\n"
-    
     processed = re.sub(r'\s*[•\-]\s*', '\n• ', text)
     processed = processed.lstrip('\n')
     lines = processed.split('\n')
@@ -128,6 +152,15 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# Kiểm tra đăng nhập trước khi hiển thị nội dung
+check_login()
+
+# Sau khi đăng nhập thành công, tiếp tục chạy ứng dụng
+all_questions = load_data()
+total_questions = len(all_questions)
+exam_sets = create_exam_sets(all_questions, total_questions)
+
 st.markdown('<div class="main-header"><h1>📚 ÔN TẬP VÀ THI THỬ</h1></div>', unsafe_allow_html=True)
 
 # Sidebar
