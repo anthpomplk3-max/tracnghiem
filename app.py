@@ -3,42 +3,6 @@ import json
 import random
 
 # ---------------------------
-# 0. ĐĂNG NHẬP
-# ---------------------------
-def check_login():
-    if "logged_in" not in st.session_state:
-        st.session_state.logged_in = False
-
-    if not st.session_state.logged_in:
-        st.set_page_config(page_title="Đăng nhập", layout="centered")
-        st.markdown(
-            """
-            <style>
-            .stApp {
-                background-image: url("https://images.unsplash.com/photo-1581094288338-1f4b2d6f9b5a?q=80&w=2070&auto=format&fit=crop");
-                background-size: cover;
-                background-attachment: fixed;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
-        st.markdown('<h1 style="text-align:center;">🔐 ĐĂNG NHẬP</h1>', unsafe_allow_html=True)
-        with st.form("login_form"):
-            username = st.text_input("Tên đăng nhập")
-            password = st.text_input("Mật khẩu", type="password")
-            submitted = st.form_submit_button("Đăng nhập", use_container_width=True)
-            if submitted:
-                if username == "PECC2.POM" and password == "POM.OCC":
-                    st.session_state.logged_in = True
-                    st.rerun()
-                else:
-                    st.error("Sai tên đăng nhập hoặc mật khẩu!")
-        st.stop()
-
-check_login()
-
-# ---------------------------
 # 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data
@@ -63,13 +27,20 @@ def load_data():
         })
     return questions
 
-all_questions = load_data()  # 184 câu
+all_questions = load_data()  # 699 câu
 
-# Xáo trộn để tạo 6 bộ đề thi thử
+# Xáo trộn để tạo 23 bộ đề thi thử không trùng
 random.seed(42)
 shuffled = all_questions.copy()
 random.shuffle(shuffled)
-exam_sets = {i+1: shuffled[i*30:(i+1)*30] for i in range(6)}
+
+exam_sets = {}
+# 23 bộ đề đầu (không trùng câu)
+for i in range(23):
+    exam_sets[i+1] = shuffled[i*30:(i+1)*30]
+# 2 bộ đề cuối (cho phép trùng với các bộ trước)
+for i in range(23, 25):
+    exam_sets[i+1] = random.sample(all_questions, 30)  # có thể trùng
 
 # ---------------------------
 # 2. Helper functions
@@ -148,23 +119,23 @@ with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio(
         "Chọn chế độ",
-        ["📖 Ôn tập (có giải thích - 184 câu)", "✍️ Thi thử (không giải thích)"],
+        ["📖 Ôn tập (có giải thích - 699 câu)", "✍️ Thi thử (không giải thích)"],
         key="mode_select"
     )
     st.markdown("---")
-    if mode == "📖 Ôn tập (có giải thích - 184 câu)":
-        st.info("📌 184 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
+    if mode == "📖 Ôn tập (có giải thích - 699 câu)":
+        st.info("📌 699 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
-        set_number = st.selectbox("Chọn bộ đề (1-6)", options=[1,2,3,4,5,6], index=0)
-        st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng.")
-    if st.button("🚪 Đăng xuất"):
-        st.session_state.logged_in = False
-        st.rerun()
+        set_number = st.selectbox("Chọn bộ đề (1-25)", options=list(range(1, 26)), index=0)
+        if set_number <= 23:
+            st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng với các bộ khác.")
+        else:
+            st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, có thể trùng với các bộ đề khác.")
 
 # ---------------------------
 # 4. ÔN TẬP
 # ---------------------------
-if mode == "📖 Ôn tập (có giải thích - 184 câu)":
+if mode == "📖 Ôn tập (có giải thích - 699 câu)":
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
     st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
