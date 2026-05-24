@@ -132,10 +132,16 @@ st.markdown(
     }
     .main-header h1 {
         color: white;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 700;
         margin: 0;
         text-shadow: 2px 2px 4px #000000;
+    }
+    .main-header h2 {
+        color: #ffd966;
+        font-size: 1.3rem;
+        margin: 0;
+        font-weight: 500;
     }
     .login-header {
         text-align: center;
@@ -206,7 +212,14 @@ if not all_questions:
 total_questions = len(all_questions)
 exam_sets = create_exam_sets(all_questions, total_questions)
 
-st.markdown('<div class="main-header"><h1>📚 ÔN TẬP & THI THỬ HỆ THỐNG ĐIỆN</h1></div>', unsafe_allow_html=True)
+# Header mới theo yêu cầu
+st.markdown(
+    '<div class="main-header">'
+    '<h1>TRUNG TÂM ĐIỀU ĐỘ HỆ THỐNG ĐIỆN QUỐC GIA</h1>'
+    '<h2>📚 ÔN TẬP & THI THỬ</h2>'
+    '</div>', 
+    unsafe_allow_html=True
+)
 
 with st.sidebar:
     st.markdown("---")
@@ -238,7 +251,7 @@ if mode.startswith("📖 Ôn tập"):
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # Các hàm điều hướng cập nhật session state
+    # Hàm xử lý nút bấm
     def go_prev():
         if st.session_state.learn_idx > 0:
             st.session_state.learn_idx -= 1
@@ -247,11 +260,13 @@ if mode.startswith("📖 Ôn tập"):
         if st.session_state.learn_idx < total_questions - 1:
             st.session_state.learn_idx += 1
 
-    def set_index_from_select():
+    def update_index_from_select():
         st.session_state.learn_idx = st.session_state.question_selector
 
+    # Tạo nhãn cho selectbox
     question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
 
+    # Bố trí 3 cột: trái (câu trước), giữa (selectbox + số thứ tự), phải (câu tiếp)
     col_prev, col_mid, col_next = st.columns([1, 2, 1])
     with col_prev:
         st.button("⬅️ Câu trước", on_click=go_prev, use_container_width=True)
@@ -264,7 +279,7 @@ if mode.startswith("📖 Ôn tập"):
             format_func=lambda i: question_labels[i],
             index=st.session_state.learn_idx,
             key="question_selector",
-            on_change=set_index_from_select,
+            on_change=update_index_from_select,
             label_visibility="collapsed"
         )
 
