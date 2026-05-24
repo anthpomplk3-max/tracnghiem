@@ -238,25 +238,20 @@ if mode.startswith("📖 Ôn tập"):
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    def prev_question():
-        if st.session_state.learn_idx > 0:
-            st.session_state.learn_idx -= 1
-
-    def next_question():
-        if st.session_state.learn_idx < total_questions - 1:
-            st.session_state.learn_idx += 1
-
-    def on_select_question():
+    def update_index():
         st.session_state.learn_idx = st.session_state.question_selector
 
-    # Tạo danh sách nhãn hiển thị
     question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
 
     col_prev, col_mid, col_next = st.columns([1, 2, 1])
     with col_prev:
-        st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
+        if st.button("⬅️ Câu trước", use_container_width=True):
+            if st.session_state.learn_idx > 0:
+                st.session_state.learn_idx -= 1
     with col_next:
-        st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
+        if st.button("Câu tiếp ➡️", use_container_width=True):
+            if st.session_state.learn_idx < total_questions - 1:
+                st.session_state.learn_idx += 1
     with col_mid:
         st.selectbox(
             "Chọn câu hỏi",
@@ -264,7 +259,7 @@ if mode.startswith("📖 Ôn tập"):
             format_func=lambda i: question_labels[i],
             index=st.session_state.learn_idx,
             key="question_selector",
-            on_change=on_select_question,
+            on_change=update_index,
             label_visibility="collapsed"
         )
 
