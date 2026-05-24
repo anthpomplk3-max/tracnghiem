@@ -212,7 +212,6 @@ if not all_questions:
 total_questions = len(all_questions)
 exam_sets = create_exam_sets(all_questions, total_questions)
 
-# Header mới theo yêu cầu
 st.markdown(
     '<div class="main-header">'
     '<h1>TRUNG TÂM ĐIỀU ĐỘ HỆ THỐNG ĐIỆN QUỐC GIA</h1>'
@@ -251,38 +250,34 @@ if mode.startswith("📖 Ôn tập"):
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # Hàm xử lý nút bấm
-    def go_prev():
-        if st.session_state.learn_idx > 0:
-            st.session_state.learn_idx -= 1
-
-    def go_next():
-        if st.session_state.learn_idx < total_questions - 1:
-            st.session_state.learn_idx += 1
-
-    def update_index_from_select():
-        st.session_state.learn_idx = st.session_state.question_selector
-
-    # Tạo nhãn cho selectbox
-    question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
-
-    # Bố trí 3 cột: trái (câu trước), giữa (selectbox + số thứ tự), phải (câu tiếp)
-    col_prev, col_mid, col_next = st.columns([1, 2, 1])
+    # --- Hàng 1: Câu trước, hiển thị số thứ tự, Câu tiếp ---
+    col_prev, col_info, col_next = st.columns([1, 2, 1])
     with col_prev:
-        st.button("⬅️ Câu trước", on_click=go_prev, use_container_width=True)
+        if st.button("⬅️ Câu trước", use_container_width=True):
+            if st.session_state.learn_idx > 0:
+                st.session_state.learn_idx -= 1
     with col_next:
-        st.button("Câu tiếp ➡️", on_click=go_next, use_container_width=True)
-    with col_mid:
-        st.selectbox(
-            "Chọn câu hỏi",
-            options=range(total_questions),
-            format_func=lambda i: question_labels[i],
-            index=st.session_state.learn_idx,
-            key="question_selector",
-            on_change=update_index_from_select,
-            label_visibility="collapsed"
-        )
+        if st.button("Câu tiếp ➡️", use_container_width=True):
+            if st.session_state.learn_idx < total_questions - 1:
+                st.session_state.learn_idx += 1
+    with col_info:
+        current_label = f"Câu {st.session_state.learn_idx+1} / {total_questions} (ID {all_questions[st.session_state.learn_idx]['id']})"
+        st.markdown(f"<div style='text-align: center; font-size: 1.2rem; font-weight: bold;'>{current_label}</div>", unsafe_allow_html=True)
 
+    # --- Hàng 2: Selectbox chọn câu (riêng biệt) ---
+    question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
+    selected_index = st.selectbox(
+        "Chọn câu hỏi nhanh",
+        options=range(total_questions),
+        format_func=lambda i: question_labels[i],
+        index=st.session_state.learn_idx,
+        key="quick_select",
+        label_visibility="visible"
+    )
+    if selected_index != st.session_state.learn_idx:
+        st.session_state.learn_idx = selected_index
+
+    # --- Hiển thị câu hỏi hiện tại ---
     q = all_questions[st.session_state.learn_idx]
     st.markdown(f"**📄 {question_labels[st.session_state.learn_idx]}:** {q['question']}")
 
