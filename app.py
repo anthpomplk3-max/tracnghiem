@@ -188,6 +188,14 @@ st.markdown(
     .css-1d391kg {
         background-color: rgba(0,51,102,0.9);
     }
+    /* Tùy chỉnh ô nhập số nhỏ gọn */
+    div[data-testid="stNumberInput"] label {
+        display: none;
+    }
+    div[data-testid="stNumberInput"] {
+        margin-top: 0;
+        padding-top: 0;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -233,59 +241,59 @@ with st.sidebar:
             st.warning(f"📌 Bộ đề {set_number}: 30 câu (có thể trùng)")
 
 # ---------------------------
-# 5. ÔN TẬP
+# 5. ÔN TẬP (CẢI TIẾN ĐIỀU HƯỚNG)
 # ---------------------------
 if mode.startswith("📖 Ôn tập"):
     st.markdown('<div class="content-card">', unsafe_allow_html=True)
     st.subheader("🎓 ÔN TẬP TOÀN BỘ CÂU HỎI")
     st.caption("✏️ Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
+    # Khởi tạo session state cho ôn tập
     if "learn_idx" not in st.session_state:
         st.session_state.learn_idx = 0
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    def prev_question():
+    # Hàm chuyển câu
+    def go_prev():
         if st.session_state.learn_idx > 0:
             st.session_state.learn_idx -= 1
 
-    def next_question():
-        if st.session_state.learn_idx < len(all_questions) - 1:
+    def go_next():
+        if st.session_state.learn_idx < total_questions - 1:
             st.session_state.learn_idx += 1
 
-    def jump_to_question():
-        selected_id = st.session_state.jump_select
-        for idx, q in enumerate(all_questions):
-            if q["id"] == selected_id:
-                st.session_state.learn_idx = idx
-                break
+    def go_to_question():
+        # jump_num là số thứ tự câu (1-based)
+        jump_num = st.session_state.jump_number
+        if 1 <= jump_num <= total_questions:
+            st.session_state.learn_idx = jump_num - 1
 
-    # --- Điều hướng gộp: Câu trước | [Dropdown + Số thứ tự] | Câu tiếp ---
-    col_prev, col_mid, col_next = st.columns([1, 2, 1])
-    with col_prev:
-        st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
-    with col_next:
-        st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
-    with col_mid:
-        # Hai cột con: dropdown (chọn ID) và hiển thị số thứ tự
-        sub_col1, sub_col2 = st.columns([3, 1])
-        with sub_col1:
-            q_ids = [q["id"] for q in all_questions]
-            current_id = all_questions[st.session_state.learn_idx]["id"]
-            st.selectbox(
-                "Chọn câu theo ID",
-                options=q_ids,
-                index=q_ids.index(current_id),
-                key="jump_select",
-                on_change=jump_to_question,
-                label_visibility="collapsed"
-            )
-        with sub_col2:
-            st.markdown(
-                f"<div style='text-align: center; font-size: 1rem; font-weight: bold; margin-top: 8px;'>📌 Câu {st.session_state.learn_idx+1}/{total_questions}</div>",
-                unsafe_allow_html=True
-            )
+    # --- Điều hướng mới: 4 cột rõ ràng ---
+    col1, col2, col3, col4 = st.columns([1, 1.5, 1.2, 1])
+    with col1:
+        st.button("⬅️ Câu trước", on_click=go_prev, use_container_width=True)
+    with col2:
+        # Ô nhập số thứ tự câu
+        st.number_input(
+            "Số câu",
+            min_value=1,
+            max_value=total_questions,
+            value=st.session_state.learn_idx + 1,
+            step=1,
+            key="jump_number",
+            on_change=go_to_question,
+            label_visibility="collapsed"
+        )
+    with col3:
+        st.markdown(
+            f"<div style='text-align: center; font-size: 1rem; font-weight: bold; padding-top: 8px;'>📌 Câu {st.session_state.learn_idx+1}/{total_questions}</div>",
+            unsafe_allow_html=True
+        )
+    with col4:
+        st.button("Câu tiếp ➡️", on_click=go_next, use_container_width=True)
 
+    # Hiển thị câu hỏi hiện tại
     q = all_questions[st.session_state.learn_idx]
     st.markdown(f"**📄 Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
 
