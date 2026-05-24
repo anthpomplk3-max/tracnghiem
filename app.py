@@ -1,19 +1,34 @@
 import streamlit as st
 import json
 import random
+import sys
 
 # ---------------------------
-# 1. Đọc dữ liệu
+# 1. Đọc dữ liệu an toàn
 # ---------------------------
 @st.cache_data
 def load_data():
-    with open("GIAITHICH.json", "r", encoding="utf-8") as f:
-        giai_thich = json.load(f)
-    with open("TN.json", "r", encoding="utf-8") as f:
-        tn = json.load(f)
+    try:
+        with open("GIAITHICH.json", "r", encoding="utf-8") as f:
+            giai_thich = json.load(f)
+        with open("TN.json", "r", encoding="utf-8") as f:
+            tn = json.load(f)
+    except Exception as e:
+        st.error(f"Lỗi đọc file JSON: {e}")
+        st.stop()
+
+    # Kiểm tra số lượng
+    st.write(f"📊 Số câu trong GIAITHICH.json: {len(giai_thich)}")
+    st.write(f"📊 Số câu trong TN.json: {len(tn)}")
+
+    # Đảm bảo hai file có cùng số câu
+    if len(giai_thich) != len(tn):
+        st.warning(f"Số câu không khớp: GIAITHICH={len(giai_thich)}, TN={len(tn)}. Sẽ lấy số nhỏ hơn.")
+        min_len = min(len(giai_thich), len(tn))
+        giai_thich = giai_thich[:min_len]
+        tn = tn[:min_len]
 
     options_map = {item["id"]: item["options"] for item in tn}
-
     questions = []
     for q in giai_thich:
         qid = q["id"]
@@ -23,29 +38,37 @@ def load_data():
             "question": q["question"],
             "options": opts,
             "answer_letter": q["answer"],
-            "explanation": q["explanation"]
+            "explanation": q.get("explanation", "Không có giải thích")
         })
     return questions
 
-all_questions = load_data()  # 699 câu
+all_questions = load_data()
+total_questions = len(all_questions)
+st.sidebar.write(f"📚 Tổng số câu hỏi: {total_questions}")
 
-# Xáo trộn để tạo 23 bộ đề thi thử không trùng
-random.seed(42)
-shuffled = all_questions.copy()
-random.shuffle(shuffled)
-
-exam_sets = {}
-# 23 bộ đề đầu (không trùng câu)
-for i in range(23):
-    exam_sets[i+1] = shuffled[i*30:(i+1)*30]
-# 2 bộ đề cuối (cho phép trùng với các bộ trước)
-for i in range(23, 25):
-    exam_sets[i+1] = random.sample(all_questions, 30)  # có thể trùng
+# Nếu số câu ít hơn 690, không thể tạo 23 bộ đề không trùng
+if total_questions < 690:
+    st.sidebar.warning(f"⚠️ Chỉ có {total_questions} câu, không đủ 690 câu để tạo 23 bộ đề không trùng (mỗi bộ 30 câu).")
+    st.sidebar.info("Các bộ đề sẽ được tạo bằng cách lấy mẫu ngẫu nhiên (có thể trùng lặp).")
+    exam_sets = {i+1: random.sample(all_questions, 30) for i in range(25)}
+else:
+    random.seed(42)
+    shuffled = all_questions.copy()
+    random.shuffle(shuffled)
+    exam_sets = {}
+    # 23 bộ không trùng
+    for i in range(23):
+        exam_sets[i+1] = shuffled[i*30:(i+1)*30]
+    # 2 bộ cuối trùng
+    for i in range(23, 25):
+        exam_sets[i+1] = random.sample(all_questions, 30)
 
 # ---------------------------
 # 2. Helper functions
 # ---------------------------
 def format_explanation(text):
+    if not text:
+        return "Không có giải thích."
     lines = text.split('\n')
     formatted = "### 📖 Giải thích chi tiết\n\n"
     for line in lines:
@@ -119,23 +142,23 @@ with st.sidebar:
     st.header("⚙️ Cài đặt")
     mode = st.radio(
         "Chọn chế độ",
-        ["📖 Ôn tập (có giải thích - 699 câu)", "✍️ Thi thử (không giải thích)"],
+        [f"📖 Ôn tập (có giải thích - {total_questions} câu)", "✍️ Thi thử (không giải thích)"],
         key="mode_select"
     )
     st.markdown("---")
-    if mode == "📖 Ôn tập (có giải thích - 699 câu)":
-        st.info("📌 699 câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
+    if mode.startswith("📖 Ôn tập"):
+        st.info(f"📌 {total_questions} câu hỏi. Dùng nút hoặc dropdown để chuyển câu.")
     else:
         set_number = st.selectbox("Chọn bộ đề (1-25)", options=list(range(1, 26)), index=0)
-        if set_number <= 23:
+        if set_number <= 23 and total_questions >= 690:
             st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, không trùng với các bộ khác.")
         else:
-            st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn, có thể trùng với các bộ đề khác.")
+            st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn (có thể trùng).")
 
 # ---------------------------
 # 4. ÔN TẬP
 # ---------------------------
-if mode == "📖 Ôn tập (có giải thích - 699 câu)":
+if mode.startswith("📖 Ôn tập"):
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
     st.caption("Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
@@ -154,10 +177,11 @@ if mode == "📖 Ôn tập (có giải thích - 699 câu)":
 
     def jump_to_question():
         selected_id = st.session_state.jump_select
-        q_ids = [q["id"] for q in all_questions]
-        new_idx = q_ids.index(selected_id)
-        if new_idx != st.session_state.learn_idx:
-            st.session_state.learn_idx = new_idx
+        # Tìm index theo id (id có thể không liên tục)
+        for idx, q in enumerate(all_questions):
+            if q["id"] == selected_id:
+                st.session_state.learn_idx = idx
+                break
 
     col1, col2, col3 = st.columns([1, 3, 1])
     with col1:
@@ -166,10 +190,11 @@ if mode == "📖 Ôn tập (có giải thích - 699 câu)":
         st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
     with col2:
         q_ids = [q["id"] for q in all_questions]
+        current_id = all_questions[st.session_state.learn_idx]["id"]
         st.selectbox(
             "Nhảy tới câu (ID gốc)",
             options=q_ids,
-            index=st.session_state.learn_idx,
+            index=q_ids.index(current_id),
             key="jump_select",
             on_change=jump_to_question,
             label_visibility="collapsed"
