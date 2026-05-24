@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import random
 import re
+import streamlit.components.v1 as components
 
 # ---------------------------
 # 0. Xác thực đăng nhập
@@ -33,7 +34,7 @@ def check_login():
                 st.rerun()
 
 # ---------------------------
-# 1. Đọc dữ liệu (có cache và nút reload)
+# 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data(show_spinner=False)
 def load_data_cached():
@@ -114,7 +115,6 @@ def get_selected_letter(selected_prefix):
 # ---------------------------
 st.set_page_config(page_title="Ôn tập và Thi thử - PECC2", layout="wide")
 
-# CSS tùy chỉnh nâng cao + hiệu ứng confetti
 st.markdown(
     """
     <style>
@@ -185,9 +185,6 @@ st.markdown(
         border-radius: 15px;
         font-weight: bold;
     }
-    .css-1d391kg {
-        background-color: rgba(0,51,102,0.9);
-    }
     div[data-testid="stNumberInput"] label {
         display: none;
     }
@@ -200,17 +197,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Kiểm tra đăng nhập
 check_login()
 
-# Nút tải lại dữ liệu (chỉ hiển thị khi đã đăng nhập)
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/2232/2232688.png", width=80)
     st.markdown("### ⚙️ QUẢN LÝ")
     if st.button("🔄 Tải lại dữ liệu JSON", use_container_width=True):
         reload_data()
 
-# Load dữ liệu
 all_questions = load_data_cached()
 if not all_questions:
     st.error("Không thể tải dữ liệu. Vui lòng kiểm tra file JSON.")
@@ -221,7 +215,6 @@ exam_sets = create_exam_sets(all_questions, total_questions)
 
 st.markdown('<div class="main-header"><h1>📚 ÔN TẬP & THI THỬ HỆ THỐNG ĐIỆN</h1></div>', unsafe_allow_html=True)
 
-# Sidebar
 with st.sidebar:
     st.markdown("---")
     mode = st.radio(
@@ -240,23 +233,20 @@ with st.sidebar:
             st.warning(f"📌 Bộ đề {set_number}: 30 câu (có thể trùng)")
 
 # ---------------------------
-# 5. ÔN TẬP (CÓ HIỆU ỨNG TUNG HOA 3D)
+# 5. ÔN TẬP (CÓ CONFETTI BẰNG components.html)
 # ---------------------------
 if mode.startswith("📖 Ôn tập"):
     st.markdown('<div class="content-card">', unsafe_allow_html=True)
     st.subheader("🎓 ÔN TẬP TOÀN BỘ CÂU HỎI")
     st.caption("✏️ Chọn đáp án, xem kết quả và giải thích ngay bên dưới.")
 
-    # Khởi tạo session state cho ôn tập
     if "learn_idx" not in st.session_state:
         st.session_state.learn_idx = 0
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
-    # Biến để kích hoạt confetti (tránh bắn nhiều lần)
     if "confetti_trigger" not in st.session_state:
         st.session_state.confetti_trigger = False
 
-    # Hàm chuyển câu
     def go_prev():
         st.session_state.confetti_trigger = False
         if st.session_state.learn_idx > 0:
@@ -273,7 +263,6 @@ if mode.startswith("📖 Ôn tập"):
         if 1 <= jump_num <= total_questions:
             st.session_state.learn_idx = jump_num - 1
 
-    # --- Điều hướng: Câu trước | Câu X/Y | Câu tiếp | Ô nhập số ---
     col1, col2, col3, col4 = st.columns([1, 1.2, 1, 1.5])
     with col1:
         st.button("⬅️ Câu trước", on_click=go_prev, use_container_width=True)
@@ -296,7 +285,6 @@ if mode.startswith("📖 Ôn tập"):
             label_visibility="collapsed"
         )
 
-    # Hiển thị câu hỏi hiện tại
     q = all_questions[st.session_state.learn_idx]
     st.markdown(f"**📄 Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
 
@@ -310,38 +298,33 @@ if mode.startswith("📖 Ôn tập"):
         key=f"learn_{q['id']}",
         label_visibility="visible"
     )
-    
-    # Xử lý khi người dùng chọn đáp án
+
     if selected:
         st.session_state.learn_answers[q['id']] = selected
         user_letter = get_selected_letter(selected)
         if user_letter == q['answer_letter']:
-            # Hiển thị thông báo đúng
             st.success("✅ CHÍNH XÁC! Bạn đã trả lời đúng.")
-            # Kích hoạt hiệu ứng tung hoa nếu chưa kích hoạt cho lần chọn này
             if not st.session_state.confetti_trigger:
                 st.session_state.confetti_trigger = True
-                # Gọi JavaScript canvas-confetti (tung hoa rực rỡ)
-                st.markdown("""
+                # Dùng components.html để chạy canvas-confetti 100%
+                confetti_html = """
                     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
                     <script>
-                        // Bắn confetti từ nhiều hướng
-                        canvasConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 }, startVelocity: 15, colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'] });
-                        canvasConfetti({ particleCount: 100, spread: 130, origin: { y: 0.5, x: 0.2 }, startVelocity: 20 });
-                        canvasConfetti({ particleCount: 100, spread: 130, origin: { y: 0.5, x: 0.8 }, startVelocity: 20 });
-                        // Thêm hiệu ứng hoa rơi
+                        canvasConfetti({ particleCount: 180, spread: 100, origin: { y: 0.6 }, startVelocity: 20, colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'] });
+                        canvasConfetti({ particleCount: 120, spread: 140, origin: { y: 0.5, x: 0.2 }, startVelocity: 25 });
+                        canvasConfetti({ particleCount: 120, spread: 140, origin: { y: 0.5, x: 0.8 }, startVelocity: 25 });
                         setTimeout(() => {
-                            canvasConfetti({ particleCount: 300, spread: 70, origin: { y: 0.7 }, startVelocity: 8, decay: 0.9 });
+                            canvasConfetti({ particleCount: 400, spread: 80, origin: { y: 0.7 }, startVelocity: 10, decay: 0.9 });
                         }, 200);
                     </script>
-                """, unsafe_allow_html=True)
+                """
+                components.html(confetti_html, height=0, width=0)
         else:
             st.error(f"❌ SAI. Đáp án đúng là: **{q['answer_letter']}**")
             st.session_state.confetti_trigger = False
         with st.expander("📖 Xem giải thích chi tiết", expanded=False):
             st.markdown(format_explanation(q['explanation'], q['answer_letter']))
     else:
-        # Reset trigger khi chưa chọn
         st.session_state.confetti_trigger = False
 
     st.markdown('</div>', unsafe_allow_html=True)
