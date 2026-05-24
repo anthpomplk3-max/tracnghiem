@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 import random
+import re
 
 # ---------------------------
 # 1. Đọc dữ liệu
@@ -16,7 +17,6 @@ def load_data():
         st.error(f"Lỗi đọc file JSON: {e}")
         st.stop()
 
-    # Đảm bảo hai file có cùng số câu
     if len(giai_thich) != len(tn):
         st.warning(f"Số câu không khớp: GIAITHICH={len(giai_thich)}, TN={len(tn)}. Sẽ lấy số nhỏ hơn.")
         min_len = min(len(giai_thich), len(tn))
@@ -48,36 +48,42 @@ if total_questions >= 690:
     shuffled = all_questions.copy()
     random.shuffle(shuffled)
     exam_sets = {}
-    # 23 bộ không trùng
     for i in range(23):
         exam_sets[i+1] = shuffled[i*30:(i+1)*30]
-    # 2 bộ cuối trùng (có thể lấy ngẫu nhiên)
     for i in range(23, 25):
         exam_sets[i+1] = random.sample(all_questions, 30)
 else:
-    # Nếu không đủ 690 câu, tất cả 25 bộ đều lấy ngẫu nhiên (có thể trùng)
     exam_sets = {i+1: random.sample(all_questions, 30) for i in range(25)}
 
 # ---------------------------
 # 3. Helper functions
 # ---------------------------
 def format_explanation(text, correct_answer=None):
-    """Hiển thị giải thích kèm đáp án đúng"""
+    """Hiển thị giải thích với các mục được xuống dòng rõ ràng"""
     header = ""
     if correct_answer:
         header = f"**✅ Đáp án đúng: {correct_answer}**\n\n"
-    lines = text.split('\n')
+    
+    # Tách các ý dựa trên dấu đầu dòng • hoặc -
+    # Thay thế các dấu hiệu bằng xuống dòng + dấu •
+    processed = re.sub(r'\s*[•\-]\s*', '\n• ', text)
+    processed = processed.lstrip('\n')
+    
+    # Xử lý từng dòng
+    lines = processed.split('\n')
     formatted = "### 📖 Giải thích chi tiết\n\n" + header
     for line in lines:
         line = line.strip()
         if not line:
             continue
-        if line.startswith(('•', '-', '✓', '●')):
+        # Nếu dòng bắt đầu bằng • thì giữ nguyên, không thêm gì thêm
+        if line.startswith('•'):
             formatted += f"{line}\n\n"
-        elif "Tại sao" in line or "Giải thích" in line:
-            formatted += f"**{line}**\n\n"
         else:
-            formatted += f"• {line}\n\n"
+            # Văn bản thường (ví dụ câu mở đầu) cũng xuống dòng
+            formatted += f"{line}\n\n"
+    # Loại bỏ dòng trống thừa
+    formatted = re.sub(r'\n{3,}', '\n\n', formatted)
     return formatted
 
 def option_with_prefix(opts):
