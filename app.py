@@ -235,8 +235,6 @@ if mode.startswith("📖 Ôn tập"):
 
     if "learn_idx" not in st.session_state:
         st.session_state.learn_idx = 0
-    if "learn_answers" not in st.session_state:
-        st.session_state.learn_answers = {}
 
     def prev_question():
         if st.session_state.learn_idx > 0:
@@ -249,8 +247,8 @@ if mode.startswith("📖 Ôn tập"):
     def on_select_question():
         st.session_state.learn_idx = st.session_state.question_selector
 
-    # Tạo danh sách nhãn hiển thị
-    question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
+    # Tạo danh sách hiển thị cho selectbox
+    question_options = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
 
     col_prev, col_mid, col_next = st.columns([1, 2, 1])
     with col_prev:
@@ -261,7 +259,7 @@ if mode.startswith("📖 Ôn tập"):
         st.selectbox(
             "Chọn câu hỏi",
             options=range(total_questions),
-            format_func=lambda i: question_labels[i],
+            format_func=lambda i: question_options[i],
             index=st.session_state.learn_idx,
             key="question_selector",
             on_change=on_select_question,
@@ -269,9 +267,11 @@ if mode.startswith("📖 Ôn tập"):
         )
 
     q = all_questions[st.session_state.learn_idx]
-    st.markdown(f"**📄 {question_labels[st.session_state.learn_idx]}:** {q['question']}")
+    st.markdown(f"**📄 {question_options[st.session_state.learn_idx]}:** {q['question']}")
 
     prefixed_opts = option_with_prefix(q['options'])
+    if "learn_answers" not in st.session_state:
+        st.session_state.learn_answers = {}
     current_ans = st.session_state.learn_answers.get(q['id'], None)
     default_idx = prefixed_opts.index(current_ans) if current_ans in prefixed_opts else None
     selected = st.radio(
