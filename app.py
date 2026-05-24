@@ -1,10 +1,9 @@
 import streamlit as st
 import json
 import random
-import sys
 
 # ---------------------------
-# 1. Đọc dữ liệu an toàn
+# 1. Đọc dữ liệu
 # ---------------------------
 @st.cache_data
 def load_data():
@@ -16,10 +15,6 @@ def load_data():
     except Exception as e:
         st.error(f"Lỗi đọc file JSON: {e}")
         st.stop()
-
-    # Kiểm tra số lượng
-    st.write(f"📊 Số câu trong GIAITHICH.json: {len(giai_thich)}")
-    st.write(f"📊 Số câu trong TN.json: {len(tn)}")
 
     # Đảm bảo hai file có cùng số câu
     if len(giai_thich) != len(tn):
@@ -44,14 +39,11 @@ def load_data():
 
 all_questions = load_data()
 total_questions = len(all_questions)
-st.sidebar.write(f"📚 Tổng số câu hỏi: {total_questions}")
 
-# Nếu số câu ít hơn 690, không thể tạo 23 bộ đề không trùng
-if total_questions < 690:
-    st.sidebar.warning(f"⚠️ Chỉ có {total_questions} câu, không đủ 690 câu để tạo 23 bộ đề không trùng (mỗi bộ 30 câu).")
-    st.sidebar.info("Các bộ đề sẽ được tạo bằng cách lấy mẫu ngẫu nhiên (có thể trùng lặp).")
-    exam_sets = {i+1: random.sample(all_questions, 30) for i in range(25)}
-else:
+# ---------------------------
+# 2. Tạo 25 bộ đề thi thử
+# ---------------------------
+if total_questions >= 690:
     random.seed(42)
     shuffled = all_questions.copy()
     random.shuffle(shuffled)
@@ -59,18 +51,23 @@ else:
     # 23 bộ không trùng
     for i in range(23):
         exam_sets[i+1] = shuffled[i*30:(i+1)*30]
-    # 2 bộ cuối trùng
+    # 2 bộ cuối trùng (có thể lấy ngẫu nhiên)
     for i in range(23, 25):
         exam_sets[i+1] = random.sample(all_questions, 30)
+else:
+    # Nếu không đủ 690 câu, tất cả 25 bộ đều lấy ngẫu nhiên (có thể trùng)
+    exam_sets = {i+1: random.sample(all_questions, 30) for i in range(25)}
 
 # ---------------------------
-# 2. Helper functions
+# 3. Helper functions
 # ---------------------------
-def format_explanation(text):
-    if not text:
-        return "Không có giải thích."
+def format_explanation(text, correct_answer=None):
+    """Hiển thị giải thích kèm đáp án đúng"""
+    header = ""
+    if correct_answer:
+        header = f"**✅ Đáp án đúng: {correct_answer}**\n\n"
     lines = text.split('\n')
-    formatted = "### 📖 Giải thích chi tiết\n\n"
+    formatted = "### 📖 Giải thích chi tiết\n\n" + header
     for line in lines:
         line = line.strip()
         if not line:
@@ -90,7 +87,7 @@ def get_selected_letter(selected_prefix):
     return selected_prefix[0] if selected_prefix else None
 
 # ---------------------------
-# 3. Giao diện chính
+# 4. Giao diện chính
 # ---------------------------
 st.set_page_config(page_title="Ôn tập và Thi thử", layout="wide")
 st.markdown(
@@ -156,7 +153,7 @@ with st.sidebar:
             st.info(f"📌 Bộ đề {set_number}: 30 câu xáo trộn (có thể trùng).")
 
 # ---------------------------
-# 4. ÔN TẬP
+# 5. ÔN TẬP
 # ---------------------------
 if mode.startswith("📖 Ôn tập"):
     st.subheader("🎓 Ôn tập toàn bộ câu hỏi")
@@ -177,7 +174,6 @@ if mode.startswith("📖 Ôn tập"):
 
     def jump_to_question():
         selected_id = st.session_state.jump_select
-        # Tìm index theo id (id có thể không liên tục)
         for idx, q in enumerate(all_questions):
             if q["id"] == selected_id:
                 st.session_state.learn_idx = idx
@@ -221,10 +217,10 @@ if mode.startswith("📖 Ôn tập"):
         else:
             st.error(f"❌ Sai. Đáp án đúng là: **{q['answer_letter']}**")
         with st.expander("📖 Xem giải thích chi tiết", expanded=False):
-            st.markdown(format_explanation(q['explanation']))
+            st.markdown(format_explanation(q['explanation'], q['answer_letter']))
 
 # ---------------------------
-# 5. THI THỬ
+# 6. THI THỬ
 # ---------------------------
 else:
     st.subheader(f"📝 Bộ đề {set_number} - THI THỬ")
@@ -293,6 +289,6 @@ else:
                     st.markdown(f"**Đáp án của bạn:** {res['user_letter']}")
                     if not res['is_correct']:
                         st.markdown(f"**Đáp án đúng:** {res['correct_letter']}")
-                    st.markdown(format_explanation(res['explanation']))
+                    st.markdown(format_explanation(res['explanation'], res['correct_letter']))
                     st.markdown("---")
         st.button("🔄 Làm lại bài thi", on_click=reset_exam, use_container_width=True)
