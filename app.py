@@ -241,7 +241,7 @@ with st.sidebar:
             st.warning(f"📌 Bộ đề {set_number}: 30 câu (có thể trùng)")
 
 # ---------------------------
-# 5. ÔN TẬP (CẢI TIẾN ĐIỀU HƯỚNG)
+# 5. ÔN TẬP (ĐÃ ĐẢO 2 VỊ TRÍ GIỮA)
 # ---------------------------
 if mode.startswith("📖 Ôn tập"):
     st.markdown('<div class="content-card">', unsafe_allow_html=True)
@@ -264,17 +264,20 @@ if mode.startswith("📖 Ôn tập"):
             st.session_state.learn_idx += 1
 
     def go_to_question():
-        # jump_num là số thứ tự câu (1-based)
         jump_num = st.session_state.jump_number
         if 1 <= jump_num <= total_questions:
             st.session_state.learn_idx = jump_num - 1
 
-    # --- Điều hướng mới: 4 cột rõ ràng ---
-    col1, col2, col3, col4 = st.columns([1, 1.5, 1.2, 1])
+    # --- Điều hướng đã đảo: col2 (hiển thị câu) và col3 (ô nhập số) ---
+    col1, col2, col3, col4 = st.columns([1, 1.2, 1.5, 1])
     with col1:
         st.button("⬅️ Câu trước", on_click=go_prev, use_container_width=True)
     with col2:
-        # Ô nhập số thứ tự câu
+        st.markdown(
+            f"<div style='text-align: center; font-size: 1rem; font-weight: bold; padding-top: 8px;'>📌 Câu {st.session_state.learn_idx+1}/{total_questions}</div>",
+            unsafe_allow_html=True
+        )
+    with col3:
         st.number_input(
             "Số câu",
             min_value=1,
@@ -284,11 +287,6 @@ if mode.startswith("📖 Ôn tập"):
             key="jump_number",
             on_change=go_to_question,
             label_visibility="collapsed"
-        )
-    with col3:
-        st.markdown(
-            f"<div style='text-align: center; font-size: 1rem; font-weight: bold; padding-top: 8px;'>📌 Câu {st.session_state.learn_idx+1}/{total_questions}</div>",
-            unsafe_allow_html=True
         )
     with col4:
         st.button("Câu tiếp ➡️", on_click=go_next, use_container_width=True)
