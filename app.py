@@ -238,39 +238,36 @@ if mode.startswith("📖 Ôn tập"):
     if "learn_answers" not in st.session_state:
         st.session_state.learn_answers = {}
 
-    # Các hàm điều hướng cập nhật session state
-    def go_prev():
-        if st.session_state.learn_idx > 0:
-            st.session_state.learn_idx -= 1
-
-    def go_next():
-        if st.session_state.learn_idx < total_questions - 1:
-            st.session_state.learn_idx += 1
-
-    def set_index_from_select():
-        st.session_state.learn_idx = st.session_state.question_selector
-
-    question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
-
-    col_prev, col_mid, col_next = st.columns([1, 2, 1])
-    with col_prev:
-        st.button("⬅️ Câu trước", on_click=go_prev, use_container_width=True)
-    with col_next:
-        st.button("Câu tiếp ➡️", on_click=go_next, use_container_width=True)
-    with col_mid:
-        st.selectbox(
+    # Xử lý điều hướng bằng session_state và buttons
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col1:
+        if st.button("⬅️ Câu trước", use_container_width=True):
+            if st.session_state.learn_idx > 0:
+                st.session_state.learn_idx -= 1
+    with col3:
+        if st.button("Câu tiếp ➡️", use_container_width=True):
+            if st.session_state.learn_idx < total_questions - 1:
+                st.session_state.learn_idx += 1
+    with col2:
+        # Selectbox hiển thị số thứ tự câu hỏi
+        question_labels = [f"Câu {i+1} / {total_questions} (ID {q['id']})" for i, q in enumerate(all_questions)]
+        selected_index = st.selectbox(
             "Chọn câu hỏi",
             options=range(total_questions),
             format_func=lambda i: question_labels[i],
             index=st.session_state.learn_idx,
             key="question_selector",
-            on_change=set_index_from_select,
             label_visibility="collapsed"
         )
+        # Cập nhật lại learn_idx nếu người dùng chọn khác
+        if selected_index != st.session_state.learn_idx:
+            st.session_state.learn_idx = selected_index
 
+    # Lấy câu hỏi hiện tại
     q = all_questions[st.session_state.learn_idx]
     st.markdown(f"**📄 {question_labels[st.session_state.learn_idx]}:** {q['question']}")
 
+    # Hiển thị đáp án
     prefixed_opts = option_with_prefix(q['options'])
     current_ans = st.session_state.learn_answers.get(q['id'], None)
     default_idx = prefixed_opts.index(current_ans) if current_ans in prefixed_opts else None
