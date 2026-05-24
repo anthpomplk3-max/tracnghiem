@@ -27,17 +27,16 @@ def check_login():
                     st.error("Sai tên đăng nhập hoặc mật khẩu!")
         st.stop()
     else:
-        # Thêm nút đăng xuất ở sidebar
         with st.sidebar:
             if st.button("🚪 Đăng xuất"):
                 st.session_state.logged_in = False
                 st.rerun()
 
 # ---------------------------
-# 1. Đọc dữ liệu
+# 1. Đọc dữ liệu (có cache và nút reload)
 # ---------------------------
-@st.cache_data
-def load_data():
+@st.cache_data(show_spinner=False)
+def load_data_cached():
     try:
         with open("GIAITHICH.json", "r", encoding="utf-8") as f:
             giai_thich = json.load(f)
@@ -45,7 +44,7 @@ def load_data():
             tn = json.load(f)
     except Exception as e:
         st.error(f"Lỗi đọc file JSON: {e}")
-        st.stop()
+        return []
 
     giai_thich_map = {item["id"]: item for item in giai_thich}
     questions = []
@@ -61,8 +60,12 @@ def load_data():
         })
     return questions
 
+def reload_data():
+    st.cache_data.clear()
+    st.rerun()
+
 # ---------------------------
-# 2. Tạo 25 bộ đề thi thử
+# 2. Tạo bộ đề thi thử
 # ---------------------------
 def create_exam_sets(all_questions, total_questions):
     if total_questions >= 690:
@@ -153,11 +156,20 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Kiểm tra đăng nhập trước khi hiển thị nội dung
+# Kiểm tra đăng nhập
 check_login()
 
-# Sau khi đăng nhập thành công, tiếp tục chạy ứng dụng
-all_questions = load_data()
+# Nút tải lại dữ liệu (chỉ hiển thị khi đã đăng nhập)
+with st.sidebar:
+    if st.button("🔄 Tải lại dữ liệu từ file JSON"):
+        reload_data()
+
+# Load dữ liệu
+all_questions = load_data_cached()
+if not all_questions:
+    st.error("Không thể tải dữ liệu. Vui lòng kiểm tra file JSON.")
+    st.stop()
+
 total_questions = len(all_questions)
 exam_sets = create_exam_sets(all_questions, total_questions)
 
