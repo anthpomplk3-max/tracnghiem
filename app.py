@@ -118,12 +118,10 @@ st.set_page_config(page_title="Ôn tập và Thi thử - PECC2", layout="wide")
 st.markdown(
     """
     <style>
-    /* Nền gradient mượt mà */
     .stApp {
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         background-attachment: fixed;
     }
-    /* Header chính */
     .main-header {
         background: rgba(0, 51, 102, 0.85);
         backdrop-filter: blur(5px);
@@ -141,7 +139,6 @@ st.markdown(
         margin: 0;
         text-shadow: 2px 2px 4px #000000;
     }
-    /* Header đăng nhập */
     .login-header {
         text-align: center;
         margin-top: 10vh;
@@ -152,7 +149,6 @@ st.markdown(
         font-size: 2.5rem;
         font-weight: bold;
     }
-    /* Card nội dung */
     .content-card {
         background-color: rgba(255,255,255,0.95);
         border-radius: 20px;
@@ -160,7 +156,6 @@ st.markdown(
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         margin-bottom: 1.5rem;
     }
-    /* Nút bấm */
     .stButton button {
         background-color: #0066cc;
         color: white;
@@ -174,7 +169,6 @@ st.markdown(
         transform: scale(1.02);
         box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    /* Radio button */
     .stRadio > div {
         background-color: #f8f9fa;
         padding: 12px;
@@ -182,22 +176,16 @@ st.markdown(
         margin-top: 8px;
         border-left: 4px solid #0066cc;
     }
-    /* Selectbox */
     .stSelectbox > div {
         background-color: white;
         border-radius: 30px;
     }
-    /* Expander */
     .streamlit-expanderHeader {
         background-color: #e9ecef;
         border-radius: 15px;
         font-weight: bold;
     }
-    /* Sidebar */
     .css-1d391kg {
-        background-color: rgba(0,51,102,0.9);
-    }
-    .sidebar .sidebar-content {
         background-color: rgba(0,51,102,0.9);
     }
     </style>
@@ -272,26 +260,31 @@ if mode.startswith("📖 Ôn tập"):
                 st.session_state.learn_idx = idx
                 break
 
-    # Hiển thị số câu hiện tại và nút điều hướng
-    col_prev, col_info, col_next = st.columns([1, 2, 1])
+    # --- Điều hướng gộp: Câu trước | [Dropdown + Số thứ tự] | Câu tiếp ---
+    col_prev, col_mid, col_next = st.columns([1, 2, 1])
     with col_prev:
         st.button("⬅️ Câu trước", on_click=prev_question, use_container_width=True)
     with col_next:
         st.button("Câu tiếp ➡️", on_click=next_question, use_container_width=True)
-    with col_info:
-        st.markdown(f"<div style='text-align: center; font-size: 1.2rem; font-weight: bold;'>📌 <span style='color:#0066cc;'>Câu {st.session_state.learn_idx+1} / {total_questions}</span></div>", unsafe_allow_html=True)
-
-    # Dropdown chọn câu
-    q_ids = [q["id"] for q in all_questions]
-    current_id = all_questions[st.session_state.learn_idx]["id"]
-    selected_id = st.selectbox(
-        "🔍 Chọn câu hỏi theo ID",
-        options=q_ids,
-        index=q_ids.index(current_id),
-        key="jump_select",
-        on_change=jump_to_question,
-        label_visibility="visible"
-    )
+    with col_mid:
+        # Hai cột con: dropdown (chọn ID) và hiển thị số thứ tự
+        sub_col1, sub_col2 = st.columns([3, 1])
+        with sub_col1:
+            q_ids = [q["id"] for q in all_questions]
+            current_id = all_questions[st.session_state.learn_idx]["id"]
+            st.selectbox(
+                "Chọn câu theo ID",
+                options=q_ids,
+                index=q_ids.index(current_id),
+                key="jump_select",
+                on_change=jump_to_question,
+                label_visibility="collapsed"
+            )
+        with sub_col2:
+            st.markdown(
+                f"<div style='text-align: center; font-size: 1rem; font-weight: bold; margin-top: 8px;'>📌 Câu {st.session_state.learn_idx+1}/{total_questions}</div>",
+                unsafe_allow_html=True
+            )
 
     q = all_questions[st.session_state.learn_idx]
     st.markdown(f"**📄 Câu {st.session_state.learn_idx+1} (ID {q['id']}):** {q['question']}")
