@@ -71,10 +71,10 @@
   },
   {
     "id": 11,
-    "question": "Ghi tên vị trí thực hiện thao tác hoặc đơn vị phối hợp thao tác tương ứng với cột Mục.",
-    "answer": "B",
+    "question": "Ghi tên đơn vị thực hiện thao tác hoặc đơn vị phối hợp thao tác tương ứng với cột Mục",
+    "answer": "C",
     "can_cu": "",
-    "explanation": "Giải thích chi tiết. Phiếu thao tác cần rõ ràng, tránh nhầm lẫn. Cột \"Địa điểm\" không chỉ đơn thuần ghi tên nhà máy (vì phiếu đã thuộc về nhà máy đó) mà cần cụ thể đến vị trí thực hiện thao tác (ví dụ. tủ A3, trạm phân phối 22kV...) hoặc đơn vị sẽ phối hợp thao tác. Cột \"Trình tự thao tác\" phải mô tả chi tiết từng bước. Việc ghi rõ vị trí tương ứng với từng mục trong cột \"Mục\" giúp nhân viên vận hành dễ dàng theo dõi và thực hiện đúng trình tự."
+    "explanation": "Giải thích chi tiết. Cụm "tương ứng với cột Mục" = "ứng với từng bước thao tác", tức là mỗi bước thao tác ở cột Mục thì cột Địa điểm phải ghi đúng tên đơn vị chịu trách nhiệm thực hiện bước đó, không phải ghi chung chung một tên duy nhất cho toàn bộ phiếu"
   },
   {
     "id": 12,
