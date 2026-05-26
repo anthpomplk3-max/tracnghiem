@@ -74,7 +74,7 @@
     "question": "Ghi tên đơn vị thực hiện thao tác hoặc đơn vị phối hợp thao tác tương ứng với cột Mục",
     "answer": "C",
     "can_cu": "",
-    "explanation": "Giải thích chi tiết. Cụm "tương ứng với cột Mục" = "ứng với từng bước thao tác", tức là mỗi bước thao tác ở cột Mục thì cột Địa điểm phải ghi đúng tên đơn vị chịu trách nhiệm thực hiện bước đó, không phải ghi chung chung một tên duy nhất cho toàn bộ phiếu"
+    "explanation": "Giải thích chi tiết. Cụm (Tương ứng với cột Mục) BẰNG (ứng với từng bước thao tác), tức là mỗi bước thao tác ở cột Mục thì cột Địa điểm phải ghi đúng tên đơn vị chịu trách nhiệm thực hiện bước đó, không phải ghi chung chung một tên duy nhất cho toàn bộ phiếu"
   },
   {
     "id": 12,
