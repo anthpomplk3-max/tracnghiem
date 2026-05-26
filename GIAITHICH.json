@@ -64,10 +64,10 @@
   },
   {
     "id": 10,
-    "question": "Đánh số phù hợp với sơ đồ nhất.",
-    "answer": "D",
+    "question": "Đánh số theo quy định của cấp điều độ có quyền điều khiển.",
+    "answer": "C",
     "can_cu": "",
-    "explanation": "Giải thích chi tiết. Việc đánh số rơ le bảo vệ và tự động phải tuân theo sơ đồ nhất thống nhất toàn hệ thống. Sơ đồ nhất quy định chức năng và ký hiệu cụ thể cho từng loại bảo vệ (ví dụ. 87T là bảo vệ so lệch máy biến áp, 50/51 là bảo vệ quá dòng...). Việc đánh số không tùy tiện theo bản vẽ thiết kế của từng nhà máy hay quy định nội bộ, mà phải đảm bảo tính thống nhất chung, giúp cho điều độ viên và nhân viên vận hành dễ dàng nhận diện và xử lý tín hiệu trên toàn quốc gia."
+    "explanation": "Giải thích chi tiết. Tại Điều 127 Đánh số thiết bị rơ le bảo vệ và tự động thuộc Thông tư số 06/2025/TT/BCT.• Thẩm quyền quy định: Cấp điều độ có quyền điều khiển có trách nhiệm ban hành quy định chi tiết về nguyên tắc đặt tên, đánh số và ký hiệu đối với hệ thống rơ le bảo vệ, tự động thuộc quyền điều khiển của cấp đó nhằm đảm bảo tính thống nhất, chính xác trong quá trình ra lệnh và thực hiện lệnh thao tác. • Trách nhiệm phối hợp: Đơn vị quản lý vận hành (nhà máy điện, trạm điện) có trách nhiệm lập phương án đặt tên, đánh số thiết bị rơ le dựa trên nguyên tắc quy định của Cấp điều độ có quyền điều khiển, trình cấp điều độ này phê duyệt trước khi đưa thiết bị vào vận hành. "
   },
   {
     "id": 11,
