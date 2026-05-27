@@ -106,10 +106,10 @@
   },
   {
     "id": 16,
-    "question": "Từ 5% đến 10%.",
-    "answer": "C",
+    "question": "Từ 1% đến 10%.",
+    "answer": "A",
     "can_cu": "",
-    "explanation": "Giải thích chi tiết. Yêu cầu kỹ thuật này liên quan đến khả năng chịu đựng sự mất cân bằng dòng điện giữa các pha của máy phát. Mức độ mất cân bằng cho phép thường được xác định là không được vượt quá 10% dòng điện định mức của pha có tải lớn nhất và cũng không được thấp hơn một giá trị tối thiểu (thường là 5%) để đảm bảo máy phát không bị quá tải nhiệt do dòng điện thứ tự nghịch. Phạm vi 5%-10% là phổ biến trong các tiêu chuẩn kỹ thuật, đảm bảo máy có thể làm việc an toàn trong chế độ này."
+    "explanation": "Giải thích chi tiết. Theo khoản 7 Điều 38 Thông tư 25/2016/TT-BCT quy định hệ thống điện truyền tải. Tổ máy phát điện của nhà máy điện phải có khả năng làm việc liên tục ở các chế độ sau:• a) Tải không cân bằng giữa ba pha từ 10% trở xuống • b) Hệ số đáp ứng của kích từ đối với tổ máy phát điện đồng bộ lớn hơn 0,5% • c) Dòng điện thứ tự nghịch nhỏ hơn 5% dòng điện định mức"
   },
   {
     "id": 17,
