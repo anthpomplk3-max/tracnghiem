@@ -172,7 +172,7 @@
     "question": "Có quyền chưa thực hiện nhưng phải báo cáo với nhân viên vận hành cấp trên.",
     "answer": "A",
     "can_cu": "",
-    "explanation": "Giải thích chi tiết. Đây là trường hợp ngoại lệ đã được đề cập ở"
+    "explanation": "Giải thích chi tiết. Trường hợp việc thực hiện lệnh điều độ có thể gây nguy hại đến con người hoặc thiết bị, nhân viên vận hành cấp dưới có quyền chưa thực hiện lệnh đó nhưng phải báo cáo ngay với nhân viên vận hành cấp trên đã ra lệnh và chịu trách nhiệm về quyết định chưa thực hiện lệnh của mình"
   },
   {
     "id": 26,
