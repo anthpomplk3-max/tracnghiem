@@ -155,10 +155,10 @@
   },
   {
     "id": 23,
-    "question": "Nhà máy điện đang ngừng dự phòng toàn bộ các tổ máy.",
-    "answer": "A",
+    "question": "Hết khả năng điều chỉnh được điện áp theo biểu đồ",
+    "answer": "C",
     "can_cu": "",
-    "explanation": "Giải thích chi tiết. Biểu đồ điện áp quy định mức điện áp cần duy trì tại thanh cái của nhà máy. Khi nhà máy ngừng toàn bộ tổ máy (ví dụ. đang trong kỳ bảo dưỡng lớn), không có máy phát nào hoạt động, nhà máy không thể điều chỉnh điện áp. Trong trường hợp này, Trưởng ca không thể thực hiện biểu đồ. Các trường hợp khác (đang thao tác khác, hết khả năng điều chỉnh, đang trong giờ cao điểm) không phải là lý do để không thực hiện biểu đồ điện áp; họ vẫn phải cố gắng thực hiện hoặc báo cáo."
+    "explanation": "Giải thích chi tiết. Trưởng ca nhà máy điện có trách nhiệm thực hiện biểu đồ điện áp theo quy định. Trường hợp hết khả năng điều chỉnh được điện áp theo biểu đồ, Trưởng ca nhà máy điện phải báo cáo ngay cho cấp điều độ có quyền điều khiển biết "
   },
   {
     "id": 24,
